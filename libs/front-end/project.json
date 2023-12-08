@@ -1,0 +1,29 @@
+{
+  "name": "front-end",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/front-end/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/front-end",
+        "main": "libs/front-end/src/index.ts",
+        "tsConfig": "libs/front-end/tsconfig.lib.json",
+        "assets": ["libs/front-end/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/front-end/**/*.ts",
+          "libs/front-end/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

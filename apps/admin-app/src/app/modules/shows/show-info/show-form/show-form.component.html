@@ -1,0 +1,216 @@
+<form [formGroup]="form">
+  <ng-container *ngIf="useHeader">
+    <div class="w-100 mb-3">
+      <ng-content select=".show-form-header"></ng-content>
+    </div>
+  </ng-container>
+
+  <div class="card mb-1">
+    <div class="card-header">Thông tin cơ bản</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Tiêu đề</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="ShowProperties.title"
+          />
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label class="form-label">Logo</label>
+          <input
+            type="file"
+            class="form-control"
+            [formControlName]="ShowProperties.logo"
+          />
+        </div>
+
+        <div class="col-12 col-md-2">
+          <div class="logo-container"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Slogan</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="ShowProperties.slogan"
+          />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">Thể loại</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="ShowProperties.types"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <label class="form-label">Mô tả</label>
+          <textarea
+            class="form-control"
+            [formControlName]="ShowProperties.description"
+            [maxLength]="4096"
+            [rows]="5"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-1">
+    <div class="card-header">Thời gian & Địa điểm</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Địa điểm</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="ShowProperties.location"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Thời gian diễn ra</label>
+              <input
+                type="date"
+                class="form-control"
+                [formControlName]="ShowProperties.startDate"
+              />
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Lúc</label>
+              <ngb-timepicker [formControlName]="ShowProperties.startTime" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Kết thúc vào</label>
+              <input
+                type="date"
+                class="form-control"
+                [formControlName]="ShowProperties.endDate"
+              />
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Lúc</label>
+              <ngb-timepicker [formControlName]="ShowProperties.endTime" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Thời gian bán vé</label>
+              <input
+                type="date"
+                class="form-control"
+                [formControlName]="ShowProperties.startBookingDate"
+              />
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Lúc</label>
+              <ngb-timepicker
+                [formControlName]="ShowProperties.startBookingTime"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Kết thúc vào</label>
+              <input
+                type="date"
+                class="form-control"
+                [formControlName]="ShowProperties.endBookingDate"
+              />
+            </div>
+            <div class="col-12 col-lg-6">
+              <label class="form-label">Lúc</label>
+              <ngb-timepicker
+                [formControlName]="ShowProperties.endBookingTime"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="card mb-1">
+    <div class="card-header">Nghệ sĩ tham gia</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label class="form-label">Tiêu đề</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="ShowProperties.title"
+          />
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="card">
+    <div class="card-header">Các thông tin khác</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Note</label>
+          <textarea
+            class="form-control"
+            [formControlName]="ShowProperties.note"
+            [maxLength]="4096"
+            [rows]="5"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Tình trạng</label>
+          <select class="form-select" [formControlName]="ShowProperties.status">
+            <option *ngFor="let status of showStatusArr" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="useInternalBtn">
+    <div class="btn-group mt-2">
+      <ng-content select=".show-form-submit-btn-container"></ng-content>
+    </div>
+  </ng-container>
+</form>

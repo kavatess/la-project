@@ -1,0 +1,48 @@
+<div class="mb-3">
+  <h4 class="mb-0">
+    Sự kiện <i>{{ showTitle$ | async }}</i>
+  </h4>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <ul
+      ngbNav
+      #nav="ngbNav"
+      class="nav nav-tabs card-header-tabs"
+      (navChange)="onNavChange($event)"
+    >
+      <li [ngbNavItem]="1" class="nav-item">
+        <a ngbNavLink class="nav-link">Thông tin chính</a>
+        <ng-template ngbNavContent>
+          <la-project-show-form
+            [useHeader]="false"
+            [formState]="formState$ | async"
+          ></la-project-show-form>
+        </ng-template>
+      </li>
+
+      <li [ngbNavItem]="2" class="nav-item">
+        <a ngbNavLink class="nav-link">Sơ đồ chỗ ngồi</a>
+        <ng-template ngbNavContent>
+          <la-project-seat-map></la-project-seat-map>
+        </ng-template>
+      </li>
+
+      <li [ngbNavItem]="3" class="nav-item">
+        <a ngbNavLink class="nav-link">Giá vé</a>
+        <ng-template ngbNavContent>
+          <la-project-fare-types></la-project-fare-types>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+
+  <div [ngbNavOutlet]="nav" class="card-body"></div>
+
+  <div class="card-footer">
+    <div class="btn-group">
+      <button class="btn btn-primary">Update</button>
+    </div>
+  </div>
+</div>
