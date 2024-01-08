@@ -12,3 +12,17 @@ export const showFormSelectors = {
   dirty: createSelector(showFormSelector, (state) => state.dirty),
   touched: createSelector(showFormSelector, (state) => state.touched),
 };
+export const seatMapSelectors = {
+  sections: createSelector(
+    updateShowFeatureSelector,
+    (state) => state.seatMap?.sections || []
+  ),
+  selectedSection: createSelector(
+    updateShowFeatureSelector,
+    (state) => state.seatMap?.selectedSection || null
+  ),
+  selectedSectionId: createSelector(
+    updateShowFeatureSelector,
+    (state) => state.seatMap?.selectedSectionId || null
+  ),
+};

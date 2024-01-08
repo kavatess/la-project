@@ -1,1 +1,87 @@
-<p>seat-map works!</p>
+<div class="row">
+  <div class="col-12 col-lg-8">
+    <div class="card">
+      <div class="card-header">Sơ đồ chỗ ngồi</div>
+
+      <div class="card-body"></div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-4">
+    <form [formGroup]="sectionForm">
+      <div class="card">
+        <div class="card-header">Thông tin cơ bản</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <label class="form-label">Tiêu đề</label>
+              <input
+                type="text"
+                class="form-control"
+                [formControlName]="SectionProperties.title"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="form-label">Số hàng lớn nhất</label>
+              <input
+                type="number"
+                class="form-control"
+                [formControlName]="SectionProperties.maxRow"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="form-label">Số cột lớn nhất</label>
+              <input
+                type="number"
+                class="form-control"
+                [formControlName]="SectionProperties.maxCol"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="form-label">Số lượng chỗ ngồi</label>
+              <input
+                type="number"
+                class="form-control"
+                [formControlName]="SectionProperties.seatNumber"
+              />
+            </div>
+          </div>
+
+          <!-- <div class="row">
+              <div class="col-12">
+                <label class="form-label">Độ lớn của mỗi khối</label>
+                <input type="number" class="form-control" [formControlName]="" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <label class="form-label">Khoảng cách giữa các khối</label>
+                <input type="number" class="form-control" [formControlName]="" />
+              </div>
+            </div> -->
+
+          <div class="row">
+            <div class="col-12">
+              <label class="form-label">Thứ tự ưu tiên</label>
+              <input
+                type="number"
+                class="form-control"
+                [formControlName]="SectionProperties.index"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

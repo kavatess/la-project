@@ -25,7 +25,11 @@
       <li [ngbNavItem]="2" class="nav-item">
         <a ngbNavLink class="nav-link">Sơ đồ chỗ ngồi</a>
         <ng-template ngbNavContent>
-          <la-project-seat-map></la-project-seat-map>
+          <la-project-seat-map-manager
+            [sections]="sections$ | async"
+            (sectionChange)="onSectionChange($event)"
+          >
+          </la-project-seat-map-manager>
         </ng-template>
       </li>
 

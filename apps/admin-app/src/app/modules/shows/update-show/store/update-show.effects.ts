@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, exhaustMap, map } from 'rxjs/operators';
+import { catchError, exhaustMap, map, withLatestFrom } from 'rxjs/operators';
 import { UpdateShowService } from './update-show.service';
 import { showFormActions } from './update-show.actions';
+import { seatMapSelectors } from './update-show.selectors';
 
 @Injectable()
 export class UpdateShowEffects {
@@ -12,16 +13,33 @@ export class UpdateShowEffects {
     private readonly service: UpdateShowService
   ) {}
 
-  readonly getShowDataById$ = createEffect(() =>
+  readonly getShowById$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.getShowDataById),
+      ofType(showFormActions.getShowById),
       exhaustMap((action) =>
-        this.service.getShowDetail(action.showId).pipe(
-          map((data) => showFormActions.loadData({ data })),
+        this.service.getShowById(action.showId).pipe(
+          map((data) => showFormActions.loadShowData({ data })),
           catchError((error) => {
-            return of(showFormActions.loadDataError({ error }));
+            return of(showFormActions.loadShowDataError({ error }));
           })
         )
+      )
+    )
+  );
+
+  readonly getSection$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(showFormActions.getSection),
+      withLatestFrom(seatMapSelectors.selectedSectionId),
+      exhaustMap(([, sectionId]) =>
+        sectionId
+          ? this.service.getSectionById(sectionId).pipe(
+              map((data) => showFormActions.loadSelectedSection({ data })),
+              catchError((error) => {
+                return of(showFormActions.loadSelectedSectionError({ error }));
+              })
+            )
+          : of(showFormActions.loadSelectedSection({ data: null }))
       )
     )
   );

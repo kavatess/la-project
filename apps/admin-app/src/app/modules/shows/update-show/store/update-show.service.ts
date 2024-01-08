@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Show, ShowProperties, ShowStatuses, ShowTypes } from '@libs/models';
+import {
+  Section,
+  SectionProperties,
+  Show,
+  ShowProperties,
+  ShowStatuses,
+  ShowTypes,
+} from '@libs/models';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -15,7 +22,7 @@ export class UpdateShowService {
     private readonly router: Router
   ) {}
 
-  getShowDetail(showId: string): Observable<Show> {
+  getShowById(showId: string): Observable<Show> {
     return of({
       id: '82346823746',
       [ShowProperties.title]: 'Voice of Nature - 𝐅𝐭. 𝐅𝐀𝐍𝐓𝐀𝐒𝐘 𝐓𝐑𝐈𝐎',
@@ -44,5 +51,9 @@ export class UpdateShowService {
 
   updateShow(): Show[] {
     return [];
+  }
+
+  getSectionById(sectionId: string): Observable<Section> {
+    return of(null);
   }
 }

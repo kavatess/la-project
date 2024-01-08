@@ -25,7 +25,8 @@
         ],
         "styles": [
           "apps/admin-app/src/styles.scss",
-          "libs/assets/bootstrap.min.css"
+          "libs/assets/bootstrap.min.css",
+          "node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
         ],
         "scripts": [
           "libs/assets/popper.min.js",

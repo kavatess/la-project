@@ -1,0 +1,47 @@
+<ng-container [ngSwitch]="viewMode">
+  <ng-container *ngSwitchCase="SeatMapViewModes.Update">
+    <div class="row">
+      <div class="col-8 col-lg-4">
+        <select class="form-select" (change)="onSectionChange($event)">
+          <option *ngFor="let section of sections" [value]="section.id">
+            {{ section.title }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-4 col-lg-8">
+        <div class="create-btn-container">
+          <button
+            class="btn btn-outline-primary"
+            (click)="createBtnOnClick($event)"
+          >
+            + Create Section
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <ng-container *ngIf="!sections.length">
+      <div class="w-100 text-center">
+        <i>
+          Sự kiện này chưa có sơ đồ khu vực chỗ ngồi nào. Nếu bạn muốn tạo mới,
+          vui lòng bấm vào nút "Create Section".
+        </i>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="sections.length">
+      <la-project-seat-map></la-project-seat-map>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="SeatMapViewModes.Create">
+    <h4>Khởi tạo khu vực</h4>
+
+    <hr />
+
+    <la-project-seat-map></la-project-seat-map>
+  </ng-container>
+</ng-container>

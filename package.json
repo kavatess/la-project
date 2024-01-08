@@ -28,6 +28,7 @@
     "@popperjs/core": "^2.11.6",
     "axios": "^1.0.0",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.11.2",
     "mongoose": "^7.5.1",
     "ngx-webstorage": "^12.0.0",
     "reflect-metadata": "^0.1.13",

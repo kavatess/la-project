@@ -35,6 +35,8 @@ export class ShowFormComponent implements OnInit, OnChanges {
   useInternalBtn = true;
   @Input()
   formState: FormState<Show>;
+  @Input()
+  disabled: boolean | string[] = false;
 
   readonly form = this.fb.group({
     // Basic info
@@ -119,9 +121,12 @@ export class ShowFormComponent implements OnInit, OnChanges {
     if (changes['formState']) {
       this.setFormState(this.formState);
     }
+    if (changes['disabled']) {
+      this.setFormDisability(this.disabled);
+    }
   }
 
-  setFormState(state: FormState<Show>): void {
+  private setFormState(state: FormState<Show>): void {
     this.form.patchValue(state.data);
     if (state.pristine) {
       return this.form.markAsPristine();
@@ -135,6 +140,19 @@ export class ShowFormComponent implements OnInit, OnChanges {
 
     if (state.dirty) {
       this.form.markAsDirty({ onlySelf: true });
+    }
+  }
+
+  private setFormDisability(disabled: boolean | string[]): void {
+    if (typeof disabled === 'boolean') {
+      if (this.disabled) {
+        return this.form.disable();
+      } else {
+        return this.form.enable();
+      }
+    }
+    if (Array.isArray(disabled)) {
+      disabled.forEach((ctrlName) => this.form.get(ctrlName).disable());
     }
   }
 }

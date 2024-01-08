@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { createReducer, on } from '@ngrx/store';
-import { Show } from 'libs/models';
 import { showFormActions } from './update-show.actions';
-import { FormState } from '@libs/models';
+import { Show, FormState, Section } from '@libs/models';
 
 export interface ShowFormState extends FormState<Show> {}
 
 export interface UpdateShowState {
   showForm: ShowFormState;
+  seatMap: {
+    sections: Section[];
+    selectedSectionId: string;
+    selectedSection: Section;
+  };
 }
 
 const initialState: UpdateShowState = {
@@ -18,11 +22,16 @@ const initialState: UpdateShowState = {
     dirty: false,
     touched: false,
   },
+  seatMap: {
+    sections: [],
+    selectedSectionId: null,
+    selectedSection: null,
+  },
 };
 
 export const updateShowReducer = createReducer(
   initialState,
-  on(showFormActions.loadData, (state, { data }) => ({
+  on(showFormActions.loadShowData, (state, { data }) => ({
     ...state,
     showForm: {
       data,
@@ -31,11 +40,24 @@ export const updateShowReducer = createReducer(
       dirty: false,
       touched: false,
     },
+    seatMap: {
+      sections: data?.sections || [],
+      selectedSectionId: data?.sections?.[0]?.id || null,
+      selectedSection: data?.sections?.[0] || null,
+    },
   })),
-  on(showFormActions.saveData, (state, { formState }) => ({
+  on(showFormActions.fetchShowForm, (state, { formState }) => ({
     ...state,
     showForm: formState,
   }))
+  // on(showFormActions.loadSectionData, (state, { data }) => ({
+  //   ...state,
+
+  // }))
+  // on(showFormActions.fetchSectionForm, (state, { formState }) => ({
+  //   ...state,
+  //   showForm: formState,
+  // }))
   //   on(updateShowActions.resetScore, (state) => ({ home: 0, away: 0 })),
   //   on(updateShowActions.setScores, (state, { game }) => ({
   //     home: game.home,

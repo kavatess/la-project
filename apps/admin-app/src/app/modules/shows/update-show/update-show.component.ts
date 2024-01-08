@@ -6,7 +6,11 @@ import { Store } from '@ngrx/store';
 import { showFormActions } from './store/update-show.actions';
 import { ShowFormComponent } from '../show-info/show-form/show-form.component';
 import { ShowFormState, UpdateShowState } from './store/update-show.reducer';
-import { showFormSelector } from './store/update-show.selectors';
+import {
+  seatMapSelectors,
+  showFormSelector,
+} from './store/update-show.selectors';
+import { SectionProperties } from '@libs/models';
 
 @Component({
   selector: 'la-project-update-show',
@@ -14,11 +18,13 @@ import { showFormSelector } from './store/update-show.selectors';
   styleUrls: ['./update-show.component.scss'],
 })
 export class UpdateShowComponent implements OnInit {
+  readonly SectionProperties = SectionProperties;
   readonly formState$ = this.store.select(showFormSelector);
   readonly showTitle$ = this.formState$.pipe(
     map((state) => state.data.title),
     distinctUntilChanged()
   );
+  readonly sections$ = this.store.select(seatMapSelectors.sections);
 
   @ViewChild(ShowFormComponent)
   private showformComp: ShowFormComponent;
@@ -35,10 +41,11 @@ export class UpdateShowComponent implements OnInit {
   onNavChange(changeEv: NgbNavChangeEvent) {
     if (changeEv.activeId === 1) {
       return this.store.dispatch(
-        showFormActions.saveData({ formState: this.getFormState() })
+        showFormActions.fetchShowForm({ formState: this.getFormState() })
       );
     }
     if (changeEv.activeId === 2) {
+      return this.store.dispatch(showFormActions.getSection());
       // return this.store.dispatch
     }
     if (changeEv.activeId === 3) {
@@ -48,7 +55,7 @@ export class UpdateShowComponent implements OnInit {
 
   private loadShowData(): void {
     const showId = this.router.snapshot.paramMap.get('showId');
-    this.store.dispatch(showFormActions.getShowDataById({ showId }));
+    this.store.dispatch(showFormActions.getShowById({ showId }));
   }
 
   private getFormState(): ShowFormState {
@@ -60,5 +67,9 @@ export class UpdateShowComponent implements OnInit {
       touched,
       data: value,
     };
+  }
+
+  onSectionChange(sectionId: string) {
+    // console.log((event.target as HTMLSelectElement).value);
   }
 }

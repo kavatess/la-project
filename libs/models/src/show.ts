@@ -1,4 +1,5 @@
 import { BasicModel } from './common';
+import { Section } from './seat-map';
 
 export enum ShowProperties {
   title = 'title',
@@ -21,6 +22,7 @@ export enum ShowProperties {
   remainingSeatNumber = 'remainingSeatNumber',
   isFull = 'isFull',
   status = 'status',
+  sections = 'sections',
 }
 
 export enum ShowTypes {
@@ -57,6 +59,7 @@ export interface Show extends BasicModel {
   [ShowProperties.endBookingTime]: number;
   [ShowProperties.seatNumber]: number;
   [ShowProperties.remainingSeatNumber]?: number;
-  [ShowProperties.isFull]?: boolean;
   [ShowProperties.status]: ShowStatuses;
+  [ShowProperties.isFull]?: boolean;
+  [ShowProperties.sections]?: Section[];
 }
