@@ -7,6 +7,7 @@ export enum SectionProperties {
   maxRow = 'maxRow',
   maxCol = 'maxCol',
   seatNumber = 'seatNumber',
+  seatMap = 'seatMap',
   seatList = 'seatList',
   index = 'index',
 }
@@ -19,6 +20,7 @@ export interface Section extends BasicModel {
   [SectionProperties.maxRow]: number;
   [SectionProperties.maxCol]: number;
   [SectionProperties.index]: number;
+  [SectionProperties.seatMap]?: Block[][];
   [SectionProperties.seatList]?: Partial<Seat>[];
 }
 
@@ -43,4 +45,27 @@ export interface Seat extends BasicModel {
   [SeatProperties.col]: string;
   [SeatProperties.code]: string;
   [SeatProperties.status]: SeatStatuses;
+}
+
+export enum BlockProperties {
+  row = 'row',
+  col = 'col',
+  type = 'type',
+  seatId = 'seatId',
+  seat = 'seat',
+}
+
+export enum BlockTypes {
+  None = 'None',
+  Seat = 'Seat',
+  Aisles = 'Aisles',
+  Entrance = 'Entrance',
+}
+
+export interface Block extends BasicModel {
+  [BlockProperties.row]: number;
+  [BlockProperties.col]: number;
+  [BlockProperties.type]: BlockTypes;
+  [BlockProperties.seatId]?: string;
+  [BlockProperties.seat]?: Seat;
 }

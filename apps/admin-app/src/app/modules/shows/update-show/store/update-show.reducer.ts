@@ -49,15 +49,21 @@ export const updateShowReducer = createReducer(
   on(showFormActions.fetchShowForm, (state, { formState }) => ({
     ...state,
     showForm: formState,
+  })),
+  on(showFormActions.loadSelectedSection, (state, { data }) => ({
+    ...state,
+    seatMap: {
+      ...state.seatMap,
+      selectedSection: data,
+    },
+  })),
+  on(showFormActions.changeSection, (state, { sectionId }) => ({
+    ...state,
+    seatMap: {
+      ...state.seatMap,
+      selectedSectionId: sectionId,
+    },
   }))
-  // on(showFormActions.loadSectionData, (state, { data }) => ({
-  //   ...state,
-
-  // }))
-  // on(showFormActions.fetchSectionForm, (state, { formState }) => ({
-  //   ...state,
-  //   showForm: formState,
-  // }))
   //   on(updateShowActions.resetScore, (state) => ({ home: 0, away: 0 })),
   //   on(updateShowActions.setScores, (state, { game }) => ({
   //     home: game.home,

@@ -43,4 +43,18 @@ export class UpdateShowEffects {
       )
     )
   );
+
+  readonly changeSection$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(showFormActions.changeSection),
+      exhaustMap((action) =>
+        this.service.getSectionById(action.sectionId).pipe(
+          map((data) => showFormActions.loadSelectedSection({ data })),
+          catchError((error) => {
+            return of(showFormActions.loadSelectedSectionError({ error }));
+          })
+        )
+      )
+    )
+  );
 }

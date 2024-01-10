@@ -1,17 +1,9 @@
 <div class="row">
-  <div class="col-12 col-lg-8">
+  <div class="col-12 col-lg-3">
     <div class="card">
-      <div class="card-header">Sơ đồ chỗ ngồi</div>
-
-      <div class="card-body"></div>
-    </div>
-  </div>
-
-  <div class="col-12 col-lg-4">
-    <form [formGroup]="sectionForm">
-      <div class="card">
-        <div class="card-header">Thông tin cơ bản</div>
-        <div class="card-body">
+      <div class="card-header">Thông tin cơ bản</div>
+      <div class="card-body">
+        <form [formGroup]="sectionForm">
           <div class="row">
             <div class="col-12">
               <label class="form-label">Tiêu đề</label>
@@ -80,8 +72,53 @@
               />
             </div>
           </div>
+        </form>
+      </div>
+
+      <div class="card-footer">
+        <div class="btn-group">
+          <button
+            class="btn btn-success"
+            [disabled]="!canGenerate"
+            (click)="generateSeatMap($event)"
+          >
+            <i class="bi bi-arrow-right"></i>
+            Generate
+          </button>
         </div>
       </div>
-    </form>
+    </div>
+  </div>
+
+  <div *ngIf="seatMap.length" class="col-12 col-lg-9">
+    <div class="card">
+      <div class="card-header">Sơ đồ chỗ ngồi</div>
+
+      <div class="card-body">
+        <div class="seat-map-container">
+          <div class="stage-box w-100">
+            <div class="text-center">Sân khấu chính</div>
+          </div>
+
+          <div class="audience-area-box w-100">
+            <div class="w-100 d-flex">
+              <div class="left-entrance-box">Left Entrance Area</div>
+
+              <div class="seat-map-box">
+                <div *ngFor="let row of seatMap" class="d-flex">
+                  <div *ngFor="let block of row" class="block-box">
+                    {{ block.row }}-{{ block.col }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="right-entrance-box">Right Entrance Area</div>
+            </div>
+          </div>
+
+          <div class="entrance-footer-box">Footer Entrance Area</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

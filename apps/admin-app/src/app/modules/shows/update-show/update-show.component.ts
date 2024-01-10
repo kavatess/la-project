@@ -70,6 +70,6 @@ export class UpdateShowComponent implements OnInit {
   }
 
   onSectionChange(sectionId: string) {
-    // console.log((event.target as HTMLSelectElement).value);
+    this.store.dispatch(showFormActions.changeSection({ sectionId }));
   }
 }
