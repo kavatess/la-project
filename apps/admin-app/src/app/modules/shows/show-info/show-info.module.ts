@@ -7,6 +7,7 @@ import { ShowFormComponent } from './show-form/show-form.component';
 import { SeatMapComponent } from './seat-map/seat-map.component';
 import { NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FormsModule,
     ReactiveFormsModule,
     DragDropModule,
+    MatSlideToggleModule,
     NgbTimepickerModule,
   ],
   exports: [

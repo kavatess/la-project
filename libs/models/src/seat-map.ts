@@ -9,8 +9,9 @@ export enum SectionProperties {
   maxCol = 'maxCol',
   seatNumber = 'seatNumber',
   seatMap = 'seatMap',
-  // entranceList = 'entranceList',
   seatList = 'seatList',
+  useRowIndex = 'useRowIndex',
+  rowIndexes = 'rowIndexes',
   index = 'index',
 }
 
@@ -22,6 +23,8 @@ export interface Section extends BasicModel {
   [SectionProperties.maxRow]: number;
   [SectionProperties.maxCol]: number;
   [SectionProperties.index]: number;
+  [SectionProperties.useRowIndex]: boolean;
+  [SectionProperties.rowIndexes]?: string[];
   [SectionProperties.seatMap]?: Block[][];
   [SectionProperties.seatList]?: Partial<Seat>[];
 }

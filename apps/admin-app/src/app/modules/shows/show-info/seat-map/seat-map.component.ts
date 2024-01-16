@@ -4,7 +4,12 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { generateDefaultSeatCode } from '@la-project/utils';
 import {
   Block,
@@ -43,12 +48,22 @@ export class SeatMapComponent implements OnChanges {
       Validators.min(1),
     ]),
     [SectionProperties.index]: this.fb.control<number>(null, []),
+    [SectionProperties.useRowIndex]: this.fb.control<boolean>(true, []),
+    [SectionProperties.rowIndexes]: this.fb.array<string>([], []),
+    [SectionProperties.seatMap]: this.fb.control<Block[][]>([], []),
   });
-  readonly seatMap: Block[][] = [];
 
   defaultData: Section = null;
 
   constructor(private readonly fb: FormBuilder) {}
+
+  get seatMap(): Block[][] {
+    return this.sectionForm.value[SectionProperties.seatMap] || [];
+  }
+
+  get seatMapCtrl(): FormControl<Block[][]> {
+    return this.sectionForm.controls[SectionProperties.seatMap];
+  }
 
   get canGenerate(): boolean {
     if (this.sectionForm.invalid) return false;
@@ -65,24 +80,39 @@ export class SeatMapComponent implements OnChanges {
     if (changes['initialData']) {
       this.defaultData = this.initialData;
       if (this.initialData) {
-        this.seatMap.push(...this.initialData.seatMap);
-        this.sectionForm.patchValue(this.initialData);
-        this.sectionForm.markAsPristine();
+        this.sectionForm.patchValue(this.initialData, {
+          onlySelf: true,
+          emitEvent: false,
+        });
+        this.sectionForm.markAsPristine({
+          onlySelf: true,
+        });
       } else {
         this.sectionForm.reset();
-        this.seatMap.length = 0;
       }
     }
   }
 
   generateSeatMap($event: MouseEvent): void {
     if (this.canGenerate) {
-      const newSeatMap = this.generateNewSeatMap();
-      this.seatMap.length = 0;
-      this.seatMap.push(...newSeatMap);
       this.defaultData = this.sectionForm.value as Section;
+      this.seatMapCtrl.setValue(this.generateNewSeatMap());
+      if (this.sectionForm.value[SectionProperties.useRowIndex]) {
+        this.applyRowIndex();
+      }
     }
     $event.preventDefault();
+  }
+
+  private applyRowIndex(): void {
+    const rowIndexArray = this.sectionForm.controls[
+      SectionProperties.rowIndexes
+    ] as FormArray;
+    for (let i = 0; i < this.defaultData.maxRow; i++) {
+      rowIndexArray.push(
+        this.fb.control(i <= 26 ? String.fromCharCode(i + 65) : null)
+      );
+    }
   }
 
   private generateNewSeatMap(): Block[][] {

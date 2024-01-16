@@ -6,21 +6,12 @@
       <div class="card-body">
         <form [formGroup]="sectionForm">
           <div class="row mb-2">
-            <div class="col-12 col-md-6">
+            <div class="col-12">
               <label class="form-label">Tiêu đề</label>
               <input
                 type="text"
                 class="form-control"
                 [formControlName]="SectionProperties.title"
-              />
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="form-label">Số lượng chỗ ngồi</label>
-              <input
-                type="number"
-                class="form-control"
-                [formControlName]="SectionProperties.seatNumber"
               />
             </div>
           </div>
@@ -47,12 +38,31 @@
 
           <div class="row mb-2">
             <div class="col-12 col-md-6">
+              <label class="form-label">Số lượng chỗ ngồi</label>
+              <input
+                type="number"
+                class="form-control"
+                [formControlName]="SectionProperties.seatNumber"
+              />
+            </div>
+
+            <div class="col-12 col-md-6">
               <label class="form-label">Thứ tự ưu tiên</label>
               <input
                 type="number"
                 class="form-control"
                 [formControlName]="SectionProperties.index"
               />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <mat-slide-toggle
+                [formControlName]="SectionProperties.useRowIndex"
+              >
+                Tự động đánh thứ tự ghế
+              </mat-slide-toggle>
             </div>
           </div>
 
@@ -95,7 +105,24 @@
 
       <div class="card-body">
         <div class="seat-map-container">
-          <div class="row-indexes-container"></div>
+          <div
+            *ngIf="defaultData.useRowIndex"
+            class="row-indexes-container"
+            [formGroup]="sectionForm"
+          >
+            <div class="row-index-title">
+              <h5>Row</h5>
+            </div>
+
+            <ng-container
+              *ngFor="let row of seatMap; let i = index"
+              [formGroupName]="SectionProperties.rowIndexes"
+            >
+              <div *ngIf="i < seatMap.length - 1" class="row-index-input">
+                <input type="text" class="form-control" [formControlName]="i" />
+              </div>
+            </ng-container>
+          </div>
 
           <div class="content-container">
             <div class="stage-box">

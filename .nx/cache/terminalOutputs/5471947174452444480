@@ -1,0 +1,527 @@
+[36m⠋[39m Generating browser application bundles (phase: setup)...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠴[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠦[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠧[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠇[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠏[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠋[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠙[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                                                    [2m | [22m[1mNames[22m                         [2m | [22m [1mRaw Size[22m[0m[39m
+[37m[0m[92mvendor.js[39m[37m                                                                                              [2m | [22mvendor                        [2m | [22m  [96m2.53 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mstyles.css, styles.js[39m[37m                                                                                  [2m | [22mstyles                        [2m | [22m[96m537.70 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mpolyfills.js[39m[37m                                                                                           [2m | [22mpolyfills                     [2m | [22m[96m333.18 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mscripts.js[39m[37m                                                                                             [2m | [22mscripts                       [2m | [22m [96m98.47 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mmain.js[39m[37m                                                                                                [2m | [22mmain                          [2m | [22m [96m49.25 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                                             [2m | [22mruntime                       [2m | [22m [96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1m [22m                                                                                                      [2m | [22m[1mInitial Total[22m                 [2m | [22m  [1m3.54 MB[22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                                                       [2m | [22m[1mNames[22m                         [2m | [22m [1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m                          [2m | [22mcrea[39m[37mte-show-create-show-module[2m | [22m  [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mdefault-node_modules_rxjs_dist_esm_internal_operators_shareReplay_js-node_modules_angular_for-611aa2.js[39m[37m[2m | [22mmodules-login-login-module    [2m | [22m[96m292.94 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mapps_admin-app_src_app_modules_shows_update-show_update-show_module_ts.js[39m[37m                              [2m | [22mupdate-show-update-show-module[2m | [22m [96m45.94 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mapps_admin-app_src_app_modules_login_login_module_ts.js[39m[37m                                                [2m | [22mmodules-login-login-module    [2m | [22m [96m38.46 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mapps_admin-app_src_app_modules_shows_shows_module_ts.js[39m[37m                                                [2m | [22mmodules-shows-shows-module    [2m | [22m [96m23.68 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mapps_admin-app_src_app_modules_shows_create-show_create-show_module_ts.js[39m[37m                              [2m | [22mcreate-show-create-show-module[2m | [22m  [96m5.69 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mapps_admin-app_src_app_modules_blogs_blogs_module_ts.js[39m[37m                                                [2m | [22mmodules-blogs-blogs-module    [2m | [22m  [96m4.65 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mapps_admin-app_src_app_modules_users_users_component_ts.js[39m[37m                                             [2m | [22mmodules-users-users-component [2m | [22m  [96m1.92 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T09:16:57.095Z[39m[37m[22m - Hash: [1m[37mfaccc6bf735fff2c[39m[37m[22m - Time: [1m[37m2489[39m[37m[22mms[0m[39m
+[37m[39m
+[37m** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **[39m
+[37m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:15:33.736Z[39m[37m[22m - Hash: [1m[37m94e2e3239913c1b0[39m[37m[22m - Time: [1m[37m568[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:18:50.882Z[39m[37m[22m - Hash: [1m[37ma371579e2717ca38[39m[37m[22m - Time: [1m[37m433[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:19:01.606Z[39m[37m[22m - Hash: [1m[37mf92d148fba694143[39m[37m[22m - Time: [1m[37m345[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:19:07.992Z[39m[37m[22m - Hash: [1m[37mda31e3cbcb902bbd[39m[37m[22m - Time: [1m[37m292[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:19:17.263Z[39m[37m[22m - Hash: [1m[37m95c389b351ea2f34[39m[37m[22m - Time: [1m[37m287[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:20:49.149Z[39m[37m[22m - Hash: [1m[37m1a875be757aaad1b[39m[37m[22m - Time: [1m[37m401[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:24:51.681Z[39m[37m[22m - Hash: [1m[37m9c12f7f236cfc197[39m[37m[22m - Time: [1m[37m348[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:24:58.265Z[39m[37m[22m - Hash: [1m[37mb7368e0e626eed1c[39m[37m[22m - Time: [1m[37m318[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:25:00.424Z[39m[37m[22m - Hash: [1m[37mf06ec711c6a77fce[39m[37m[22m - Time: [1m[37m273[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:25:38.548Z[39m[37m[22m - Hash: [1m[37m3cbf146c4a62a18a[39m[37m[22m - Time: [1m[37m405[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:26:07.599Z[39m[37m[22m - Hash: [1m[37m61f871cde25eb7e9[39m[37m[22m - Time: [1m[37m327[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:26:38.816Z[39m[37m[22m - Hash: [1m[37m565edfef85ebb098[39m[37m[22m - Time: [1m[37m366[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:27:10.194Z[39m[37m[22m - Hash: [1m[37m8f742537872646c1[39m[37m[22m - Time: [1m[37m334[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:27:13.320Z[39m[37m[22m - Hash: [1m[37m2e4620e17221ce1a[39m[37m[22m - Time: [1m[37m271[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:27:48.032Z[39m[37m[22m - Hash: [1m[37m5670891c538a029f[39m[37m[22m - Time: [1m[37m355[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:28:28.209Z[39m[37m[22m - Hash: [1m[37m86fff2d33b3e1181[39m[37m[22m - Time: [1m[37m291[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:28:45.682Z[39m[37m[22m - Hash: [1m[37mbab4bcc91c7bbe7e[39m[37m[22m - Time: [1m[37m376[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:28:54.292Z[39m[37m[22m - Hash: [1m[37maf045c311ff4ea81[39m[37m[22m - Time: [1m[37m277[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:29:17.279Z[39m[37m[22m - Hash: [1m[37m0b4916e12ac6a830[39m[37m[22m - Time: [1m[37m360[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:29:38.402Z[39m[37m[22m - Hash: [1m[37m02e760ef639117f6[39m[37m[22m - Time: [1m[37m426[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:29:47.159Z[39m[37m[22m - Hash: [1m[37maf8991c50a635e10[39m[37m[22m - Time: [1m[37m280[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:30:17.399Z[39m[37m[22m - Hash: [1m[37m200a72136d9488f2[39m[37m[22m - Time: [1m[37m381[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:30:24.920Z[39m[37m[22m - Hash: [1m[37m9e117bccfc6785cb[39m[37m[22m - Time: [1m[37m347[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:30:54.345Z[39m[37m[22m - Hash: [1m[37m9154bf9e1f92919a[39m[37m[22m - Time: [1m[37m388[39m[37m[22mms[0m[39m
+[1m[33m[39m[22m
+[1m[33m[0m[36m./apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.scss?ngResource[39m[33m[0m - [0m[33mWarning: [39m[33m[0mModule Warning (from ./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[33m(30:3) from "autoprefixer" plugin: end value has mixed support, consider using flex-end instead[39m[22m
+[1m[33m[39m[22m
+[1m[33mCode:[39m[22m
+[1m[33m  align-items: end[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:31:11.178Z[39m[37m[22m - Hash: [1m[37mfc46d821a2dbd480[39m[37m[22m - Time: [1m[37m350[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:31:30.201Z[39m[37m[22m - Hash: [1m[37m085726644777de68[39m[37m[22m - Time: [1m[37m297[39m[37m[22mms[0m[39m
+[1m[33m[39m[22m
+[1m[33m[0m[36m./apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.scss?ngResource[39m[33m[0m - [0m[33mWarning: [39m[33m[0mModule Warning (from ./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[33m(30:3) from "autoprefixer" plugin: end value has mixed support, consider using flex-end instead[39m[22m
+[1m[33m[39m[22m
+[1m[33mCode:[39m[22m
+[1m[33m  justify-content: end[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:31:33.810Z[39m[37m[22m - Hash: [1m[37m6dc2ea01dea32ace[39m[37m[22m - Time: [1m[37m258[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:31:58.246Z[39m[37m[22m - Hash: [1m[37m1fcd94d9a2bd7b31[39m[37m[22m - Time: [1m[37m351[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:37:42.952Z[39m[37m[22m - Hash: [1m[37mb44eeb16ec1f477e[39m[37m[22m - Time: [1m[37m450[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:41:46.118Z[39m[37m[22m - Hash: [1m[37m7a3b7a6259672196[39m[37m[22m - Time: [1m[37m333[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:43:06.277Z[39m[37m[22m - Hash: [1m[37m5d420c33641fe792[39m[37m[22m - Time: [1m[37m280[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.33 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:43:20.382Z[39m[37m[22m - Hash: [1m[37m535a54398ed471fe[39m[37m[22m - Time: [1m[37m348[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠴[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠦[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠧[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠇[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠏[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠋[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.49 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:49:48.970Z[39m[37m[22m - Hash: [1m[37m84677c01592be710[39m[37m[22m - Time: [1m[37m1684[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.49 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:51:02.576Z[39m[37m[22m - Hash: [1m[37m021401e1c3036412[39m[37m[22m - Time: [1m[37m400[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.49 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:51:23.081Z[39m[37m[22m - Hash: [1m[37m0e5e6fcef710372b[39m[37m[22m - Time: [1m[37m399[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.49 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:54:35.976Z[39m[37m[22m - Hash: [1m[37mf5bcdfa0be494aa8[39m[37m[22m - Time: [1m[37m385[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m                                                          [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m                                                                   [2m | [22mruntime                       [2m | [22m[96m12.63 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1mLazy Chunk Files[22m                                                             [2m | [22m[1mNames[22m                         [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mdefault-apps_admin-app_src_app_modules_shows_show-info_show-info_module_ts.js[39m[37m[2m | [22mcreate-show-create-show-module[2m | [22m [96m1.49 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m12 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2024-01-16T10:55:14.841Z[39m[37m[22m - Hash: [1m[37m39028f0863f25e72[39m[37m[22m - Time: [1m[37m314[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m
