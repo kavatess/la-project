@@ -6,6 +6,7 @@ import { FareTypesComponent } from './fare-types/fare-types.component';
 import { ShowFormComponent } from './show-form/show-form.component';
 import { SeatMapComponent } from './seat-map/seat-map.component';
 import { NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
     JsonPipe,
     FormsModule,
     ReactiveFormsModule,
-
+    DragDropModule,
     NgbTimepickerModule,
   ],
   exports: [

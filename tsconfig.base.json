@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@la-project/utils": ["libs/utils/src/index.ts"],
       "@libs/front-end": ["libs/front-end/src/index.ts"],
       "@libs/models": ["libs/models/src/index.ts"]
     }

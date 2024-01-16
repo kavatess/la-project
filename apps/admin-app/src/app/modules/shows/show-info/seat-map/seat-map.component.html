@@ -1,11 +1,12 @@
-<div class="row">
-  <div class="col-12 col-lg-3">
+<div class="row mb-1">
+  <div class="col-12">
     <div class="card">
       <div class="card-header">Thông tin cơ bản</div>
+
       <div class="card-body">
         <form [formGroup]="sectionForm">
-          <div class="row">
-            <div class="col-12">
+          <div class="row mb-2">
+            <div class="col-12 col-md-6">
               <label class="form-label">Tiêu đề</label>
               <input
                 type="text"
@@ -13,10 +14,19 @@
                 [formControlName]="SectionProperties.title"
               />
             </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Số lượng chỗ ngồi</label>
+              <input
+                type="number"
+                class="form-control"
+                [formControlName]="SectionProperties.seatNumber"
+              />
+            </div>
           </div>
 
-          <div class="row">
-            <div class="col-12">
+          <div class="row mb-2">
+            <div class="col-12 col-md-6">
               <label class="form-label">Số hàng lớn nhất</label>
               <input
                 type="number"
@@ -24,10 +34,8 @@
                 [formControlName]="SectionProperties.maxRow"
               />
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-6">
               <label class="form-label">Số cột lớn nhất</label>
               <input
                 type="number"
@@ -37,13 +45,13 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-12">
-              <label class="form-label">Số lượng chỗ ngồi</label>
+          <div class="row mb-2">
+            <div class="col-12 col-md-6">
+              <label class="form-label">Thứ tự ưu tiên</label>
               <input
                 type="number"
                 class="form-control"
-                [formControlName]="SectionProperties.seatNumber"
+                [formControlName]="SectionProperties.index"
               />
             </div>
           </div>
@@ -61,17 +69,6 @@
                 <input type="number" class="form-control" [formControlName]="" />
               </div>
             </div> -->
-
-          <div class="row">
-            <div class="col-12">
-              <label class="form-label">Thứ tự ưu tiên</label>
-              <input
-                type="number"
-                class="form-control"
-                [formControlName]="SectionProperties.index"
-              />
-            </div>
-          </div>
         </form>
       </div>
 
@@ -89,34 +86,100 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div *ngIf="seatMap.length" class="col-12 col-lg-9">
+<div *ngIf="seatMap.length" class="row">
+  <div class="col-12">
     <div class="card">
       <div class="card-header">Sơ đồ chỗ ngồi</div>
 
       <div class="card-body">
         <div class="seat-map-container">
-          <div class="stage-box w-100">
-            <div class="text-center">Sân khấu chính</div>
-          </div>
+          <div class="row-indexes-container"></div>
 
-          <div class="audience-area-box w-100">
-            <div class="w-100 d-flex">
-              <div class="left-entrance-box">Left Entrance Area</div>
+          <div class="content-container">
+            <div class="stage-box">
+              <h4 class="mt-1 mb-1">Sân khấu chính</h4>
+            </div>
 
-              <div class="seat-map-box">
-                <div *ngFor="let row of seatMap" class="d-flex">
-                  <div *ngFor="let block of row" class="block-box">
-                    {{ block.row }}-{{ block.col }}
+            <div class="audience-area-box">
+              <div class="seat-map-box" cdkDropListGroup>
+                <div
+                  *ngFor="let row of seatMap; let rowIndex = index"
+                  class="d-flex"
+                  cdkDropList
+                  [cdkDropListOrientation]="'horizontal'"
+                  [cdkDropListData]="row"
+                  (cdkDropListDropped)="dropSeat($event, rowIndex)"
+                >
+                  <div
+                    *ngFor="let block of row; let colIndex = index"
+                    cdkDrag
+                    [cdkDragDisabled]="block.type !== BlockTypes.Seat"
+                    class="block-box"
+                    [ngStyle]="{
+                      width: 'calc(100%/' + row.length + ')'
+                    }"
+                  >
+                    <div class="btn-group">
+                      <ng-container [ngSwitch]="block.type">
+                        <ng-container *ngSwitchCase="BlockTypes.None">
+                          <button class="btn">
+                            <i class="bi bi-x-octagon"></i>
+                          </button>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="BlockTypes.Seat">
+                          <button class="btn btn-outline-secondary">
+                            {{ block.seat.code }}
+                          </button>
+
+                          <button
+                            class="btn btn-light drag-handler"
+                            cdkDragHandle
+                          >
+                            <i class="bi bi-arrows-move"></i>
+                          </button>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="BlockTypes.Aisles">
+                          <button class="btn">
+                            <i class="bi bi-square-fill"></i>
+                          </button>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="BlockTypes.Wall">
+                          <button class="btn">
+                            <i class="bi bi-bricks"></i>
+                          </button>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="BlockTypes.Entrance">
+                          <ng-container *ngIf="rowIndex === row.length - 1">
+                            <button class="btn">
+                              <i class="bi bi-box-arrow-in-up"></i>
+                            </button>
+                          </ng-container>
+
+                          <ng-container *ngIf="colIndex === 0">
+                            <button class="btn">
+                              <i class="bi bi-box-arrow-in-right"></i>
+                            </button>
+                          </ng-container>
+
+                          <ng-container *ngIf="colIndex === 0">
+                            <button class="btn p-0">
+                              <i class="bi bi-box-arrow-in-left"></i>
+                            </button>
+                          </ng-container>
+                        </ng-container>
+                      </ng-container>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div class="right-entrance-box">Right Entrance Area</div>
             </div>
           </div>
-
-          <div class="entrance-footer-box">Footer Entrance Area</div>
         </div>
       </div>
     </div>

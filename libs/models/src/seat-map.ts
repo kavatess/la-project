@@ -1,4 +1,5 @@
 import { BasicModel } from './common';
+import { FareType } from './fare-type';
 
 export enum SectionProperties {
   showId = 'showId',
@@ -8,6 +9,7 @@ export enum SectionProperties {
   maxCol = 'maxCol',
   seatNumber = 'seatNumber',
   seatMap = 'seatMap',
+  // entranceList = 'entranceList',
   seatList = 'seatList',
   index = 'index',
 }
@@ -26,10 +28,11 @@ export interface Section extends BasicModel {
 
 export enum SeatProperties {
   sectionId = 'sectionId',
-  row = 'row',
-  col = 'col',
+  blockId = 'blockId',
   code = 'code',
   status = 'status',
+  fareTypeId = 'fareTypeId',
+  fareType = 'fareType',
 }
 
 export enum SeatStatuses {
@@ -40,11 +43,12 @@ export enum SeatStatuses {
 }
 
 export interface Seat extends BasicModel {
-  [SeatProperties.sectionId]: string;
-  [SeatProperties.row]: string;
-  [SeatProperties.col]: string;
+  [SeatProperties.sectionId]?: string;
+  [SeatProperties.blockId]?: string;
   [SeatProperties.code]: string;
   [SeatProperties.status]: SeatStatuses;
+  [SeatProperties.fareTypeId]?: string;
+  [SeatProperties.fareType]?: FareType;
 }
 
 export enum BlockProperties {
@@ -53,12 +57,14 @@ export enum BlockProperties {
   type = 'type',
   seatId = 'seatId',
   seat = 'seat',
+  entrance = 'entrance',
 }
 
 export enum BlockTypes {
   None = 'None',
   Seat = 'Seat',
   Aisles = 'Aisles',
+  Wall = 'Wall',
   Entrance = 'Entrance',
 }
 

@@ -10,3 +10,56 @@
 .nav-add-section {
   width: 350px;
 }
+
+.seat-map-container {
+  min-width: 1000px;
+  display: flex;
+  flex-direction: row;
+
+  .row-indexes-container {
+    width: 10%;
+    max-width: 100px;
+  }
+
+  .content-container {
+    width: 100%;
+
+    .stage-box {
+      width: 100%;
+      font-family: 'Futurab';
+      font-weight: normal;
+      font-size: 24px;
+      color: #fff;
+      display: block;
+      background-color: #969696;
+      text-transform: uppercase;
+      border: 1px solid #fff;
+      border-radius: 25px;
+      -webkit-border-radius: 25px;
+      line-height: 42px;
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .audience-area-box {
+      width: 100%;
+
+      .block-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .btn-outline-secondary {
+          width: 55px !important;
+          margin-right: 1px;
+        }
+        .drag-handler {
+          padding: 0 2px 0 2px !important;
+          font-size: 10px;
+        }
+
+        min-height: 50px;
+      }
+    }
+  }
+}
