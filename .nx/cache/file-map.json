@@ -86,13 +86,13 @@
   },
   "nxJsonPlugins": [],
   "projectFileMap": {
-    "admin-app-e2e": [
+    "ticket-booking-app-e2e": [
       {
-        "file": "apps/admin-app-e2e/.eslintrc.json",
+        "file": "apps/ticket-booking-app-e2e/.eslintrc.json",
         "hash": "14060216369337943343"
       },
       {
-        "file": "apps/admin-app-e2e/cypress.config.ts",
+        "file": "apps/ticket-booking-app-e2e/cypress.config.ts",
         "hash": "15414076024138857470",
         "deps": [
           "npm:cypress",
@@ -100,74 +100,112 @@
         ]
       },
       {
-        "file": "apps/admin-app-e2e/project.json",
-        "hash": "17753036189901713651"
+        "file": "apps/ticket-booking-app-e2e/project.json",
+        "hash": "7110792284042669113"
       },
       {
-        "file": "apps/admin-app-e2e/src/e2e/app.cy.ts",
-        "hash": "15965155604662166234"
+        "file": "apps/ticket-booking-app-e2e/src/e2e/app.cy.ts",
+        "hash": "15981277888299140123"
       },
       {
-        "file": "apps/admin-app-e2e/src/fixtures/example.json",
+        "file": "apps/ticket-booking-app-e2e/src/fixtures/example.json",
         "hash": "11614668686582597233"
       },
       {
-        "file": "apps/admin-app-e2e/src/support/app.po.ts",
+        "file": "apps/ticket-booking-app-e2e/src/support/app.po.ts",
         "hash": "11157016311132186162"
       },
       {
-        "file": "apps/admin-app-e2e/src/support/commands.ts",
+        "file": "apps/ticket-booking-app-e2e/src/support/commands.ts",
         "hash": "7314691991044890572"
       },
       {
-        "file": "apps/admin-app-e2e/src/support/e2e.ts",
+        "file": "apps/ticket-booking-app-e2e/src/support/e2e.ts",
         "hash": "3666078656922506009"
       },
       {
-        "file": "apps/admin-app-e2e/tsconfig.json",
+        "file": "apps/ticket-booking-app-e2e/tsconfig.json",
         "hash": "15439127571515986436"
       }
     ],
-    "utils": [
+    "server": [
       {
-        "file": "libs/utils/.eslintrc.json",
-        "hash": "783786096662049628"
+        "file": "apps/server/.eslintrc.json",
+        "hash": "2295303304320410742"
       },
       {
-        "file": "libs/utils/README.md",
-        "hash": "7928633615893668067"
+        "file": "apps/server/jest.config.ts",
+        "hash": "12564417945883729393"
       },
       {
-        "file": "libs/utils/jest.config.ts",
-        "hash": "3753954080087169714"
+        "file": "apps/server/project.json",
+        "hash": "12818936798496081410"
       },
       {
-        "file": "libs/utils/project.json",
-        "hash": "11520680198336733070"
+        "file": "apps/server/src/app/app.controller.spec.ts",
+        "hash": "11156443618385188612",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
       },
       {
-        "file": "libs/utils/src/generators/index.ts",
-        "hash": "2889298877604982386"
+        "file": "apps/server/src/app/app.controller.ts",
+        "hash": "9005150069945785676",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
       },
       {
-        "file": "libs/utils/src/generators/seat.ts",
-        "hash": "5303365829894103975"
+        "file": "apps/server/src/app/app.module.ts",
+        "hash": "3163250445227373966",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
       },
       {
-        "file": "libs/utils/src/index.ts",
-        "hash": "9109026689139998176"
+        "file": "apps/server/src/app/app.service.spec.ts",
+        "hash": "10601044450234745126",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
       },
       {
-        "file": "libs/utils/tsconfig.json",
-        "hash": "15487755565970508470"
+        "file": "apps/server/src/app/app.service.ts",
+        "hash": "1398463054208547248",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
       },
       {
-        "file": "libs/utils/tsconfig.lib.json",
-        "hash": "5796668385415907511"
+        "file": "apps/server/src/assets/.gitkeep",
+        "hash": "3244421341483603138"
       },
       {
-        "file": "libs/utils/tsconfig.spec.json",
-        "hash": "2927375835638640771"
+        "file": "apps/server/src/main.ts",
+        "hash": "14819337011353640225",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/core"
+        ]
+      },
+      {
+        "file": "apps/server/tsconfig.app.json",
+        "hash": "17628448778285850515"
+      },
+      {
+        "file": "apps/server/tsconfig.json",
+        "hash": "3490524966360018312"
+      },
+      {
+        "file": "apps/server/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      },
+      {
+        "file": "apps/server/webpack.config.js",
+        "hash": "12759027257167031159",
+        "deps": [
+          "npm:@nx/webpack"
+        ]
       }
     ],
     "models": [
@@ -216,7 +254,7 @@
       },
       {
         "file": "libs/models/src/seat-map.ts",
-        "hash": "10356985551597819325"
+        "hash": "6424985354871654473"
       },
       {
         "file": "libs/models/src/show.ts",
@@ -235,13 +273,55 @@
         "hash": "3632393694954060084"
       }
     ],
-    "ticket-booking-app-e2e": [
+    "utils": [
       {
-        "file": "apps/ticket-booking-app-e2e/.eslintrc.json",
+        "file": "libs/utils/.eslintrc.json",
+        "hash": "783786096662049628"
+      },
+      {
+        "file": "libs/utils/README.md",
+        "hash": "7928633615893668067"
+      },
+      {
+        "file": "libs/utils/jest.config.ts",
+        "hash": "3753954080087169714"
+      },
+      {
+        "file": "libs/utils/project.json",
+        "hash": "11520680198336733070"
+      },
+      {
+        "file": "libs/utils/src/generators/index.ts",
+        "hash": "2889298877604982386"
+      },
+      {
+        "file": "libs/utils/src/generators/seat.ts",
+        "hash": "5303365829894103975"
+      },
+      {
+        "file": "libs/utils/src/index.ts",
+        "hash": "9109026689139998176"
+      },
+      {
+        "file": "libs/utils/tsconfig.json",
+        "hash": "15487755565970508470"
+      },
+      {
+        "file": "libs/utils/tsconfig.lib.json",
+        "hash": "5796668385415907511"
+      },
+      {
+        "file": "libs/utils/tsconfig.spec.json",
+        "hash": "2927375835638640771"
+      }
+    ],
+    "admin-app-e2e": [
+      {
+        "file": "apps/admin-app-e2e/.eslintrc.json",
         "hash": "14060216369337943343"
       },
       {
-        "file": "apps/ticket-booking-app-e2e/cypress.config.ts",
+        "file": "apps/admin-app-e2e/cypress.config.ts",
         "hash": "15414076024138857470",
         "deps": [
           "npm:cypress",
@@ -249,32 +329,76 @@
         ]
       },
       {
-        "file": "apps/ticket-booking-app-e2e/project.json",
-        "hash": "7110792284042669113"
+        "file": "apps/admin-app-e2e/project.json",
+        "hash": "17753036189901713651"
       },
       {
-        "file": "apps/ticket-booking-app-e2e/src/e2e/app.cy.ts",
-        "hash": "15981277888299140123"
+        "file": "apps/admin-app-e2e/src/e2e/app.cy.ts",
+        "hash": "15965155604662166234"
       },
       {
-        "file": "apps/ticket-booking-app-e2e/src/fixtures/example.json",
+        "file": "apps/admin-app-e2e/src/fixtures/example.json",
         "hash": "11614668686582597233"
       },
       {
-        "file": "apps/ticket-booking-app-e2e/src/support/app.po.ts",
+        "file": "apps/admin-app-e2e/src/support/app.po.ts",
         "hash": "11157016311132186162"
       },
       {
-        "file": "apps/ticket-booking-app-e2e/src/support/commands.ts",
+        "file": "apps/admin-app-e2e/src/support/commands.ts",
         "hash": "7314691991044890572"
       },
       {
-        "file": "apps/ticket-booking-app-e2e/src/support/e2e.ts",
+        "file": "apps/admin-app-e2e/src/support/e2e.ts",
         "hash": "3666078656922506009"
       },
       {
-        "file": "apps/ticket-booking-app-e2e/tsconfig.json",
+        "file": "apps/admin-app-e2e/tsconfig.json",
         "hash": "15439127571515986436"
+      }
+    ],
+    "server-e2e": [
+      {
+        "file": "apps/server-e2e/.eslintrc.json",
+        "hash": "13861748877169696160"
+      },
+      {
+        "file": "apps/server-e2e/jest.config.ts",
+        "hash": "11487096317290131180"
+      },
+      {
+        "file": "apps/server-e2e/project.json",
+        "hash": "1059998867808504402"
+      },
+      {
+        "file": "apps/server-e2e/src/server/server.spec.ts",
+        "hash": "2263470703898423778",
+        "deps": [
+          "npm:axios"
+        ]
+      },
+      {
+        "file": "apps/server-e2e/src/support/global-setup.ts",
+        "hash": "14688124112638150235"
+      },
+      {
+        "file": "apps/server-e2e/src/support/global-teardown.ts",
+        "hash": "10856769668484651558"
+      },
+      {
+        "file": "apps/server-e2e/src/support/test-setup.ts",
+        "hash": "9379448616442792630",
+        "deps": [
+          "npm:axios"
+        ]
+      },
+      {
+        "file": "apps/server-e2e/tsconfig.json",
+        "hash": "15443990093475294480"
+      },
+      {
+        "file": "apps/server-e2e/tsconfig.spec.json",
+        "hash": "14519349202314136898"
       }
     ],
     "admin-app": [
@@ -462,7 +586,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.html",
-        "hash": "1349990568406596143"
+        "hash": "6019891329199547789"
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.scss",
@@ -470,7 +594,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.ts",
-        "hash": "16268727243991918317",
+        "hash": "15918330731726360065",
         "deps": [
           "npm:@angular/cdk",
           "npm:@angular/core",
@@ -489,7 +613,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/show-form/show-form.component.ts",
-        "hash": "2277470633684924891",
+        "hash": "15435180363705728423",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/forms",
@@ -781,84 +905,49 @@
         "hash": "2927375835638640771"
       }
     ],
-    "server": [
+    "front-end": [
       {
-        "file": "apps/server/.eslintrc.json",
-        "hash": "2295303304320410742"
+        "file": "libs/front-end/.eslintrc.json",
+        "hash": "16896711999632553762"
       },
       {
-        "file": "apps/server/jest.config.ts",
-        "hash": "12564417945883729393"
+        "file": "libs/front-end/README.md",
+        "hash": "10916847634063479967"
       },
       {
-        "file": "apps/server/project.json",
-        "hash": "12818936798496081410"
-      },
-      {
-        "file": "apps/server/src/app/app.controller.spec.ts",
-        "hash": "11156443618385188612",
+        "file": "libs/front-end/package.json",
+        "hash": "15658991960316735704",
         "deps": [
-          "npm:@nestjs/testing"
+          "npm:tslib"
         ]
       },
       {
-        "file": "apps/server/src/app/app.controller.ts",
-        "hash": "9005150069945785676",
+        "file": "libs/front-end/project.json",
+        "hash": "3256780618109825999"
+      },
+      {
+        "file": "libs/front-end/src/index.ts",
+        "hash": "2539955810750884752"
+      },
+      {
+        "file": "libs/front-end/src/services/index.ts",
+        "hash": "9211068132455535460"
+      },
+      {
+        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
+        "hash": "14343517326774558008",
         "deps": [
-          "npm:@nestjs/common"
+          "npm:@angular/core",
+          "npm:@ng-bootstrap/ng-bootstrap"
         ]
       },
       {
-        "file": "apps/server/src/app/app.module.ts",
-        "hash": "3163250445227373966",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
+        "file": "libs/front-end/tsconfig.json",
+        "hash": "634795086719220447"
       },
       {
-        "file": "apps/server/src/app/app.service.spec.ts",
-        "hash": "10601044450234745126",
-        "deps": [
-          "npm:@nestjs/testing"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/app.service.ts",
-        "hash": "1398463054208547248",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/assets/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/server/src/main.ts",
-        "hash": "14819337011353640225",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/core"
-        ]
-      },
-      {
-        "file": "apps/server/tsconfig.app.json",
-        "hash": "17628448778285850515"
-      },
-      {
-        "file": "apps/server/tsconfig.json",
-        "hash": "3490524966360018312"
-      },
-      {
-        "file": "apps/server/tsconfig.spec.json",
-        "hash": "11550347367511341917"
-      },
-      {
-        "file": "apps/server/webpack.config.js",
-        "hash": "12759027257167031159",
-        "deps": [
-          "npm:@nx/webpack"
-        ]
+        "file": "libs/front-end/tsconfig.lib.json",
+        "hash": "3632393694954060084"
       }
     ],
     "ticket-booking-app": [
@@ -1093,95 +1182,6 @@
       {
         "file": "apps/ticket-booking-app/tsconfig.spec.json",
         "hash": "2927375835638640771"
-      }
-    ],
-    "server-e2e": [
-      {
-        "file": "apps/server-e2e/.eslintrc.json",
-        "hash": "13861748877169696160"
-      },
-      {
-        "file": "apps/server-e2e/jest.config.ts",
-        "hash": "11487096317290131180"
-      },
-      {
-        "file": "apps/server-e2e/project.json",
-        "hash": "1059998867808504402"
-      },
-      {
-        "file": "apps/server-e2e/src/server/server.spec.ts",
-        "hash": "2263470703898423778",
-        "deps": [
-          "npm:axios"
-        ]
-      },
-      {
-        "file": "apps/server-e2e/src/support/global-setup.ts",
-        "hash": "14688124112638150235"
-      },
-      {
-        "file": "apps/server-e2e/src/support/global-teardown.ts",
-        "hash": "10856769668484651558"
-      },
-      {
-        "file": "apps/server-e2e/src/support/test-setup.ts",
-        "hash": "9379448616442792630",
-        "deps": [
-          "npm:axios"
-        ]
-      },
-      {
-        "file": "apps/server-e2e/tsconfig.json",
-        "hash": "15443990093475294480"
-      },
-      {
-        "file": "apps/server-e2e/tsconfig.spec.json",
-        "hash": "14519349202314136898"
-      }
-    ],
-    "front-end": [
-      {
-        "file": "libs/front-end/.eslintrc.json",
-        "hash": "16896711999632553762"
-      },
-      {
-        "file": "libs/front-end/README.md",
-        "hash": "10916847634063479967"
-      },
-      {
-        "file": "libs/front-end/package.json",
-        "hash": "15658991960316735704",
-        "deps": [
-          "npm:tslib"
-        ]
-      },
-      {
-        "file": "libs/front-end/project.json",
-        "hash": "3256780618109825999"
-      },
-      {
-        "file": "libs/front-end/src/index.ts",
-        "hash": "2539955810750884752"
-      },
-      {
-        "file": "libs/front-end/src/services/index.ts",
-        "hash": "9211068132455535460"
-      },
-      {
-        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
-        "hash": "14343517326774558008",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@ng-bootstrap/ng-bootstrap"
-        ]
-      },
-      {
-        "file": "libs/front-end/tsconfig.json",
-        "hash": "634795086719220447"
-      },
-      {
-        "file": "libs/front-end/tsconfig.lib.json",
-        "hash": "3632393694954060084"
       }
     ]
   }

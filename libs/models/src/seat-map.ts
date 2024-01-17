@@ -72,8 +72,8 @@ export enum BlockTypes {
 }
 
 export interface Block extends BasicModel {
-  [BlockProperties.row]: number;
-  [BlockProperties.col]: number;
+  [BlockProperties.row]?: number;
+  [BlockProperties.col]?: number;
   [BlockProperties.type]: BlockTypes;
   [BlockProperties.seatId]?: string;
   [BlockProperties.seat]?: Seat;

@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbTimepickerAdapter } from '@libs/front-end';
 import {
@@ -28,7 +22,7 @@ import {
     { provide: NgbTimeAdapter, useClass: NgbTimepickerAdapter },
   ],
 })
-export class ShowFormComponent implements OnInit, OnChanges {
+export class ShowFormComponent implements OnChanges {
   @Input()
   useHeader = true;
   @Input()
@@ -111,10 +105,6 @@ export class ShowFormComponent implements OnInit, OnChanges {
   ) {
     this.timepickerConfig.seconds = false;
     this.timepickerConfig.spinners = false;
-  }
-
-  ngOnInit(): void {
-    this.form.valueChanges.subscribe((value) => console.log(value.endTime));
   }
 
   ngOnChanges(changes: SimpleChanges): void {

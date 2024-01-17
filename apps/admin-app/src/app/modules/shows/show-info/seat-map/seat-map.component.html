@@ -106,7 +106,7 @@
       <div class="card-body">
         <div class="seat-map-container">
           <div
-            *ngIf="defaultData.useRowIndex"
+            *ngIf="generatedData.useRowIndex"
             class="row-indexes-container"
             [formGroup]="sectionForm"
           >
@@ -135,6 +135,7 @@
                   *ngFor="let row of seatMap; let rowIndex = index"
                   class="d-flex"
                   cdkDropList
+                  [id]="'seat-row-' + rowIndex"
                   [cdkDropListOrientation]="'horizontal'"
                   [cdkDropListData]="row"
                   (cdkDropListDropped)="dropSeat($event, rowIndex)"

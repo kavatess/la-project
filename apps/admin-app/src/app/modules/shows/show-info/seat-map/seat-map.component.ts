@@ -1,5 +1,6 @@
 import {
   CdkDragDrop,
+  CdkDropList,
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
@@ -53,40 +54,46 @@ export class SeatMapComponent implements OnChanges {
     [SectionProperties.seatMap]: this.fb.control<Block[][]>([], []),
   });
 
-  defaultData: Section = null;
+  generatedData: Section = null;
 
   constructor(private readonly fb: FormBuilder) {}
 
   get seatMap(): Block[][] {
-    return this.sectionForm.value[SectionProperties.seatMap] || [];
-  }
-
-  get seatMapCtrl(): FormControl<Block[][]> {
-    return this.sectionForm.controls[SectionProperties.seatMap];
+    return this.sectionVal[SectionProperties.seatMap] || [];
   }
 
   get canGenerate(): boolean {
     if (this.sectionForm.invalid) return false;
-    if (!this.defaultData) return true;
-    const { maxRow, maxCol, seatNumber } = this.sectionForm.value;
+    if (!this.generatedData) return true;
+    const { maxRow, maxCol, seatNumber } = this.sectionVal;
     return (
-      maxRow !== this.defaultData.maxRow ||
-      maxCol !== this.defaultData.maxCol ||
-      seatNumber !== this.defaultData.seatNumber
+      maxRow !== this.generatedData.maxRow ||
+      maxCol !== this.generatedData.maxCol ||
+      seatNumber !== this.generatedData.seatNumber
     );
+  }
+
+  private get sectionVal(): Section {
+    return this.sectionForm.value as Section;
+  }
+
+  private get seatMapCtrl(): FormControl<Block[][]> {
+    return this.sectionForm.controls[SectionProperties.seatMap];
+  }
+
+  private get rowIndexesArrCtrl(): FormArray {
+    return this.sectionForm.controls[SectionProperties.rowIndexes] as FormArray;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['initialData']) {
-      this.defaultData = this.initialData;
+      this.generatedData = this.initialData;
       if (this.initialData) {
         this.sectionForm.patchValue(this.initialData, {
           onlySelf: true,
           emitEvent: false,
         });
-        this.sectionForm.markAsPristine({
-          onlySelf: true,
-        });
+        this.sectionForm.markAsPristine();
       } else {
         this.sectionForm.reset();
       }
@@ -95,28 +102,27 @@ export class SeatMapComponent implements OnChanges {
 
   generateSeatMap($event: MouseEvent): void {
     if (this.canGenerate) {
-      this.defaultData = this.sectionForm.value as Section;
-      this.seatMapCtrl.setValue(this.generateNewSeatMap());
-      if (this.sectionForm.value[SectionProperties.useRowIndex]) {
+      if (this.sectionVal[SectionProperties.useRowIndex]) {
         this.applyRowIndex();
       }
+      this.seatMapCtrl.setValue(this.generateNewSeatMap());
+      this.generatedData = this.sectionVal as Section;
     }
     $event.preventDefault();
   }
 
   private applyRowIndex(): void {
-    const rowIndexArray = this.sectionForm.controls[
-      SectionProperties.rowIndexes
-    ] as FormArray;
-    for (let i = 0; i < this.defaultData.maxRow; i++) {
-      rowIndexArray.push(
-        this.fb.control(i <= 26 ? String.fromCharCode(i + 65) : null)
+    for (let i = 0; i < this.sectionVal.maxRow; i++) {
+      this.rowIndexesArrCtrl.push(
+        this.fb.control(i <= 26 ? String.fromCharCode(i + 65) : null, [
+          Validators.required,
+        ])
       );
     }
   }
 
   private generateNewSeatMap(): Block[][] {
-    const { maxRow, maxCol } = this.sectionForm.value;
+    const { maxRow, maxCol } = this.sectionVal;
     return new Array(maxRow + 1)
       .fill(null)
       .map((v1, row) =>
@@ -127,51 +133,106 @@ export class SeatMapComponent implements OnChanges {
   }
 
   private generateBlock(row: number, col: number): Block {
-    const { maxRow, maxCol, seatNumber } = this.sectionForm.value;
-    const block: Block = {
-      row,
-      col,
-      type: BlockTypes.None,
-    };
+    const { maxRow, maxCol, seatNumber } = this.sectionVal;
     if (col === 0 || col === maxCol + 1 || row === maxRow) {
-      block.type = BlockTypes.Wall;
-    } else if (row * maxCol + col <= seatNumber) {
-      block.type = BlockTypes.Seat;
-      block.seat = {
-        [SeatProperties.code]: generateDefaultSeatCode(row, col),
-        [SeatProperties.status]: SeatStatuses.Available,
+      return { type: BlockTypes.Wall };
+    }
+    if (row * maxCol + col <= seatNumber) {
+      return {
+        type: BlockTypes.Seat,
+        seat: {
+          [SeatProperties.code]: this.generateSeatCode(
+            row,
+            col,
+            this.sectionVal.useRowIndex
+          ),
+          [SeatProperties.status]: SeatStatuses.Available,
+        },
       };
     }
-    return block;
+    return { type: BlockTypes.None };
+  }
+
+  private generateSeatCode(
+    row: number,
+    col: number,
+    useRowIndex = true
+  ): string {
+    if (useRowIndex) {
+      const colIndex = col < 10 ? '0' + col : col;
+      return `${this.sectionVal.rowIndexes[row]}${colIndex}`;
+    }
+    return generateDefaultSeatCode(row, col);
   }
 
   dropSeat(event: CdkDragDrop<Block[]>, rowIndex: number) {
     if (
-      rowIndex === this.defaultData.maxRow ||
+      rowIndex === this.generatedData.maxRow ||
       event.currentIndex === 0 ||
-      event.currentIndex === this.defaultData.maxCol + 1
+      event.currentIndex === this.generatedData.maxCol + 1
     ) {
       return;
     }
     if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+      this.moveSeatInSameRow(event, rowIndex);
     } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-      transferArrayItem(
-        event.container.data,
-        event.previousContainer.data,
-        event.currentIndex + 1,
-        event.previousIndex
-      );
+      this.transferSeatToAnotherRow(event, rowIndex);
+    }
+  }
+
+  private moveSeatInSameRow(
+    { container, previousIndex, currentIndex }: CdkDragDrop<Block[]>,
+    rowIndex: number
+  ): void {
+    moveItemInArray(container.data, previousIndex, currentIndex);
+    if (this.generatedData.useRowIndex) {
+      this.rewriteSeatCodeInContainer(container, rowIndex);
+    }
+  }
+
+  private transferSeatToAnotherRow(
+    {
+      previousContainer,
+      container,
+      previousIndex,
+      currentIndex,
+    }: CdkDragDrop<Block[]>,
+    rowIndex: number
+  ): void {
+    transferArrayItem(
+      previousContainer.data,
+      container.data,
+      previousIndex,
+      currentIndex
+    );
+    transferArrayItem(
+      container.data,
+      previousContainer.data,
+      currentIndex + 1,
+      previousIndex
+    );
+    if (this.generatedData.useRowIndex) {
+      this.rewriteSeatCodeInContainer(container, rowIndex);
+      const splittedPreId = previousContainer.id.split('-');
+      const previousRowIndex = Number(splittedPreId[splittedPreId.length - 1]);
+      this.rewriteSeatCodeInContainer(previousContainer, previousRowIndex);
+    }
+  }
+
+  private rewriteSeatCodeInContainer(
+    container: CdkDropList<Block[]>,
+    rowIndex: number
+  ): void {
+    let count = 0;
+    for (const [index, block] of container.data.entries()) {
+      if (block.type === BlockTypes.Seat) {
+        count += 1;
+        container.data[index].seat.code = this.generateSeatCode(
+          rowIndex,
+          count,
+          this.generatedData.useRowIndex
+        );
+      }
     }
   }
 }
