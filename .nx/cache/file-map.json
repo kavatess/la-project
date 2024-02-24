@@ -86,48 +86,6 @@
   },
   "nxJsonPlugins": [],
   "projectFileMap": {
-    "ticket-booking-app-e2e": [
-      {
-        "file": "apps/ticket-booking-app-e2e/.eslintrc.json",
-        "hash": "14060216369337943343"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/cypress.config.ts",
-        "hash": "15414076024138857470",
-        "deps": [
-          "npm:cypress",
-          "npm:@nx/cypress"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/project.json",
-        "hash": "7110792284042669113"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/e2e/app.cy.ts",
-        "hash": "15981277888299140123"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/fixtures/example.json",
-        "hash": "11614668686582597233"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/support/app.po.ts",
-        "hash": "11157016311132186162"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/support/commands.ts",
-        "hash": "7314691991044890572"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/support/e2e.ts",
-        "hash": "3666078656922506009"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/tsconfig.json",
-        "hash": "15439127571515986436"
-      }
-    ],
     "server": [
       {
         "file": "apps/server/.eslintrc.json",
@@ -208,111 +166,48 @@
         ]
       }
     ],
-    "models": [
+    "server-e2e": [
       {
-        "file": "libs/models/.eslintrc.json",
-        "hash": "16896711999632553762"
+        "file": "apps/server-e2e/.eslintrc.json",
+        "hash": "13861748877169696160"
       },
       {
-        "file": "libs/models/package.json",
-        "hash": "11336833613870980555",
+        "file": "apps/server-e2e/jest.config.ts",
+        "hash": "11487096317290131180"
+      },
+      {
+        "file": "apps/server-e2e/project.json",
+        "hash": "1059998867808504402"
+      },
+      {
+        "file": "apps/server-e2e/src/server/server.spec.ts",
+        "hash": "2263470703898423778",
         "deps": [
-          "npm:tslib"
+          "npm:axios"
         ]
       },
       {
-        "file": "libs/models/project.json",
-        "hash": "6210387022770262885"
+        "file": "apps/server-e2e/src/support/global-setup.ts",
+        "hash": "14688124112638150235"
       },
       {
-        "file": "libs/models/src/artist.ts",
-        "hash": "3192482969964955715"
+        "file": "apps/server-e2e/src/support/global-teardown.ts",
+        "hash": "10856769668484651558"
       },
       {
-        "file": "libs/models/src/common.ts",
-        "hash": "9190075478859784244"
+        "file": "apps/server-e2e/src/support/test-setup.ts",
+        "hash": "9379448616442792630",
+        "deps": [
+          "npm:axios"
+        ]
       },
       {
-        "file": "libs/models/src/fare-type.ts",
-        "hash": "12465047905499651771"
+        "file": "apps/server-e2e/tsconfig.json",
+        "hash": "15443990093475294480"
       },
       {
-        "file": "libs/models/src/form.ts",
-        "hash": "8631114082862378017"
-      },
-      {
-        "file": "libs/models/src/index.ts",
-        "hash": "3830227017630621645"
-      },
-      {
-        "file": "libs/models/src/order.ts",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/models/src/payment.ts",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/models/src/seat-map.ts",
-        "hash": "6424985354871654473"
-      },
-      {
-        "file": "libs/models/src/show.ts",
-        "hash": "2702461875614541316"
-      },
-      {
-        "file": "libs/models/src/user.ts",
-        "hash": "17824350677719716789"
-      },
-      {
-        "file": "libs/models/tsconfig.json",
-        "hash": "634795086719220447"
-      },
-      {
-        "file": "libs/models/tsconfig.lib.json",
-        "hash": "3632393694954060084"
-      }
-    ],
-    "utils": [
-      {
-        "file": "libs/utils/.eslintrc.json",
-        "hash": "783786096662049628"
-      },
-      {
-        "file": "libs/utils/README.md",
-        "hash": "7928633615893668067"
-      },
-      {
-        "file": "libs/utils/jest.config.ts",
-        "hash": "3753954080087169714"
-      },
-      {
-        "file": "libs/utils/project.json",
-        "hash": "11520680198336733070"
-      },
-      {
-        "file": "libs/utils/src/generators/index.ts",
-        "hash": "2889298877604982386"
-      },
-      {
-        "file": "libs/utils/src/generators/seat.ts",
-        "hash": "5303365829894103975"
-      },
-      {
-        "file": "libs/utils/src/index.ts",
-        "hash": "9109026689139998176"
-      },
-      {
-        "file": "libs/utils/tsconfig.json",
-        "hash": "15487755565970508470"
-      },
-      {
-        "file": "libs/utils/tsconfig.lib.json",
-        "hash": "5796668385415907511"
-      },
-      {
-        "file": "libs/utils/tsconfig.spec.json",
-        "hash": "2927375835638640771"
+        "file": "apps/server-e2e/tsconfig.spec.json",
+        "hash": "14519349202314136898"
       }
     ],
     "admin-app-e2e": [
@@ -357,48 +252,46 @@
         "hash": "15439127571515986436"
       }
     ],
-    "server-e2e": [
+    "utils": [
       {
-        "file": "apps/server-e2e/.eslintrc.json",
-        "hash": "13861748877169696160"
+        "file": "libs/utils/.eslintrc.json",
+        "hash": "783786096662049628"
       },
       {
-        "file": "apps/server-e2e/jest.config.ts",
-        "hash": "11487096317290131180"
+        "file": "libs/utils/README.md",
+        "hash": "7928633615893668067"
       },
       {
-        "file": "apps/server-e2e/project.json",
-        "hash": "1059998867808504402"
+        "file": "libs/utils/jest.config.ts",
+        "hash": "3753954080087169714"
       },
       {
-        "file": "apps/server-e2e/src/server/server.spec.ts",
-        "hash": "2263470703898423778",
-        "deps": [
-          "npm:axios"
-        ]
+        "file": "libs/utils/project.json",
+        "hash": "11520680198336733070"
       },
       {
-        "file": "apps/server-e2e/src/support/global-setup.ts",
-        "hash": "14688124112638150235"
+        "file": "libs/utils/src/generators/index.ts",
+        "hash": "2889298877604982386"
       },
       {
-        "file": "apps/server-e2e/src/support/global-teardown.ts",
-        "hash": "10856769668484651558"
+        "file": "libs/utils/src/generators/seat.ts",
+        "hash": "4312998655396823111"
       },
       {
-        "file": "apps/server-e2e/src/support/test-setup.ts",
-        "hash": "9379448616442792630",
-        "deps": [
-          "npm:axios"
-        ]
+        "file": "libs/utils/src/index.ts",
+        "hash": "9109026689139998176"
       },
       {
-        "file": "apps/server-e2e/tsconfig.json",
-        "hash": "15443990093475294480"
+        "file": "libs/utils/tsconfig.json",
+        "hash": "15487755565970508470"
       },
       {
-        "file": "apps/server-e2e/tsconfig.spec.json",
-        "hash": "14519349202314136898"
+        "file": "libs/utils/tsconfig.lib.json",
+        "hash": "5796668385415907511"
+      },
+      {
+        "file": "libs/utils/tsconfig.spec.json",
+        "hash": "2927375835638640771"
       }
     ],
     "admin-app": [
@@ -585,22 +478,42 @@
         ]
       },
       {
+        "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/block-detail-modal/block-detail-modal.component.html",
+        "hash": "6494758086311933613"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/block-detail-modal/block-detail-modal.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/block-detail-modal/block-detail-modal.component.ts",
+        "hash": "10477213723300633751",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/forms",
+          "models",
+          "npm:@ng-bootstrap/ng-bootstrap"
+        ]
+      },
+      {
         "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.html",
-        "hash": "6019891329199547789"
+        "hash": "16756227716152201254"
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.scss",
-        "hash": "2323840775127123652"
+        "hash": "8628418147468982282"
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/seat-map/seat-map.component.ts",
-        "hash": "15918330731726360065",
+        "hash": "15028695230028084270",
         "deps": [
           "npm:@angular/cdk",
           "npm:@angular/core",
           "npm:@angular/forms",
           "utils",
-          "models"
+          "models",
+          "npm:@ng-bootstrap/ng-bootstrap",
+          "npm:rxjs"
         ]
       },
       {
@@ -639,7 +552,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/show-info.module.ts",
-        "hash": "17559843178017428608",
+        "hash": "6377217934973670253",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/common",
@@ -905,48 +818,68 @@
         "hash": "2927375835638640771"
       }
     ],
-    "front-end": [
+    "models": [
       {
-        "file": "libs/front-end/.eslintrc.json",
+        "file": "libs/models/.eslintrc.json",
         "hash": "16896711999632553762"
       },
       {
-        "file": "libs/front-end/README.md",
-        "hash": "10916847634063479967"
-      },
-      {
-        "file": "libs/front-end/package.json",
-        "hash": "15658991960316735704",
+        "file": "libs/models/package.json",
+        "hash": "11336833613870980555",
         "deps": [
           "npm:tslib"
         ]
       },
       {
-        "file": "libs/front-end/project.json",
-        "hash": "3256780618109825999"
+        "file": "libs/models/project.json",
+        "hash": "6210387022770262885"
       },
       {
-        "file": "libs/front-end/src/index.ts",
-        "hash": "2539955810750884752"
+        "file": "libs/models/src/artist.ts",
+        "hash": "3192482969964955715"
       },
       {
-        "file": "libs/front-end/src/services/index.ts",
-        "hash": "9211068132455535460"
+        "file": "libs/models/src/common.ts",
+        "hash": "9190075478859784244"
       },
       {
-        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
-        "hash": "14343517326774558008",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@ng-bootstrap/ng-bootstrap"
-        ]
+        "file": "libs/models/src/fare-type.ts",
+        "hash": "12465047905499651771"
       },
       {
-        "file": "libs/front-end/tsconfig.json",
+        "file": "libs/models/src/form.ts",
+        "hash": "8631114082862378017"
+      },
+      {
+        "file": "libs/models/src/index.ts",
+        "hash": "3830227017630621645"
+      },
+      {
+        "file": "libs/models/src/order.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/models/src/payment.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/models/src/seat-map.ts",
+        "hash": "10149878695840859147"
+      },
+      {
+        "file": "libs/models/src/show.ts",
+        "hash": "2702461875614541316"
+      },
+      {
+        "file": "libs/models/src/user.ts",
+        "hash": "17824350677719716789"
+      },
+      {
+        "file": "libs/models/tsconfig.json",
         "hash": "634795086719220447"
       },
       {
-        "file": "libs/front-end/tsconfig.lib.json",
+        "file": "libs/models/tsconfig.lib.json",
         "hash": "3632393694954060084"
       }
     ],
@@ -1182,6 +1115,93 @@
       {
         "file": "apps/ticket-booking-app/tsconfig.spec.json",
         "hash": "2927375835638640771"
+      }
+    ],
+    "ticket-booking-app-e2e": [
+      {
+        "file": "apps/ticket-booking-app-e2e/.eslintrc.json",
+        "hash": "14060216369337943343"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/cypress.config.ts",
+        "hash": "15414076024138857470",
+        "deps": [
+          "npm:cypress",
+          "npm:@nx/cypress"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/project.json",
+        "hash": "7110792284042669113"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/e2e/app.cy.ts",
+        "hash": "15981277888299140123"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/fixtures/example.json",
+        "hash": "11614668686582597233"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/support/app.po.ts",
+        "hash": "11157016311132186162"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/support/commands.ts",
+        "hash": "7314691991044890572"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/support/e2e.ts",
+        "hash": "3666078656922506009"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/tsconfig.json",
+        "hash": "15439127571515986436"
+      }
+    ],
+    "front-end": [
+      {
+        "file": "libs/front-end/.eslintrc.json",
+        "hash": "16896711999632553762"
+      },
+      {
+        "file": "libs/front-end/README.md",
+        "hash": "10916847634063479967"
+      },
+      {
+        "file": "libs/front-end/package.json",
+        "hash": "15658991960316735704",
+        "deps": [
+          "npm:tslib"
+        ]
+      },
+      {
+        "file": "libs/front-end/project.json",
+        "hash": "3256780618109825999"
+      },
+      {
+        "file": "libs/front-end/src/index.ts",
+        "hash": "2539955810750884752"
+      },
+      {
+        "file": "libs/front-end/src/services/index.ts",
+        "hash": "9211068132455535460"
+      },
+      {
+        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
+        "hash": "14343517326774558008",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@ng-bootstrap/ng-bootstrap"
+        ]
+      },
+      {
+        "file": "libs/front-end/tsconfig.json",
+        "hash": "634795086719220447"
+      },
+      {
+        "file": "libs/front-end/tsconfig.lib.json",
+        "hash": "3632393694954060084"
       }
     ]
   }

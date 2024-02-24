@@ -15,11 +15,14 @@
   min-width: 1000px;
   display: flex;
   flex-direction: row;
+  box-sizing: border-box;
+  overflow-x: auto;
 
   .row-indexes-container {
     width: 10%;
     height: 100%;
     max-width: 100px;
+    min-width: 42px;
 
     .row-index-title {
       width: 100%;
@@ -68,12 +71,14 @@
         align-items: center;
         justify-content: center;
         height: 50px;
+        min-width: 83px !important;
         .btn-outline-secondary {
-          width: 55px !important;
+          width: 60px !important;
           margin-right: 1px;
+          font-size: 12px;
         }
         .drag-handler {
-          padding: 0 2px 0 2px !important;
+          padding: 0 1px 0 2px !important;
           font-size: 10px;
         }
       }

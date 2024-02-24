@@ -5,9 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FareTypesComponent } from './fare-types/fare-types.component';
 import { ShowFormComponent } from './show-form/show-form.component';
 import { SeatMapComponent } from './seat-map/seat-map.component';
-import { NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbModalModule,
+  NgbTimepickerModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BlockDetailModalComponent } from './seat-map/block-detail-modal/block-detail-modal.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     FareTypesComponent,
     ShowFormComponent,
     SeatMapComponent,
+    BlockDetailModalComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +29,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     DragDropModule,
     MatSlideToggleModule,
     NgbTimepickerModule,
+    NgbModalModule,
   ],
   exports: [
     ShowInfoComponent,

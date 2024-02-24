@@ -12,6 +12,7 @@ export enum SectionProperties {
   seatList = 'seatList',
   useRowIndex = 'useRowIndex',
   rowIndexes = 'rowIndexes',
+  indexReversed = 'indexReversed',
   index = 'index',
 }
 
@@ -25,6 +26,7 @@ export interface Section extends BasicModel {
   [SectionProperties.index]: number;
   [SectionProperties.useRowIndex]: boolean;
   [SectionProperties.rowIndexes]?: string[];
+  [SectionProperties.indexReversed]?: boolean;
   [SectionProperties.seatMap]?: Block[][];
   [SectionProperties.seatList]?: Partial<Seat>[];
 }
@@ -44,6 +46,7 @@ export enum SeatStatuses {
   Booked = 'Booked',
   Maintenance = 'Maintenance',
 }
+export const seatStatusList = Object.keys(SeatStatuses).map((key) => key);
 
 export interface Seat extends BasicModel {
   [SeatProperties.sectionId]?: string;
@@ -60,7 +63,8 @@ export enum BlockProperties {
   type = 'type',
   seatId = 'seatId',
   seat = 'seat',
-  entrance = 'entrance',
+  door = 'door',
+  aisles = 'aisles',
 }
 
 export enum BlockTypes {
@@ -68,8 +72,11 @@ export enum BlockTypes {
   Seat = 'Seat',
   Aisles = 'Aisles',
   Wall = 'Wall',
-  Entrance = 'Entrance',
+  Door = 'Door',
 }
+export const blockTypeList = Object.keys(BlockTypes).map(
+  (key) => key
+) as BlockTypes[];
 
 export interface Block extends BasicModel {
   [BlockProperties.row]?: number;
@@ -77,4 +84,56 @@ export interface Block extends BasicModel {
   [BlockProperties.type]: BlockTypes;
   [BlockProperties.seatId]?: string;
   [BlockProperties.seat]?: Seat;
+  [BlockProperties.aisles]?: Aisles;
+  [BlockProperties.door]?: Door;
+}
+
+export interface WallBlock extends Block {
+  [BlockProperties.type]: BlockTypes.Wall | BlockTypes.Door;
+}
+
+export interface SeatBlock extends Block {
+  [BlockProperties.type]: BlockTypes.Seat;
+  [BlockProperties.seat]: Seat;
+}
+
+export interface NonSeatBlock extends Block {
+  [BlockProperties.type]: BlockTypes.None | BlockTypes.Aisles;
+  [BlockProperties.aisles]?: Aisles;
+}
+
+export enum DoorTypes {
+  Entrance = 'Entrance',
+  Exit = 'Exit',
+}
+export const doorTypeList = [DoorTypes.Entrance, DoorTypes.Exit];
+
+export enum Directions {
+  North = 'North',
+  South = 'South',
+  East = 'East',
+  West = 'West',
+}
+export const directionList = Object.keys(Directions).map((key) => key);
+
+export enum DoorProperties {
+  name = 'name',
+  type = 'type',
+  direction = 'direction',
+}
+
+export interface Door {
+  [DoorProperties.name]: string;
+  [DoorProperties.type]: DoorTypes;
+  [DoorProperties.direction]: Directions;
+}
+
+export enum AislesProperties {
+  name = 'name',
+  direction = 'direction',
+}
+
+export interface Aisles {
+  [AislesProperties.name]: string;
+  [AislesProperties.direction]: Directions;
 }

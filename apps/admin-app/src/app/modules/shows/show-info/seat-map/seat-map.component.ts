@@ -4,14 +4,23 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormArray,
   FormBuilder,
   FormControl,
   Validators,
 } from '@angular/forms';
-import { generateDefaultSeatCode } from '@la-project/utils';
+import {
+  generateDefaultRowIndexes,
+  generateDefaultSeatCode,
+} from '@la-project/utils';
 import {
   Block,
   BlockTypes,
@@ -20,13 +29,22 @@ import {
   Section,
   SectionProperties,
 } from '@libs/models';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  takeWhile,
+} from 'rxjs';
+import { BlockDetailModalComponent } from './block-detail-modal/block-detail-modal.component';
 
 @Component({
   selector: 'la-project-seat-map',
   templateUrl: './seat-map.component.html',
   styleUrls: ['./seat-map.component.scss'],
 })
-export class SeatMapComponent implements OnChanges {
+export class SeatMapComponent implements OnChanges, OnDestroy {
   @Input()
   initialData: Section = null;
 
@@ -51,12 +69,22 @@ export class SeatMapComponent implements OnChanges {
     [SectionProperties.index]: this.fb.control<number>(null, []),
     [SectionProperties.useRowIndex]: this.fb.control<boolean>(true, []),
     [SectionProperties.rowIndexes]: this.fb.array<string>([], []),
+    [SectionProperties.indexReversed]: this.fb.control<boolean>(false, []),
     [SectionProperties.seatMap]: this.fb.control<Block[][]>([], []),
   });
+  readonly subscriptions: Subscription[] = [];
 
   generatedData: Section = null;
 
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly modalService: NgbModal
+  ) {}
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub) => sub?.unsubscribe());
+    this.subscriptions.length = 0;
+  }
 
   get seatMap(): Block[][] {
     return this.sectionVal[SectionProperties.seatMap] || [];
@@ -73,16 +101,20 @@ export class SeatMapComponent implements OnChanges {
     );
   }
 
+  get rowIndexesCtrl(): FormArray {
+    return this.sectionForm.controls[SectionProperties.rowIndexes];
+  }
+
+  get indexReversedCtrl(): FormControl<boolean> {
+    return this.sectionForm.controls[SectionProperties.indexReversed];
+  }
+
   private get sectionVal(): Section {
     return this.sectionForm.value as Section;
   }
 
   private get seatMapCtrl(): FormControl<Block[][]> {
     return this.sectionForm.controls[SectionProperties.seatMap];
-  }
-
-  private get rowIndexesArrCtrl(): FormArray {
-    return this.sectionForm.controls[SectionProperties.rowIndexes] as FormArray;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -93,6 +125,15 @@ export class SeatMapComponent implements OnChanges {
           onlySelf: true,
           emitEvent: false,
         });
+        if (this.initialData.useRowIndex) {
+          this.applyRowIndex(
+            this.initialData.rowIndexes || [],
+            this.initialData.indexReversed || false,
+            false
+          );
+        } else {
+          this.notUseRowIndex(false);
+        }
         this.sectionForm.markAsPristine();
       } else {
         this.sectionForm.reset();
@@ -100,24 +141,75 @@ export class SeatMapComponent implements OnChanges {
     }
   }
 
-  generateSeatMap($event: MouseEvent): void {
-    if (this.canGenerate) {
-      if (this.sectionVal[SectionProperties.useRowIndex]) {
-        this.applyRowIndex();
-      }
-      this.seatMapCtrl.setValue(this.generateNewSeatMap());
-      this.generatedData = this.sectionVal as Section;
-    }
-    $event.preventDefault();
+  private enableRowIndexesCtrl(
+    rowIndexes: string[] = [],
+    emitEvent = true
+  ): void {
+    this.rowIndexesCtrl.enable({ emitEvent });
+    this.rowIndexesCtrl.clear({ emitEvent });
+    rowIndexes.forEach((rowCode, i) => {
+      const control = this.fb.control(rowCode, [Validators.required]);
+      control.valueChanges
+        .pipe(
+          takeWhile(() => this.rowIndexesCtrl.enabled),
+          debounceTime(400),
+          distinctUntilChanged(),
+          filter((val) => !!val)
+        )
+        .subscribe(() => {
+          this.rewriteSeatCodeInContainer(this.seatMapCtrl.value[i], i);
+        });
+      this.rowIndexesCtrl.push(control, { emitEvent });
+    });
   }
 
-  private applyRowIndex(): void {
-    for (let i = 0; i < this.sectionVal.maxRow; i++) {
-      this.rowIndexesArrCtrl.push(
-        this.fb.control(i <= 26 ? String.fromCharCode(i + 65) : null, [
-          Validators.required,
-        ])
-      );
+  private enableIndexReversedCtrl(
+    indexReversed = false,
+    emitEvent = true
+  ): void {
+    this.indexReversedCtrl.enable({ emitEvent });
+    this.indexReversedCtrl.setValue(indexReversed, { emitEvent });
+    this.indexReversedCtrl.valueChanges
+      .pipe(
+        takeWhile(() => this.indexReversedCtrl.enabled),
+        debounceTime(400),
+        distinctUntilChanged()
+      )
+      .subscribe(() => {
+        this.sectionVal.seatMap.forEach((row, index) => {
+          if (index === this.seatMap.length - 1) return;
+          this.rewriteSeatCodeInContainer(this.seatMap[index], index);
+        });
+      });
+  }
+
+  private applyRowIndex(
+    rowIndexes: string[] = [],
+    indexReversed = false,
+    emitEvent = true
+  ): void {
+    this.enableRowIndexesCtrl(rowIndexes, emitEvent);
+    this.enableIndexReversedCtrl(indexReversed, emitEvent);
+  }
+
+  private notUseRowIndex(emitEvent = true): void {
+    this.rowIndexesCtrl.clear({ emitEvent });
+    this.rowIndexesCtrl.disable({ emitEvent });
+    this.indexReversedCtrl.disable({ emitEvent });
+  }
+
+  generateSeatMap($event: MouseEvent): void {
+    $event.preventDefault();
+    if (this.canGenerate) {
+      this.generatedData = this.sectionVal as Section;
+      const { useRowIndex, maxRow } = this.generatedData;
+      if (useRowIndex) {
+        const defaultRowIndexes = generateDefaultRowIndexes(maxRow);
+        this.applyRowIndex(defaultRowIndexes, false);
+      } else {
+        this.notUseRowIndex();
+      }
+      this.seatMapCtrl.setValue(this.generateNewSeatMap());
     }
   }
 
@@ -186,7 +278,7 @@ export class SeatMapComponent implements OnChanges {
   ): void {
     moveItemInArray(container.data, previousIndex, currentIndex);
     if (this.generatedData.useRowIndex) {
-      this.rewriteSeatCodeInContainer(container, rowIndex);
+      this.rewriteSeatCodeInContainer(container.data, rowIndex);
     }
   }
 
@@ -212,27 +304,61 @@ export class SeatMapComponent implements OnChanges {
       previousIndex
     );
     if (this.generatedData.useRowIndex) {
-      this.rewriteSeatCodeInContainer(container, rowIndex);
-      const splittedPreId = previousContainer.id.split('-');
-      const previousRowIndex = Number(splittedPreId[splittedPreId.length - 1]);
-      this.rewriteSeatCodeInContainer(previousContainer, previousRowIndex);
+      this.rewriteSeatCodeInContainer(container.data, rowIndex);
+      this.rewriteSeatCodeInContainer(
+        previousContainer.data,
+        this.getRowIndexFromContainer(previousContainer)
+      );
     }
   }
 
-  private rewriteSeatCodeInContainer(
-    container: CdkDropList<Block[]>,
-    rowIndex: number
-  ): void {
-    let count = 0;
-    for (const [index, block] of container.data.entries()) {
+  private getRowIndexFromContainer(container: CdkDropList<Block[]>) {
+    const splittedPreId = container.id.split('-');
+    return Number(splittedPreId[splittedPreId.length - 1]);
+  }
+
+  private rewriteSeatCodeInContainer(data: Block[], rowIndex: number): void {
+    let count = this.sectionVal.indexReversed ? data.length - 1 : 0;
+
+    for (const [index, block] of data.entries()) {
       if (block.type === BlockTypes.Seat) {
-        count += 1;
-        container.data[index].seat.code = this.generateSeatCode(
+        if (this.sectionVal.indexReversed) {
+          count -= 1;
+        } else {
+          count += 1;
+        }
+        data[index].seat.code = this.generateSeatCode(
           rowIndex,
           count,
           this.generatedData.useRowIndex
         );
       }
     }
+  }
+
+  openBlockModal(
+    $event: MouseEvent,
+    {
+      block,
+      rowIndex,
+      colIndex,
+    }: {
+      block: Block;
+      rowIndex: number;
+      colIndex: number;
+    }
+  ) {
+    $event.preventDefault();
+    const modalRef = this.modalService.open(BlockDetailModalComponent);
+    modalRef.componentInstance.initialData = block;
+    modalRef.componentInstance.automaticIndex = this.generatedData.useRowIndex;
+    modalRef.componentInstance.ngOnChanges(modalRef.componentInstance.changes);
+    modalRef.result
+      .then((changedBlock) => {
+        if (changedBlock) {
+          this.seatMapCtrl.value[rowIndex][colIndex] = changedBlock;
+        }
+      })
+      .catch((err) => console.log(err));
   }
 }

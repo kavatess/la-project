@@ -61,7 +61,7 @@
               <mat-slide-toggle
                 [formControlName]="SectionProperties.useRowIndex"
               >
-                Tự động đánh thứ tự ghế
+                Tự động đánh số thứ tự ghế
               </mat-slide-toggle>
             </div>
           </div>
@@ -101,31 +101,49 @@
 <div *ngIf="seatMap.length" class="row">
   <div class="col-12">
     <div class="card">
-      <div class="card-header">Sơ đồ chỗ ngồi</div>
+      <div class="card-header">
+        <div class="d-flex justify-content-between w-100">
+          <div class="text">Sơ đồ chỗ ngồi</div>
+
+          <mat-slide-toggle
+            *ngIf="indexReversedCtrl.enabled"
+            [formControl]="indexReversedCtrl"
+          >
+            Đánh thứ tự ngược lại
+          </mat-slide-toggle>
+        </div>
+      </div>
 
       <div class="card-body">
         <div class="seat-map-container">
-          <div
-            *ngIf="generatedData.useRowIndex"
-            class="row-indexes-container"
-            [formGroup]="sectionForm"
-          >
-            <div class="row-index-title">
-              <h5>Row</h5>
-            </div>
-
-            <ng-container
-              *ngFor="let row of seatMap; let i = index"
-              [formGroupName]="SectionProperties.rowIndexes"
-            >
-              <div *ngIf="i < seatMap.length - 1" class="row-index-input">
-                <input type="text" class="form-control" [formControlName]="i" />
+          <ng-container *ngIf="rowIndexesCtrl.enabled">
+            <div class="row-indexes-container" [formGroup]="sectionForm">
+              <div class="row-index-title">
+                <b>Row</b>
               </div>
-            </ng-container>
-          </div>
+
+              <ng-container
+                *ngFor="let ctrl of rowIndexesCtrl.controls; let i = index"
+                [formArrayName]="SectionProperties.rowIndexes"
+              >
+                <div class="row-index-input">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [formControlName]="i"
+                  />
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
 
           <div class="content-container">
-            <div class="stage-box">
+            <div
+              class="stage-box"
+              [ngStyle]="{
+                'min-width': 'calc(83px*' + (generatedData.maxCol + 2) + ')'
+              }"
+            >
               <h4 class="mt-1 mb-1">Sân khấu chính</h4>
             </div>
 
@@ -144,7 +162,7 @@
                     *ngFor="let block of row; let colIndex = index"
                     cdkDrag
                     [cdkDragDisabled]="block.type !== BlockTypes.Seat"
-                    class="block-box"
+                    class="block-box mr-1"
                     [ngStyle]="{
                       width: 'calc(100%/' + row.length + ')'
                     }"
@@ -152,13 +170,19 @@
                     <div class="btn-group">
                       <ng-container [ngSwitch]="block.type">
                         <ng-container *ngSwitchCase="BlockTypes.None">
-                          <button class="btn">
+                          <button
+                            class="btn"
+                            (click)="openBlockModal($event,{block,rowIndex,colIndex})"
+                          >
                             <i class="bi bi-x-octagon"></i>
                           </button>
                         </ng-container>
 
                         <ng-container *ngSwitchCase="BlockTypes.Seat">
-                          <button class="btn btn-outline-secondary">
+                          <button
+                            class="btn btn-outline-secondary"
+                            (click)="openBlockModal($event,{block,rowIndex,colIndex})"
+                          >
                             {{ block.seat.code }}
                           </button>
 
@@ -171,26 +195,42 @@
                         </ng-container>
 
                         <ng-container *ngSwitchCase="BlockTypes.Aisles">
-                          <button class="btn">
+                          <button
+                            class="btn"
+                            (click)="openBlockModal($event,{block,rowIndex,colIndex})"
+                          >
                             <i class="bi bi-square-fill"></i>
                           </button>
                         </ng-container>
 
                         <ng-container *ngSwitchCase="BlockTypes.Wall">
-                          <button class="btn">
+                          <button
+                            class="btn"
+                            (click)="openBlockModal($event,{block,rowIndex,colIndex})"
+                          >
                             <i class="bi bi-bricks"></i>
                           </button>
                         </ng-container>
 
-                        <ng-container *ngSwitchCase="BlockTypes.Entrance">
+                        <ng-container *ngSwitchCase="BlockTypes.Door">
                           <ng-container *ngIf="rowIndex === row.length - 1">
-                            <button class="btn">
+                            <button
+                              class="btn"
+                              (click)="
+                                openBlockModal($event,{block,rowIndex,colIndex})
+                              "
+                            >
                               <i class="bi bi-box-arrow-in-up"></i>
                             </button>
                           </ng-container>
 
                           <ng-container *ngIf="colIndex === 0">
-                            <button class="btn">
+                            <button
+                              class="btn"
+                              (click)="
+                                openBlockModal($event,{block,rowIndex,colIndex})
+                              "
+                            >
                               <i class="bi bi-box-arrow-in-right"></i>
                             </button>
                           </ng-container>
