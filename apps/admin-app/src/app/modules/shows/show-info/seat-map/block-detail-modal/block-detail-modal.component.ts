@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnDestroy, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {
   AislesProperties,
@@ -17,20 +17,30 @@ import {
   seatStatusList,
 } from '@libs/models';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+  Observable,
+  Subject,
+  distinctUntilChanged,
+  filter,
+  map,
+  startWith,
+  takeUntil,
+  withLatestFrom,
+} from 'rxjs';
+
+export interface BlockDetails {
+  data: Block;
+  fareTypes?: FareType[];
+  automaticIndex?: boolean;
+}
 
 @Component({
   selector: 'la-project-block-detail-modal',
   templateUrl: './block-detail-modal.component.html',
   styleUrls: ['./block-detail-modal.component.scss'],
 })
-export class BlockDetailModalComponent implements OnChanges, OnDestroy {
-  @Input()
-  initialData: Block & {
-    fareTypes?: FareType[];
-  } = null;
-  @Input()
-  automaticIndex = false;
-
+export class BlockDetailModalComponent implements OnDestroy {
+  readonly inputs$ = new Subject<BlockDetails>();
   readonly activeModal = inject(NgbActiveModal);
   readonly BlockProperties = BlockProperties;
   readonly SeatProperties = SeatProperties;
@@ -43,11 +53,9 @@ export class BlockDetailModalComponent implements OnChanges, OnDestroy {
     [BlockProperties.type]: [BlockTypes.None, [Validators.required]],
     [BlockProperties.door]: this.fb.group({
       [DoorProperties.name]: this.fb.control<string>(null, []),
-      [DoorProperties.type]: this.fb.control<DoorTypes>(DoorTypes.Entrance, []),
-      [DoorProperties.direction]: this.fb.control<Directions>(
-        Directions.North,
-        []
-      ),
+      [DoorProperties.type]: this.fb.control<DoorTypes>(DoorTypes.Entrance, [
+        Validators.required,
+      ]),
     }),
     [BlockProperties.aisles]: this.fb.group({
       [AislesProperties.name]: this.fb.control<string>(null, []),
@@ -69,83 +77,85 @@ export class BlockDetailModalComponent implements OnChanges, OnDestroy {
       ),
     }),
   });
+  readonly destroyed$ = new Subject<void>();
 
-  blockTypeList = blockTypeList;
-
-  constructor(private readonly fb: FormBuilder) {}
-
-  get aislesCtrl() {
-    return this.blockForm.controls[BlockProperties.aisles] || null;
+  constructor(private readonly fb: FormBuilder) {
+    this.resetBlockForm({ emitEvent: false });
+    this.inputs$
+      .pipe(
+        filter(({ data }) => !!data),
+        takeUntil(this.destroyed$)
+      )
+      .subscribe((inputs) => this.updateBlockForm(inputs));
+    this.blockForm.controls.type.valueChanges
+      .pipe(
+        distinctUntilChanged(),
+        takeUntil(this.destroyed$),
+        withLatestFrom(this.inputs$)
+      )
+      .subscribe(([type, { automaticIndex }]) =>
+        this.changeBlockFormStatus(type, automaticIndex)
+      );
   }
 
   get doorCtrl() {
     return this.blockForm.controls[BlockProperties.door] || null;
   }
 
+  get aislesCtrl() {
+    return this.blockForm.controls[BlockProperties.aisles] || null;
+  }
+
   get seatCtrl() {
     return this.blockForm.controls[BlockProperties.seat] || null;
   }
 
-  ngOnDestroy(): void {
-    this.resetBlockForm();
-    this.blockForm.markAsPristine();
+  get fareTypes$(): Observable<FareType[]> {
+    return this.inputs$.pipe(
+      map(({ fareTypes }) => fareTypes),
+      startWith([])
+    );
   }
 
-  ngOnChanges(): void {
-    if (this.initialData) {
-      this.updateBlockTypeList(this.initialData.type);
-      this.updateBlockForm(this.initialData, {
-        emitEvent: false,
-      });
-    } else {
-      this.resetBlockForm({
-        emitEvent: false,
-      });
-    }
-    if (this.automaticIndex && this.initialData.type === BlockTypes.Seat) {
-      this.seatCtrl.controls[SeatProperties.code].disable({
-        emitEvent: false,
-      });
-    }
-  }
-
-  updateBlockForm(
-    data: Block & {
-      fareTypes?: FareType[];
-    },
-    options: {
-      onlySelf?: boolean;
-      emitEvent?: boolean;
-    } = {}
-  ) {
-    this.resetBlockForm(options);
-    if (data.type === BlockTypes.Aisles) {
-      this.aislesCtrl.enable(options);
-    } else if (data.type === BlockTypes.Door) {
-      this.doorCtrl.enable(options);
-    } else if (data.type === BlockTypes.Seat) {
-      this.seatCtrl.enable(options);
-    }
-    this.blockForm.patchValue(data, options);
-  }
-
-  updateBlockTypeList(type: BlockTypes): void {
+  get blockTypeList(): BlockTypes[] {
+    const type = this.blockForm.value.type;
     if (type === BlockTypes.None || type === BlockTypes.Aisles) {
-      this.blockTypeList = [BlockTypes.None, BlockTypes.Aisles];
-      return;
+      return [BlockTypes.None, BlockTypes.Aisles];
     }
     if (type === BlockTypes.Wall || type === BlockTypes.Door) {
-      this.blockTypeList = [BlockTypes.Wall, BlockTypes.Door];
-      return;
+      return [BlockTypes.Wall, BlockTypes.Door];
     }
     if (type === BlockTypes.Seat) {
-      this.blockTypeList = [BlockTypes.Seat];
-      return;
+      return [BlockTypes.Seat];
     }
-    this.blockTypeList = blockTypeList;
+    return blockTypeList;
   }
 
-  resetBlockForm(
+  private updateBlockForm({ data, automaticIndex }: BlockDetails): void {
+    this.resetBlockForm({ emitEvent: false });
+    this.changeBlockFormStatus(data.type, automaticIndex);
+    this.blockForm.patchValue(data, { emitEvent: false });
+  }
+
+  private changeBlockFormStatus(
+    type: BlockTypes,
+    automaticIndex = false
+  ): void {
+    if (type === BlockTypes.Door) {
+      this.doorCtrl.enable({ emitEvent: false });
+    } else if (type === BlockTypes.Aisles) {
+      this.aislesCtrl.enable({ emitEvent: false });
+    } else if (type === BlockTypes.Seat) {
+      this.seatCtrl.enable({ emitEvent: false });
+      if (automaticIndex) {
+        this.seatCtrl.controls[SeatProperties.code].disable({
+          emitEvent: false,
+        });
+      }
+    }
+  }
+
+  private resetBlockForm(
     options: {
       onlySelf?: boolean;
       emitEvent?: boolean;
@@ -159,6 +169,13 @@ export class BlockDetailModalComponent implements OnChanges, OnDestroy {
 
   saveBlockChanges($event: MouseEvent): void {
     $event.preventDefault();
+    if (this.blockForm.invalid) return;
     this.activeModal.close(this.blockForm.valid ? this.blockForm.value : null);
+  }
+
+  ngOnDestroy(): void {
+    this.inputs$.complete();
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 }

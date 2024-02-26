@@ -199,7 +199,16 @@
                             class="btn"
                             (click)="openBlockModal($event,{block,rowIndex,colIndex})"
                           >
-                            <i class="bi bi-square-fill"></i>
+                            <i
+                              class="bi text-secondary"
+                              [ngClass]="{
+                              'bi-square-fill': !block.aisles.direction,
+                              'bi-caret-up-square-fill': block.aisles.direction === 'North',
+                              'bi-caret-down-square-fill': block.aisles.direction === 'South',
+                              'bi-caret-left-square-fill': block.aisles.direction === 'West',
+                              'bi-caret-right-square-fill': block.aisles.direction === 'East',
+                            }"
+                            ></i>
                           </button>
                         </ng-container>
 
@@ -213,33 +222,36 @@
                         </ng-container>
 
                         <ng-container *ngSwitchCase="BlockTypes.Door">
-                          <ng-container *ngIf="rowIndex === row.length - 1">
-                            <button
-                              class="btn"
-                              (click)="
+                          <button
+                            class="btn"
+                            (click)="
                                 openBlockModal($event,{block,rowIndex,colIndex})
                               "
-                            >
-                              <i class="bi bi-box-arrow-in-up"></i>
-                            </button>
-                          </ng-container>
-
-                          <ng-container *ngIf="colIndex === 0">
-                            <button
-                              class="btn"
-                              (click)="
-                                openBlockModal($event,{block,rowIndex,colIndex})
-                              "
-                            >
-                              <i class="bi bi-box-arrow-in-right"></i>
-                            </button>
-                          </ng-container>
-
-                          <ng-container *ngIf="colIndex === 0">
-                            <button class="btn p-0">
-                              <i class="bi bi-box-arrow-in-left"></i>
-                            </button>
-                          </ng-container>
+                          >
+                            <i
+                              class="bi"
+                              [ngClass]="{
+                                'bi-box-arrow-in-up':
+                                  rowIndex === generatedData.maxRow &&
+                                  block.door.type === 'Entrance',
+                                'bi-box-arrow-in-down':
+                                  rowIndex === generatedData.maxRow &&
+                                  block.door.type === 'Exit',
+                                'bi-box-arrow-in-right':
+                                  (colIndex === 0 &&
+                                    block.door.type === 'Entrance') ||
+                                  (colIndex === generatedData.maxCol + 1 &&
+                                    block.door.type === 'Exit'),
+                                'bi-box-arrow-in-left':
+                                  (colIndex === 0 &&
+                                    block.door.type === 'Exit') ||
+                                  (colIndex === generatedData.maxCol + 1 &&
+                                    block.door.type === 'Entrance'),
+                                'text-success': block.door.type === 'Entrance',
+                                'text-danger': block.door.type === 'Exit'
+                              }"
+                            ></i>
+                          </button>
                         </ng-container>
                       </ng-container>
                     </div>

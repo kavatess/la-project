@@ -125,7 +125,6 @@ export enum DoorProperties {
 export interface Door {
   [DoorProperties.name]: string;
   [DoorProperties.type]: DoorTypes;
-  [DoorProperties.direction]: Directions;
 }
 
 export enum AislesProperties {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   CdkDragDrop,
   CdkDropList,
@@ -31,6 +32,7 @@ import {
 } from '@libs/models';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
+  Subject,
   Subscription,
   debounceTime,
   distinctUntilChanged,
@@ -350,9 +352,12 @@ export class SeatMapComponent implements OnChanges, OnDestroy {
   ) {
     $event.preventDefault();
     const modalRef = this.modalService.open(BlockDetailModalComponent);
-    modalRef.componentInstance.initialData = block;
-    modalRef.componentInstance.automaticIndex = this.generatedData.useRowIndex;
-    modalRef.componentInstance.ngOnChanges(modalRef.componentInstance.changes);
+    const inputs$ = modalRef.componentInstance.inputs$ as Subject<any>;
+    inputs$.next({
+      data: block,
+      automaticIndex: this.generatedData.useRowIndex,
+      fareTypes: [],
+    });
     modalRef.result
       .then((changedBlock) => {
         if (changedBlock) {

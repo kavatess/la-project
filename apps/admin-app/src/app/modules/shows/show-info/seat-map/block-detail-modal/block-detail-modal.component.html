@@ -18,134 +18,109 @@
             {{ type }}
           </option>
         </select>
+      </div>
+    </div>
 
-        <hr />
+    <hr />
+
+    <ng-container *ngIf="aislesCtrl.enabled" [formGroup]="aislesCtrl">
+      <h6>Thông tin lối đi</h6>
+
+      <div class="row mb-2">
+        <div class="col-12">
+          <label class="form-label">Tên lối đi</label>
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="AislesProperties.name"
+          />
+        </div>
       </div>
 
-      <ng-container *ngIf="aislesCtrl.enabled" [formGroup]="aislesCtrl">
-        <h6>Thông tin lối đi</h6>
-
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Tên lối đi</label>
-            <input
-              type="text"
-              class="form-control"
-              [formControlName]="AislesProperties.name"
-            />
-          </div>
+      <div class="row mb-2">
+        <div class="col-12">
+          <label class="form-label">Hướng</label>
+          <select
+            class="form-select"
+            [formControlName]="AislesProperties.direction"
+          >
+            <option value="">-- None --</option>
+            <option *ngFor="let direction of directionList" [value]="direction">
+              {{ direction }}
+            </option>
+          </select>
         </div>
+      </div>
+    </ng-container>
 
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Hướng</label>
-            <select
-              class="form-select"
-              [formControlName]="AislesProperties.direction"
+    <ng-container *ngIf="doorCtrl.enabled" [formGroup]="doorCtrl">
+      <h6>Thông tin cửa ra/vào</h6>
+
+      <div class="row mb-2">
+        <div class="col-12">
+          <label class="form-label">Tiêu đề cho cửa</label>
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="DoorProperties.name"
+          />
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-12">
+          <label class="form-label">Chế độ </label>
+          <select class="form-select" [formControlName]="DoorProperties.type">
+            <option *ngFor="let type of doorTypeList" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="seatCtrl.enabled" [formGroup]="seatCtrl">
+      <h6>Thông tin cửa ra/vào</h6>
+
+      <div class="row mb-2">
+        <div class="col-12">
+          <label class="form-label">Mã ghế ngồi</label>
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="SeatProperties.code"
+          />
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-12">
+          <label class="form-label">Loại vé gán cho ghế </label>
+          <select
+            class="form-select"
+            [formControlName]="SeatProperties.fareTypeId"
+          >
+            <option
+              *ngFor="let fareType of fareTypes$ | async"
+              [value]="fareType.id"
             >
-              <option
-                *ngFor="let direction of directionList"
-                [value]="direction"
-              >
-                {{ direction }}
-              </option>
-            </select>
-          </div>
+              {{ fareType.title }}
+            </option>
+          </select>
         </div>
-      </ng-container>
+      </div>
 
-      <ng-container *ngIf="doorCtrl.enabled" [formGroup]="doorCtrl">
-        <h6>Thông tin cửa ra/vào</h6>
-
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Tiêu đề cho cửa</label>
-            <input
-              type="text"
-              class="form-control"
-              [formControlName]="DoorProperties.name"
-            />
-          </div>
+      <div class="row mb-2">
+        <div class="col-12">
+          <label class="form-label">Tình trạng</label>
+          <select class="form-select" [formControlName]="SeatProperties.status">
+            <option *ngFor="let status of seatStatusList" [value]="status">
+              {{ status }}
+            </option>
+          </select>
         </div>
-
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Chế độ </label>
-            <select
-              class="form-control"
-              [formControlName]="DoorProperties.type"
-            >
-              <option *ngFor="let type of doorTypeList" [value]="type">
-                {{ type }}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Hướng</label>
-            <select
-              class="form-select"
-              [formControlName]="DoorProperties.direction"
-            >
-              <option
-                *ngFor="let direction of directionList"
-                [value]="direction"
-              >
-                {{ direction }}
-              </option>
-            </select>
-          </div>
-        </div>
-      </ng-container>
-
-      <ng-container *ngIf="seatCtrl.enabled" [formGroup]="seatCtrl">
-        <h6>Thông tin cửa ra/vào</h6>
-
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Mã ghế ngồi</label>
-            <input
-              type="text"
-              class="form-control"
-              [formControlName]="SeatProperties.code"
-            />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Loại vé gán cho ghế </label>
-            <select
-              class="form-select"
-              [formControlName]="SeatProperties.fareTypeId"
-            >
-              <option
-                *ngFor="let fareType of initialData?.fareTypes || []"
-                [value]="fareType.id"
-              >
-                {{ fareType.title }}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <label class="form-label">Tình trạng</label>
-            <select
-              class="form-select"
-              [formControlName]="SeatProperties.status"
-            >
-              <option *ngFor="let status of seatStatusList" [value]="status">
-                {{ status }}
-              </option>
-            </select>
-          </div>
-        </div>
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
   </form>
 </div>
 
@@ -153,6 +128,7 @@
   <button
     type="button"
     class="btn btn-outline-success"
+    [disabled]="blockForm.invalid"
     (click)="saveBlockChanges($event)"
   >
     Save
