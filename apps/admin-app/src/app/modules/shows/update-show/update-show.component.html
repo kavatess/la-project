@@ -34,9 +34,11 @@
       </li>
 
       <li [ngbNavItem]="3" class="nav-item">
-        <a ngbNavLink class="nav-link">Giá vé</a>
+        <a ngbNavLink class="nav-link">Các loại vé</a>
         <ng-template ngbNavContent>
-          <la-project-fare-types></la-project-fare-types>
+          <la-project-fare-types-table
+            [fareTypeList]="fareTypeList$ | async"
+          ></la-project-fare-types-table>
         </ng-template>
       </li>
     </ul>

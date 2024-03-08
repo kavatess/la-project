@@ -360,10 +360,14 @@ export class SeatMapComponent implements OnChanges, OnDestroy {
     });
     modalRef.result
       .then((changedBlock) => {
+        console.log(changedBlock);
         if (changedBlock) {
-          this.seatMapCtrl.value[rowIndex][colIndex] = changedBlock;
+          this.seatMapCtrl.value[rowIndex][colIndex] = {
+            ...this.seatMapCtrl.value[rowIndex][colIndex],
+            ...changedBlock,
+          };
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }
 }

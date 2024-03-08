@@ -2890,6 +2890,15 @@
         "hash": "sha512-zZfq47LNoiRK+uS66Xm36mN07zm11AER1D9lTalX/G6jrV0bywgnAaukNNav9E33ZRrPEnCD8uu9BXZoboEYgA=="
       }
     },
+    "npm:@ngrx/store-devtools": {
+      "type": "npm",
+      "name": "npm:@ngrx/store-devtools",
+      "data": {
+        "version": "16.2.0",
+        "packageName": "@ngrx/store-devtools",
+        "hash": "sha512-m7mkNpIIp8fA8yNG5T0ZKm1RCP2fE0IVBEtcbj2Z/88fW4vyvobVBdBqha6zgYTuA5X4m28npMra9GPNPsuDLA=="
+      }
+    },
     "npm:@ngrx/store": {
       "type": "npm",
       "name": "npm:@ngrx/store",
@@ -20273,6 +20282,13 @@
     "npm:@ngrx/effects": [
       {
         "source": "npm:@ngrx/effects",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@ngrx/store-devtools": [
+      {
+        "source": "npm:@ngrx/store-devtools",
         "target": "npm:tslib",
         "type": "static"
       }

@@ -51,6 +51,7 @@
     "@angular/localize": "~16.2.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
+    "@ngrx/store-devtools": "16.2.0",
     "@nrwl/angular": "^16.7.4",
     "@nx/angular": "^16.7.4",
     "@nx/cypress": "16.7.4",

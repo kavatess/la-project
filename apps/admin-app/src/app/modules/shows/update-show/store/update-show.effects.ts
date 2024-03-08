@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { catchError, exhaustMap, map, withLatestFrom } from 'rxjs/operators';
 import { UpdateShowService } from './update-show.service';
 import { showFormActions } from './update-show.actions';
-import { seatMapSelectors } from './update-show.selectors';
+import { showIdSelector } from './update-show.selectors';
 
 @Injectable()
 export class UpdateShowEffects {
@@ -13,9 +13,9 @@ export class UpdateShowEffects {
     private readonly service: UpdateShowService
   ) {}
 
-  readonly getShowById$ = createEffect(() =>
+  readonly fetchShowId$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.getShowById),
+      ofType(showFormActions.fetchShowId),
       exhaustMap((action) =>
         this.service.getShowById(action.showId).pipe(
           map((data) => showFormActions.loadShowData({ data })),
@@ -27,19 +27,32 @@ export class UpdateShowEffects {
     )
   );
 
-  readonly getSection$ = createEffect(() =>
+  readonly getShowData$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.getSection),
-      withLatestFrom(seatMapSelectors.selectedSectionId),
-      exhaustMap(([, sectionId]) =>
-        sectionId
-          ? this.service.getSectionById(sectionId).pipe(
-              map((data) => showFormActions.loadSelectedSection({ data })),
-              catchError((error) => {
-                return of(showFormActions.loadSelectedSectionError({ error }));
-              })
-            )
-          : of(showFormActions.loadSelectedSection({ data: null }))
+      ofType(showFormActions.getShowData),
+      withLatestFrom(showIdSelector),
+      exhaustMap(([, showId]) =>
+        this.service.getShowById(showId).pipe(
+          map((data) => showFormActions.loadShowData({ data })),
+          catchError((error) => {
+            return of(showFormActions.loadShowDataError({ error }));
+          })
+        )
+      )
+    )
+  );
+
+  readonly getShowSectionList$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(showFormActions.getShowSectionList),
+      withLatestFrom(showIdSelector),
+      exhaustMap(([, showId]) =>
+        this.service.getShowSectionList(showId).pipe(
+          map((data) => showFormActions.loadSectionList({ data })),
+          catchError((error) => {
+            return of(showFormActions.loadSectionListError({ error }));
+          })
+        )
       )
     )
   );
@@ -52,6 +65,21 @@ export class UpdateShowEffects {
           map((data) => showFormActions.loadSelectedSection({ data })),
           catchError((error) => {
             return of(showFormActions.loadSelectedSectionError({ error }));
+          })
+        )
+      )
+    )
+  );
+
+  readonly getShowFareTypes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(showFormActions.getShowFareTypes),
+      withLatestFrom(showIdSelector),
+      exhaustMap(([, showId]) =>
+        this.service.getShowFareTypes(showId).pipe(
+          map((data) => showFormActions.loadFareTypes({ data })),
+          catchError((error) => {
+            return of(showFormActions.loadFareTypesError({ error }));
           })
         )
       )

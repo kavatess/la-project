@@ -293,6 +293,61 @@
         "tags": []
       }
     },
+    "front-end": {
+      "name": "front-end",
+      "type": "lib",
+      "data": {
+        "name": "front-end",
+        "root": "libs/front-end",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/front-end/src",
+        "projectType": "library",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/js:tsc",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/libs/front-end",
+              "main": "libs/front-end/src/index.ts",
+              "tsConfig": "libs/front-end/tsconfig.lib.json",
+              "assets": [
+                "libs/front-end/*.md"
+              ]
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/front-end/**/*.ts",
+                "libs/front-end/package.json"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
     "admin-app": {
       "name": "admin-app",
       "type": "app",
@@ -455,114 +510,6 @@
         "implicitDependencies": []
       }
     },
-    "front-end": {
-      "name": "front-end",
-      "type": "lib",
-      "data": {
-        "name": "front-end",
-        "root": "libs/front-end",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/front-end/src",
-        "projectType": "library",
-        "targets": {
-          "build": {
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production"
-            ],
-            "executor": "@nx/js:tsc",
-            "outputs": [
-              "{options.outputPath}"
-            ],
-            "options": {
-              "outputPath": "dist/libs/front-end",
-              "main": "libs/front-end/src/index.ts",
-              "tsConfig": "libs/front-end/tsconfig.lib.json",
-              "assets": [
-                "libs/front-end/*.md"
-              ]
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/front-end/**/*.ts",
-                "libs/front-end/package.json"
-              ]
-            },
-            "configurations": {}
-          }
-        },
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "models": {
-      "name": "models",
-      "type": "lib",
-      "data": {
-        "name": "models",
-        "root": "libs/models",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/models/src",
-        "projectType": "library",
-        "targets": {
-          "build": {
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production"
-            ],
-            "executor": "@nx/js:tsc",
-            "outputs": [
-              "{options.outputPath}"
-            ],
-            "options": {
-              "outputPath": "dist/libs/models",
-              "main": "libs/models/src/index.ts",
-              "tsConfig": "libs/models/tsconfig.lib.json",
-              "assets": []
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/models/**/*.ts",
-                "libs/models/package.json"
-              ]
-            },
-            "configurations": {}
-          }
-        },
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
     "server": {
       "name": "server",
       "type": "app",
@@ -655,6 +602,59 @@
                 "codeCoverage": true
               }
             }
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "models": {
+      "name": "models",
+      "type": "lib",
+      "data": {
+        "name": "models",
+        "root": "libs/models",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/models/src",
+        "projectType": "library",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/js:tsc",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/libs/models",
+              "main": "libs/models/src/index.ts",
+              "tsConfig": "libs/models/tsconfig.lib.json",
+              "assets": []
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/models/**/*.ts",
+                "libs/models/package.json"
+              ]
+            },
+            "configurations": {}
           }
         },
         "tags": [],
@@ -3605,6 +3605,15 @@
         "version": "16.2.0",
         "packageName": "@ngrx/effects",
         "hash": "sha512-zZfq47LNoiRK+uS66Xm36mN07zm11AER1D9lTalX/G6jrV0bywgnAaukNNav9E33ZRrPEnCD8uu9BXZoboEYgA=="
+      }
+    },
+    "npm:@ngrx/store-devtools": {
+      "type": "npm",
+      "name": "npm:@ngrx/store-devtools",
+      "data": {
+        "version": "16.2.0",
+        "packageName": "@ngrx/store-devtools",
+        "hash": "sha512-m7mkNpIIp8fA8yNG5T0ZKm1RCP2fE0IVBEtcbj2Z/88fW4vyvobVBdBqha6zgYTuA5X4m28npMra9GPNPsuDLA=="
       }
     },
     "npm:@ngrx/store": {
@@ -14388,6 +14397,23 @@
         "type": "static"
       }
     ],
+    "front-end": [
+      {
+        "source": "front-end",
+        "target": "npm:tslib",
+        "type": "static"
+      },
+      {
+        "source": "front-end",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "front-end",
+        "target": "npm:@ng-bootstrap/ng-bootstrap",
+        "type": "static"
+      }
+    ],
     "admin-app": [
       {
         "source": "admin-app",
@@ -14417,6 +14443,11 @@
       {
         "source": "admin-app",
         "target": "npm:@ngrx/effects",
+        "type": "static"
+      },
+      {
+        "source": "admin-app",
+        "target": "npm:@ngrx/store-devtools",
         "type": "static"
       },
       {
@@ -14480,30 +14511,6 @@
         "type": "static"
       }
     ],
-    "front-end": [
-      {
-        "source": "front-end",
-        "target": "npm:tslib",
-        "type": "static"
-      },
-      {
-        "source": "front-end",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "front-end",
-        "target": "npm:@ng-bootstrap/ng-bootstrap",
-        "type": "static"
-      }
-    ],
-    "models": [
-      {
-        "source": "models",
-        "target": "npm:tslib",
-        "type": "static"
-      }
-    ],
     "server": [
       {
         "source": "server",
@@ -14523,6 +14530,13 @@
       {
         "source": "server",
         "target": "npm:@nx/webpack",
+        "type": "static"
+      }
+    ],
+    "models": [
+      {
+        "source": "models",
+        "target": "npm:tslib",
         "type": "static"
       }
     ],
@@ -21207,6 +21221,13 @@
     "npm:@ngrx/effects": [
       {
         "source": "npm:@ngrx/effects",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@ngrx/store-devtools": [
+      {
+        "source": "npm:@ngrx/store-devtools",
         "target": "npm:tslib",
         "type": "static"
       }

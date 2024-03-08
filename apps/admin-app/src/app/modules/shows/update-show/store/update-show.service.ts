@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import {
+  FareType,
+  FareTypeProperties,
   Section,
-  SectionProperties,
   Show,
   ShowProperties,
   ShowStatuses,
@@ -17,10 +17,7 @@ import { Observable, of } from 'rxjs';
 export class UpdateShowService {
   private readonly UPDATE_SHOW_REQUEST_ROUTE = 'show';
 
-  constructor(
-    private readonly http: HttpClient,
-    private readonly router: Router
-  ) {}
+  constructor(private readonly http: HttpClient) {}
 
   getShowById(showId: string): Observable<Show> {
     return of({
@@ -53,7 +50,27 @@ export class UpdateShowService {
     return [];
   }
 
+  getShowSectionList(showId: string): Observable<Section[]> {
+    return of([]);
+  }
+
   getSectionById(sectionId: string): Observable<Section> {
     return of(null);
+  }
+
+  getShowFareTypes(showId: string): Observable<FareType[]> {
+    console.log('getting FareTypes');
+    return of([
+      {
+        [FareTypeProperties.title]: 'VIP',
+        [FareTypeProperties.displayColor]: 'yellow',
+        [FareTypeProperties.price]: 1000000,
+      },
+      {
+        [FareTypeProperties.title]: 'Thường',
+        [FareTypeProperties.displayColor]: 'lightblue',
+        [FareTypeProperties.price]: 500000,
+      },
+    ]);
   }
 }

@@ -69,7 +69,7 @@ export class BlockDetailModalComponent implements OnDestroy {
         Validators.required,
       ]),
       [SeatProperties.fareTypeId]: this.fb.control<string>(null, [
-        Validators.required,
+        // Validators.required,
       ]),
       [SeatProperties.status]: this.fb.control<SeatStatuses>(
         SeatStatuses.Available,
@@ -142,10 +142,12 @@ export class BlockDetailModalComponent implements OnDestroy {
     automaticIndex = false
   ): void {
     if (type === BlockTypes.Door) {
-      this.doorCtrl.enable({ emitEvent: false });
-    } else if (type === BlockTypes.Aisles) {
-      this.aislesCtrl.enable({ emitEvent: false });
-    } else if (type === BlockTypes.Seat) {
+      return this.doorCtrl.enable({ emitEvent: false });
+    }
+    if (type === BlockTypes.Aisles) {
+      return this.aislesCtrl.enable({ emitEvent: false });
+    }
+    if (type === BlockTypes.Seat) {
       this.seatCtrl.enable({ emitEvent: false });
       if (automaticIndex) {
         this.seatCtrl.controls[SeatProperties.code].disable({
@@ -170,7 +172,10 @@ export class BlockDetailModalComponent implements OnDestroy {
   saveBlockChanges($event: MouseEvent): void {
     $event.preventDefault();
     if (this.blockForm.invalid) return;
-    this.activeModal.close(this.blockForm.valid ? this.blockForm.value : null);
+    if (this.blockForm.value.type === BlockTypes.Seat) {
+      this.seatCtrl.controls.code.enable({ emitEvent: false });
+    }
+    this.activeModal.close(this.blockForm.value);
   }
 
   ngOnDestroy(): void {

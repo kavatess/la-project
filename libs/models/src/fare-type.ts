@@ -9,5 +9,5 @@ export enum FareTypeProperties {
 export interface FareType extends BasicModel {
   [FareTypeProperties.title]: string;
   [FareTypeProperties.displayColor]: string;
-  [FareTypeProperties.price]: string;
+  [FareTypeProperties.price]: number;
 }

@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Loại vé</th>
+      <th scope="col">Màu sắc hiển thị</th>
+      <th scope="col">Giá vé</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let fareType of fareTypeList; let i = index">
+      <td>{{ i }}</td>
+      <td>{{ fareType.title }}</td>
+      <td>
+        <i
+          class="bi bi-square-fill"
+          [style.background-color]="fareType.displayColor"
+        ></i>
+      </td>
+      <td>{{ fareType.price | currency : 'vnd' }}</td>
+    </tr>
+  </tbody>
+</table>

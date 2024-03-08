@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
-import { ShowInfoComponent } from './show-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FareTypesComponent } from './fare-types/fare-types.component';
 import { ShowFormComponent } from './show-form/show-form.component';
 import { SeatMapComponent } from './seat-map/seat-map.component';
 import {
@@ -12,14 +10,16 @@ import {
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BlockDetailModalComponent } from './seat-map/block-detail-modal/block-detail-modal.component';
+import { FareTypesTableComponent } from './fare-types-table/fare-types-table.component';
+import { FareTypeFormComponent } from './fare-types-table/fare-type-form/fare-type-form.component';
 
 @NgModule({
   declarations: [
-    ShowInfoComponent,
-    FareTypesComponent,
     ShowFormComponent,
     SeatMapComponent,
     BlockDetailModalComponent,
+    FareTypesTableComponent,
+    FareTypeFormComponent,
   ],
   imports: [
     CommonModule,
@@ -31,11 +31,6 @@ import { BlockDetailModalComponent } from './seat-map/block-detail-modal/block-d
     NgbTimepickerModule,
     NgbModalModule,
   ],
-  exports: [
-    ShowInfoComponent,
-    FareTypesComponent,
-    ShowFormComponent,
-    SeatMapComponent,
-  ],
+  exports: [ShowFormComponent, SeatMapComponent, FareTypesTableComponent],
 })
 export class ShowInfoModule {}

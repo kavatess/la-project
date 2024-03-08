@@ -1,22 +1,29 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { Show } from 'libs/models/src/show';
 import { ShowFormState } from './update-show.reducer';
-import { Section } from '@libs/models';
+import { FareType, Section } from '@libs/models';
 
 // Form Actions
 export const showFormActions = createActionGroup({
-  source: '[shows/update:show-form]',
+  source: 'shows/update',
   events: {
-    getShowById: props<{ showId: string }>(),
+    fetchShowId: props<{ showId: string }>(),
+    getShowData: emptyProps(),
     loadShowData: props<{ data: Show }>(),
     loadShowDataError: props<{ error: Error }>(),
     fetchShowForm: props<{ formState: ShowFormState }>(),
     updateShow: emptyProps(),
-    getSection: emptyProps(),
+    getShowSectionList: emptyProps(),
+    loadSectionList: props<{ data: Section[] }>(),
+    loadSectionListError: props<{ error: Error }>(),
+    getSelectedSection: emptyProps(),
     loadSelectedSection: props<{ data: Section }>(),
     loadSelectedSectionError: props<{ error: Error }>(),
     changeSection: props<{ sectionId: string }>(),
     updateSelectedSection: props<{ data: any }>(),
     createSection: props<{ data: any }>(),
+    getShowFareTypes: emptyProps(),
+    loadFareTypes: props<{ data: FareType[] }>(),
+    loadFareTypesError: props<{ error: Error }>(),
   },
 });

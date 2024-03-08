@@ -6,6 +6,7 @@ import { createFeatureSelector } from '@ngrx/store';
 import { UPDATE_SHOW_STORE_NAME } from '../update-show.constants';
 import { EffectsModule } from '@ngrx/effects';
 import { UpdateShowEffects } from './update-show.effects';
+import { UpdateShowService } from './update-show.service';
 
 export const updateShowFeature = createFeature({
   name: UPDATE_SHOW_STORE_NAME,
@@ -21,5 +22,6 @@ export const updateShowFeatureSelector = createFeatureSelector<UpdateShowState>(
     StoreModule.forFeature(updateShowFeature),
     EffectsModule.forFeature(UpdateShowEffects),
   ],
+  providers: [UpdateShowService],
 })
 export class UpdateShowStoreModule {}

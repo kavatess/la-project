@@ -7,10 +7,11 @@ import { showFormActions } from './store/update-show.actions';
 import { ShowFormComponent } from '../show-info/show-form/show-form.component';
 import { ShowFormState, UpdateShowState } from './store/update-show.reducer';
 import {
+  fareTypesSelectors,
   seatMapSelectors,
   showFormSelector,
 } from './store/update-show.selectors';
-import { SectionProperties } from '@libs/models';
+import { FareTypeProperties, SectionProperties } from '@libs/models';
 
 @Component({
   selector: 'la-project-update-show',
@@ -25,6 +26,7 @@ export class UpdateShowComponent implements OnInit {
     distinctUntilChanged()
   );
   readonly sections$ = this.store.select(seatMapSelectors.sections);
+  readonly fareTypeList$ = this.store.select(fareTypesSelectors.data);
 
   @ViewChild(ShowFormComponent)
   private showformComp: ShowFormComponent;
@@ -35,27 +37,67 @@ export class UpdateShowComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadShowData();
+    this.fetchShowIdToStore();
   }
 
   onNavChange(changeEv: NgbNavChangeEvent) {
     if (changeEv.activeId === 1) {
-      return this.store.dispatch(
-        showFormActions.fetchShowForm({ formState: this.getFormState() })
-      );
+      this.fetchShowFormToStore();
     }
-    if (changeEv.activeId === 2) {
-      return this.store.dispatch(showFormActions.getSection());
-      // return this.store.dispatch
+    if (changeEv.nextId === 1) {
+      return this.getShowData();
     }
-    if (changeEv.activeId === 3) {
-      // return this.store.dispatch
+    if (changeEv.nextId === 2) {
+      this.getShowFareTypes();
+      return this.getSectionData();
+    }
+    if (changeEv.nextId === 3) {
+      return this.getShowFareTypes();
     }
   }
 
-  private loadShowData(): void {
-    const showId = this.router.snapshot.paramMap.get('showId');
-    this.store.dispatch(showFormActions.getShowById({ showId }));
+  private fetchShowIdToStore(): void {
+    this.store.dispatch(
+      showFormActions.fetchShowId({
+        showId: this.router.snapshot.paramMap.get('showId'),
+      })
+    );
+  }
+
+  private fetchShowFormToStore(): void {
+    this.store.dispatch(
+      showFormActions.fetchShowForm({
+        formState: this.getFormState(),
+      })
+    );
+  }
+
+  private getShowData(): void {
+    this.store.dispatch(showFormActions.getShowData());
+  }
+
+  private getSectionData(): void {
+    this.store.dispatch(showFormActions.getShowSectionList());
+  }
+
+  private getShowFareTypes(): void {
+    // this.store.dispatch(showFormActions.getShowFareTypes());
+    this.store.dispatch(
+      showFormActions.loadFareTypes({
+        data: [
+          {
+            [FareTypeProperties.title]: 'VIP',
+            [FareTypeProperties.displayColor]: 'yellow',
+            [FareTypeProperties.price]: 1000000,
+          },
+          {
+            [FareTypeProperties.title]: 'Thường',
+            [FareTypeProperties.displayColor]: 'lightblue',
+            [FareTypeProperties.price]: 500000,
+          },
+        ],
+      })
+    );
   }
 
   private getFormState(): ShowFormState {

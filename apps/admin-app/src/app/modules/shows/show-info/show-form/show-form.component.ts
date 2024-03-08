@@ -121,13 +121,11 @@ export class ShowFormComponent implements OnChanges {
     if (state.pristine) {
       return this.form.markAsPristine();
     }
-
     if (state.touched) {
       this.form.markAsTouched({ onlySelf: true });
     } else {
       this.form.markAsUntouched();
     }
-
     if (state.dirty) {
       this.form.markAsDirty({ onlySelf: true });
     }
