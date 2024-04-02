@@ -18,12 +18,11 @@ import {
 } from '@libs/models';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {
-  Observable,
+  BehaviorSubject,
   Subject,
   distinctUntilChanged,
   filter,
   map,
-  startWith,
   takeUntil,
   withLatestFrom,
 } from 'rxjs';
@@ -40,7 +39,16 @@ export interface BlockDetails {
   styleUrls: ['./block-detail-modal.component.scss'],
 })
 export class BlockDetailModalComponent implements OnDestroy {
-  readonly inputs$ = new Subject<BlockDetails>();
+  readonly inputs$ = new BehaviorSubject<BlockDetails>({
+    data: null,
+    fareTypes: [],
+    automaticIndex: false,
+  });
+  readonly fareTypes$ = this.inputs$.pipe(
+    filter(({ data }) => !!data),
+    map((data) => data?.fareTypes || [])
+  );
+
   readonly activeModal = inject(NgbActiveModal);
   readonly BlockProperties = BlockProperties;
   readonly SeatProperties = SeatProperties;
@@ -49,6 +57,7 @@ export class BlockDetailModalComponent implements OnDestroy {
   readonly seatStatusList = seatStatusList;
   readonly directionList = directionList;
   readonly doorTypeList = doorTypeList;
+
   readonly blockForm = this.fb.group({
     [BlockProperties.type]: [BlockTypes.None, [Validators.required]],
     [BlockProperties.door]: this.fb.group({
@@ -69,7 +78,7 @@ export class BlockDetailModalComponent implements OnDestroy {
         Validators.required,
       ]),
       [SeatProperties.fareTypeId]: this.fb.control<string>(null, [
-        // Validators.required,
+        Validators.required,
       ]),
       [SeatProperties.status]: this.fb.control<SeatStatuses>(
         SeatStatuses.Available,
@@ -108,13 +117,6 @@ export class BlockDetailModalComponent implements OnDestroy {
 
   get seatCtrl() {
     return this.blockForm.controls[BlockProperties.seat] || null;
-  }
-
-  get fareTypes$(): Observable<FareType[]> {
-    return this.inputs$.pipe(
-      map(({ fareTypes }) => fareTypes),
-      startWith([])
-    );
   }
 
   get blockTypeList(): BlockTypes[] {
@@ -179,7 +181,6 @@ export class BlockDetailModalComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.inputs$.complete();
     this.destroyed$.next();
     this.destroyed$.complete();
   }

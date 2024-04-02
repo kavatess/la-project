@@ -39,6 +39,7 @@
     <ng-container *ngIf="selectedSection">
       <la-project-seat-map
         [initialData]="selectedSection"
+        [fareTypes]="fareTypes"
       ></la-project-seat-map>
     </ng-container>
   </ng-container>
@@ -48,6 +49,9 @@
 
     <hr />
 
-    <la-project-seat-map></la-project-seat-map>
+    <la-project-seat-map
+      [initialData]="null"
+      [fareTypes]="fareTypes"
+    ></la-project-seat-map>
   </ng-container>
 </ng-container>

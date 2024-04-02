@@ -10,15 +10,15 @@
 
   <tbody>
     <tr *ngFor="let fareType of fareTypeList; let i = index">
-      <td>{{ i }}</td>
+      <td>{{ i + 1 }}</td>
       <td>{{ fareType.title }}</td>
       <td>
         <i
           class="bi bi-square-fill"
-          [style.background-color]="fareType.displayColor"
+          [style.color]="fareType.displayColor"
         ></i>
       </td>
-      <td>{{ fareType.price | currency : 'vnd' }}</td>
+      <td>{{ fareType.price | currency : 'đ' }}</td>
     </tr>
   </tbody>
 </table>

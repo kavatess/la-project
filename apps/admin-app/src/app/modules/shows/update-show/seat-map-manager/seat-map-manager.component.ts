@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Section, SectionProperties } from '@libs/models';
+import { FareType, Section, SectionProperties } from '@libs/models';
 
 enum SeatMapViewModes {
   Create = 'Create',
@@ -17,6 +17,8 @@ export class SeatMapManagerComponent {
   sections: Section[] = [];
   @Input()
   selectedSection: Section = null;
+  @Input()
+  fareTypes: FareType[] = [];
   @Output()
   sectionChange = new EventEmitter();
 

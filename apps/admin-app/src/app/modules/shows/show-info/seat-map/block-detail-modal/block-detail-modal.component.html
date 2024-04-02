@@ -103,8 +103,9 @@
             <option
               *ngFor="let fareType of fareTypes$ | async"
               [value]="fareType.id"
+              [style.background-color]="fareType.displayColor"
             >
-              {{ fareType.title }}
+              {{ fareType.title }} - {{ fareType.price | currency : 'đ' }}
             </option>
           </select>
         </div>

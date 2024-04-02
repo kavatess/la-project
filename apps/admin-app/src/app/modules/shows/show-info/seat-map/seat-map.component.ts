@@ -25,6 +25,7 @@ import {
 import {
   Block,
   BlockTypes,
+  FareType,
   SeatProperties,
   SeatStatuses,
   Section,
@@ -39,7 +40,10 @@ import {
   filter,
   takeWhile,
 } from 'rxjs';
-import { BlockDetailModalComponent } from './block-detail-modal/block-detail-modal.component';
+import {
+  BlockDetailModalComponent,
+  BlockDetails,
+} from './block-detail-modal/block-detail-modal.component';
 
 @Component({
   selector: 'la-project-seat-map',
@@ -49,6 +53,8 @@ import { BlockDetailModalComponent } from './block-detail-modal/block-detail-mod
 export class SeatMapComponent implements OnChanges, OnDestroy {
   @Input()
   initialData: Section = null;
+  @Input()
+  fareTypes: FareType[] = [];
 
   readonly SectionProperties = SectionProperties;
   readonly BlockTypes = BlockTypes;
@@ -352,15 +358,14 @@ export class SeatMapComponent implements OnChanges, OnDestroy {
   ) {
     $event.preventDefault();
     const modalRef = this.modalService.open(BlockDetailModalComponent);
-    const inputs$ = modalRef.componentInstance.inputs$ as Subject<any>;
+    const inputs$ = modalRef.componentInstance.inputs$ as Subject<BlockDetails>;
     inputs$.next({
       data: block,
       automaticIndex: this.generatedData.useRowIndex,
-      fareTypes: [],
+      fareTypes: this.fareTypes,
     });
     modalRef.result
       .then((changedBlock) => {
-        console.log(changedBlock);
         if (changedBlock) {
           this.seatMapCtrl.value[rowIndex][colIndex] = {
             ...this.seatMapCtrl.value[rowIndex][colIndex],

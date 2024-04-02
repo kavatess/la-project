@@ -27,6 +27,7 @@
         <ng-template ngbNavContent>
           <la-project-seat-map-manager
             [sections]="sections$ | async"
+            [fareTypes]="fareTypeList$ | async"
             (sectionChange)="onSectionChange($event)"
           >
           </la-project-seat-map-manager>
