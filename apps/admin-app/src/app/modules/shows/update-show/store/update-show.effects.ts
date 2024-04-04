@@ -3,24 +3,27 @@ import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, withLatestFrom } from 'rxjs/operators';
 import { UpdateShowService } from './update-show.service';
-import { showFormActions } from './update-show.actions';
+import { updateFormActions } from './update-show.actions';
 import { showIdSelector } from './update-show.selectors';
+import { Store } from '@ngrx/store';
+import { UpdateShowState } from './update-show.reducer';
 
 @Injectable()
 export class UpdateShowEffects {
   constructor(
     private readonly actions$: Actions,
+    private readonly store: Store<UpdateShowState>,
     private readonly service: UpdateShowService
   ) {}
 
   readonly fetchShowId$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.fetchShowId),
+      ofType(updateFormActions.fetchShowId),
       exhaustMap((action) =>
         this.service.getShowById(action.showId).pipe(
-          map((data) => showFormActions.loadShowData({ data })),
+          map((data) => updateFormActions.loadShowData({ data })),
           catchError((error) => {
-            return of(showFormActions.loadShowDataError({ error }));
+            return of(updateFormActions.loadShowDataError({ error }));
           })
         )
       )
@@ -29,13 +32,13 @@ export class UpdateShowEffects {
 
   readonly getShowData$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.getShowData),
-      withLatestFrom(showIdSelector),
+      ofType(updateFormActions.getShowData),
+      withLatestFrom(this.store.select(showIdSelector)),
       exhaustMap(([, showId]) =>
         this.service.getShowById(showId).pipe(
-          map((data) => showFormActions.loadShowData({ data })),
+          map((data) => updateFormActions.loadShowData({ data })),
           catchError((error) => {
-            return of(showFormActions.loadShowDataError({ error }));
+            return of(updateFormActions.loadShowDataError({ error }));
           })
         )
       )
@@ -44,13 +47,13 @@ export class UpdateShowEffects {
 
   readonly getShowSectionList$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.getShowSectionList),
-      withLatestFrom(showIdSelector),
+      ofType(updateFormActions.getShowSectionList),
+      withLatestFrom(this.store.select(showIdSelector)),
       exhaustMap(([, showId]) =>
         this.service.getShowSectionList(showId).pipe(
-          map((data) => showFormActions.loadSectionList({ data })),
+          map((data) => updateFormActions.loadSectionList({ data })),
           catchError((error) => {
-            return of(showFormActions.loadSectionListError({ error }));
+            return of(updateFormActions.loadSectionListError({ error }));
           })
         )
       )
@@ -59,12 +62,12 @@ export class UpdateShowEffects {
 
   readonly changeSection$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.changeSection),
+      ofType(updateFormActions.changeSection),
       exhaustMap((action) =>
         this.service.getSectionById(action.sectionId).pipe(
-          map((data) => showFormActions.loadSelectedSection({ data })),
+          map((data) => updateFormActions.loadSelectedSection({ data })),
           catchError((error) => {
-            return of(showFormActions.loadSelectedSectionError({ error }));
+            return of(updateFormActions.loadSelectedSectionError({ error }));
           })
         )
       )
@@ -73,13 +76,13 @@ export class UpdateShowEffects {
 
   readonly getShowFareTypes$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(showFormActions.getShowFareTypes),
-      withLatestFrom(showIdSelector),
+      ofType(updateFormActions.getShowFareTypes),
+      withLatestFrom(this.store.select(showIdSelector)),
       exhaustMap(([, showId]) =>
         this.service.getShowFareTypes(showId).pipe(
-          map((data) => showFormActions.loadFareTypes({ data })),
+          map((data) => updateFormActions.loadFareTypes({ data })),
           catchError((error) => {
-            return of(showFormActions.loadFareTypesError({ error }));
+            return of(updateFormActions.loadFareTypesError({ error }));
           })
         )
       )

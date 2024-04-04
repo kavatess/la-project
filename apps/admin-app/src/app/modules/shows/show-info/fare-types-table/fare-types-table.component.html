@@ -5,6 +5,7 @@
       <th scope="col">Loại vé</th>
       <th scope="col">Màu sắc hiển thị</th>
       <th scope="col">Giá vé</th>
+      <th scope="col">Thao tác</th>
     </tr>
   </thead>
 
@@ -13,12 +14,20 @@
       <td>{{ i + 1 }}</td>
       <td>{{ fareType.title }}</td>
       <td>
-        <i
-          class="bi bi-square-fill"
-          [style.color]="fareType.displayColor"
-        ></i>
+        <i class="bi bi-square-fill" [style.color]="fareType.displayColor"></i>
       </td>
       <td>{{ fareType.price | currency : 'đ' }}</td>
+      <td>
+        <div class="btn-group">
+          <button class="btn btn-primary">
+            <i class="bi bi-pencil-square mr-2"></i>
+          </button>
+
+          <button class="btn btn-outline-danger">
+            <i class="bi bi-trash3-fill mr-2"></i>
+          </button>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

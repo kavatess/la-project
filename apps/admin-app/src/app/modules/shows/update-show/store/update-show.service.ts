@@ -59,17 +59,21 @@ export class UpdateShowService {
   }
 
   getShowFareTypes(showId: string): Observable<FareType[]> {
-    console.log('getting FareTypes');
     return of([
       {
         [FareTypeProperties.title]: 'VIP',
         [FareTypeProperties.displayColor]: 'yellow',
         [FareTypeProperties.price]: 1000000,
+        [FareTypeProperties.description]:
+          'Gần với sân khấu hơn, nghe nhạc đã hơn',
+        [FareTypeProperties.note]: '',
       },
       {
         [FareTypeProperties.title]: 'Thường',
         [FareTypeProperties.displayColor]: 'lightblue',
         [FareTypeProperties.price]: 500000,
+        [FareTypeProperties.description]: 'Ghế hạng economy',
+        [FareTypeProperties.note]: '',
       },
     ]);
   }

@@ -1,0 +1,77 @@
+<div class="modal-header">
+  <h4 class="modal-title">Thay đổi thư viện</h4>
+
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss()"
+  ></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="fareTypeForm">
+    <div class="row">
+      <div class="col-12">
+        <label class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          [formControlName]="FareTypeProperties.title"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <label class="form-label">Màu</label>
+        <input
+          type="color"
+          class="form-control"
+          [formControlName]="FareTypeProperties.displayColor"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <label class="form-label">Giá</label>
+        <input
+          type="number"
+          class="form-control"
+          [formControlName]="FareTypeProperties.price"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <label class="form-label">Ghi chú</label>
+        <textarea
+          class="form-control"
+          [formControlName]="FareTypeProperties.description"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <label class="form-label">Ghi chú</label>
+        <textarea
+          class="form-control"
+          [formControlName]="FareTypeProperties.note"
+        ></textarea>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="activeModal.close(fareTypeForm.value)"
+  >
+    Thay đổi
+  </button>
+</div>

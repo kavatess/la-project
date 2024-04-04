@@ -11,7 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BlockDetailModalComponent } from './seat-map/block-detail-modal/block-detail-modal.component';
 import { FareTypesTableComponent } from './fare-types-table/fare-types-table.component';
-import { FareTypeFormComponent } from './fare-types-table/fare-type-form/fare-type-form.component';
+import { FareTypeModalComponent } from './fare-types-table/fare-type-modal/fare-type-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { FareTypeFormComponent } from './fare-types-table/fare-type-form/fare-ty
     SeatMapComponent,
     BlockDetailModalComponent,
     FareTypesTableComponent,
-    FareTypeFormComponent,
+    FareTypeModalComponent,
   ],
   imports: [
     CommonModule,

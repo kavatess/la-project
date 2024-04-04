@@ -3,7 +3,7 @@ import { distinctUntilChanged, map } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
-import { showFormActions } from './store/update-show.actions';
+import { updateFormActions } from './store/update-show.actions';
 import { ShowFormComponent } from '../show-info/show-form/show-form.component';
 import { ShowFormState, UpdateShowState } from './store/update-show.reducer';
 import {
@@ -11,7 +11,7 @@ import {
   seatMapSelectors,
   showFormSelector,
 } from './store/update-show.selectors';
-import { FareTypeProperties, SectionProperties } from '@libs/models';
+import { SectionProperties } from '@libs/models';
 
 @Component({
   selector: 'la-project-update-show',
@@ -58,7 +58,7 @@ export class UpdateShowComponent implements OnInit {
 
   private fetchShowIdToStore(): void {
     this.store.dispatch(
-      showFormActions.fetchShowId({
+      updateFormActions.fetchShowId({
         showId: this.router.snapshot.paramMap.get('showId'),
       })
     );
@@ -66,38 +66,22 @@ export class UpdateShowComponent implements OnInit {
 
   private fetchShowFormToStore(): void {
     this.store.dispatch(
-      showFormActions.fetchShowForm({
+      updateFormActions.fetchShowForm({
         formState: this.getFormState(),
       })
     );
   }
 
   private getShowData(): void {
-    this.store.dispatch(showFormActions.getShowData());
+    this.store.dispatch(updateFormActions.getShowData());
   }
 
   private getSectionData(): void {
-    this.store.dispatch(showFormActions.getShowSectionList());
+    this.store.dispatch(updateFormActions.getShowSectionList());
   }
 
   private getShowFareTypes(): void {
-    // this.store.dispatch(showFormActions.getShowFareTypes());
-    this.store.dispatch(
-      showFormActions.loadFareTypes({
-        data: [
-          {
-            [FareTypeProperties.title]: 'VIP',
-            [FareTypeProperties.displayColor]: 'yellow',
-            [FareTypeProperties.price]: 1000000,
-          },
-          {
-            [FareTypeProperties.title]: 'Thường',
-            [FareTypeProperties.displayColor]: 'lightblue',
-            [FareTypeProperties.price]: 500000,
-          },
-        ],
-      })
-    );
+    this.store.dispatch(updateFormActions.getShowFareTypes());
   }
 
   private getFormState(): ShowFormState {
@@ -112,6 +96,6 @@ export class UpdateShowComponent implements OnInit {
   }
 
   onSectionChange(sectionId: string) {
-    this.store.dispatch(showFormActions.changeSection({ sectionId }));
+    this.store.dispatch(updateFormActions.changeSection({ sectionId }));
   }
 }

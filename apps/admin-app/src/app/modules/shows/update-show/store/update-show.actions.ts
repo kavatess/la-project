@@ -4,7 +4,7 @@ import { ShowFormState } from './update-show.reducer';
 import { FareType, Section } from '@libs/models';
 
 // Form Actions
-export const showFormActions = createActionGroup({
+export const updateFormActions = createActionGroup({
   source: 'shows/update',
   events: {
     fetchShowId: props<{ showId: string }>(),

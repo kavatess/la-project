@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { createReducer, on } from '@ngrx/store';
-import { showFormActions } from './update-show.actions';
+import { updateFormActions } from './update-show.actions';
 import { Show, FormState, Section, FareType } from '@libs/models';
 
 export interface ShowFormState extends FormState<Show> {}
@@ -42,11 +42,11 @@ const initialState: UpdateShowState = {
 
 export const updateShowReducer = createReducer(
   initialState,
-  on(showFormActions.fetchShowId, (state, { showId }) => ({
+  on(updateFormActions.fetchShowId, (state, { showId }) => ({
     ...state,
     showId,
   })),
-  on(showFormActions.loadShowData, (state, { data }) => ({
+  on(updateFormActions.loadShowData, (state, { data }) => ({
     ...state,
     showForm: {
       data,
@@ -56,11 +56,11 @@ export const updateShowReducer = createReducer(
       touched: false,
     },
   })),
-  on(showFormActions.fetchShowForm, (state, { formState }) => ({
+  on(updateFormActions.fetchShowForm, (state, { formState }) => ({
     ...state,
     showForm: formState,
   })),
-  on(showFormActions.loadSectionList, (state, { data }) => ({
+  on(updateFormActions.loadSectionList, (state, { data }) => ({
     ...state,
     seatMap: {
       ...state.seatMap,
@@ -68,14 +68,14 @@ export const updateShowReducer = createReducer(
       selectedSection: data[0] || state.seatMap?.sections[0],
     },
   })),
-  on(showFormActions.loadSelectedSection, (state, { data }) => ({
+  on(updateFormActions.loadSelectedSection, (state, { data }) => ({
     ...state,
     seatMap: {
       ...state.seatMap,
       selectedSection: data,
     },
   })),
-  on(showFormActions.loadFareTypes, (state, { data }) => ({
+  on(updateFormActions.loadFareTypes, (state, { data }) => ({
     ...state,
     fareTypes: {
       ...state.fareTypes,
