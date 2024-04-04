@@ -9,6 +9,7 @@
     <ul
       ngbNav
       #nav="ngbNav"
+      [(activeId)]="activeTabId"
       class="nav nav-tabs card-header-tabs"
       (navChange)="onNavChange($event)"
     >

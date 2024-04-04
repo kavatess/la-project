@@ -31,6 +31,8 @@ export class UpdateShowComponent implements OnInit {
   @ViewChild(ShowFormComponent)
   private showformComp: ShowFormComponent;
 
+  activeTabId = 1;
+
   constructor(
     private readonly router: ActivatedRoute,
     private readonly store: Store<UpdateShowState>

@@ -28,13 +28,18 @@ export class SeatMapManagerComponent {
 
   viewMode: SeatMapViewModes = SeatMapViewModes.Update;
 
+  onSectionChange(event: Event) {
+    // console.log((event.target as HTMLSelectElement).value);
+    this.sectionChange.emit((event.target as HTMLSelectElement).value);
+  }
+
   createBtnOnClick(event: MouseEvent) {
     this.viewMode = SeatMapViewModes.Create;
     event.preventDefault();
   }
 
-  onSectionChange(event: Event) {
-    // console.log((event.target as HTMLSelectElement).value);
-    this.sectionChange.emit((event.target as HTMLSelectElement).value);
+  backBtnOnClick(event: MouseEvent) {
+    this.viewMode = SeatMapViewModes.Update;
+    event.preventDefault();
   }
 }

@@ -61,16 +61,18 @@ export class UpdateShowService {
   getShowFareTypes(showId: string): Observable<FareType[]> {
     return of([
       {
+        id: '82346823746',
         [FareTypeProperties.title]: 'VIP',
-        [FareTypeProperties.displayColor]: 'yellow',
+        [FareTypeProperties.displayColor]: '#FFFF00',
         [FareTypeProperties.price]: 1000000,
         [FareTypeProperties.description]:
           'Gần với sân khấu hơn, nghe nhạc đã hơn',
         [FareTypeProperties.note]: '',
       },
       {
+        id: '82346823747',
         [FareTypeProperties.title]: 'Thường',
-        [FareTypeProperties.displayColor]: 'lightblue',
+        [FareTypeProperties.displayColor]: '#ADD8E6',
         [FareTypeProperties.price]: 500000,
         [FareTypeProperties.description]: 'Ghế hạng economy',
         [FareTypeProperties.note]: '',

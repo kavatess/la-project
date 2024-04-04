@@ -1,13 +1,9 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  inject,
-} from '@angular/core';
+import { Component, Input, OnChanges, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FareType, FareTypeProperties } from '@libs/models';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FareTypesTableService } from '../fare-types-table.service';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'la-project-fare-type-modal',
@@ -15,7 +11,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./fare-type-modal.component.scss'],
 })
 export class FareTypeModalComponent implements OnChanges {
-  @Input() data!: FareType;
+  @Input()
+  showId = '';
+  @Input()
+  modalMode: 'add' | 'edit' = 'edit';
+  @Input()
+  data!: FareType;
 
   readonly FareTypeProperties = FareTypeProperties;
   readonly activeModal = inject(NgbActiveModal);
@@ -31,11 +32,40 @@ export class FareTypeModalComponent implements OnChanges {
     [FareTypeProperties.note]: this.fb.control<string>(null, []),
   });
 
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly api: FareTypesTableService
+  ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['data'] && this.data) {
+  ngOnChanges(): void {
+    if (this.data) {
       this.fareTypeForm.patchValue(this.data);
+    }
+  }
+
+  submitFareTypeForm(): void {
+    if (this.fareTypeForm.valid) {
+      const obs =
+        this.modalMode === 'add'
+          ? this.api.addFareType(
+              this.showId,
+              this.fareTypeForm.value as FareType
+            )
+          : this.api.editFareTypeById(
+              this.data.id,
+              this.fareTypeForm.value as FareType
+            );
+
+      obs
+        .pipe(
+          catchError((error) => {
+            console.error(error);
+            return of(null);
+          })
+        )
+        .subscribe((data) => {
+          this.activeModal.close(data);
+        });
     }
   }
 }
