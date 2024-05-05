@@ -32,8 +32,14 @@ export interface Section extends BasicModel {
 }
 
 export enum SeatProperties {
+  showId = 'showId',
+  show = 'show',
   sectionId = 'sectionId',
+  section = 'section',
   blockId = 'blockId',
+  block = 'block',
+  row = 'row',
+  col = 'col',
   code = 'code',
   status = 'status',
   fareTypeId = 'fareTypeId',
@@ -49,6 +55,7 @@ export enum SeatStatuses {
 export const seatStatusList = Object.keys(SeatStatuses).map((key) => key);
 
 export interface Seat extends BasicModel {
+  [SeatProperties.showId]?: string;
   [SeatProperties.sectionId]?: string;
   [SeatProperties.blockId]?: string;
   [SeatProperties.code]: string;
@@ -58,6 +65,8 @@ export interface Seat extends BasicModel {
 }
 
 export enum BlockProperties {
+  showId = 'showId',
+  sectionId = 'sectionId',
   row = 'row',
   col = 'col',
   type = 'type',
@@ -79,6 +88,8 @@ export const blockTypeList = Object.keys(BlockTypes).map(
 ) as BlockTypes[];
 
 export interface Block extends BasicModel {
+  [BlockProperties.showId]?: string;
+  [BlockProperties.sectionId]?: string;
   [BlockProperties.row]?: number;
   [BlockProperties.col]?: number;
   [BlockProperties.type]: BlockTypes;

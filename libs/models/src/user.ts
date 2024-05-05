@@ -16,6 +16,18 @@ export enum UserProperties {
   note = 'note',
 }
 
+export enum UserGenders {
+  Male = 'Male',
+  Female = 'Female',
+}
+
+export enum UserRoles {
+  SuperAdmin = 'SuperAdmin',
+  Admin = 'Admin',
+  Staff = 'Staff',
+  Customer = 'Customer',
+}
+
 export interface User extends BasicModel {
   [UserProperties.lastName]: string;
   [UserProperties.firstName]: string;

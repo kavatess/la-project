@@ -15,22 +15,22 @@
   <form [formGroup]="fareTypeForm">
     <div class="row mb-2">
       <div class="col-12">
-        <label class="form-label">Title</label>
+        <label class="form-label">Màu</label>
         <input
-          type="text"
+          type="color"
           class="form-control"
-          [formControlName]="FareTypeProperties.title"
+          [formControlName]="FareTypeProperties.displayColor"
         />
       </div>
     </div>
 
     <div class="row mb-2">
       <div class="col-12">
-        <label class="form-label">Màu</label>
+        <label class="form-label">Title</label>
         <input
-          type="color"
+          type="text"
           class="form-control"
-          [formControlName]="FareTypeProperties.displayColor"
+          [formControlName]="FareTypeProperties.title"
         />
       </div>
     </div>

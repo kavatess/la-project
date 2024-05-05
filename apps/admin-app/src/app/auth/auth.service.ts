@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
-import { OperatorFunction, of } from 'rxjs';
+import { of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { User } from '@libs/models';
+import { EnvironmentProperties, User } from '@libs/models';
 import { LOCAL_STORAGE_KEYS } from '../modules/app.constants';
 import { AppRoutes } from '../app.routes';
 
@@ -17,7 +18,7 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly AUTH_REQUEST_ROUTE = '';
+  @Inject(EnvironmentProperties.apiUrl) API_BASE_URL = '';
 
   constructor(
     private readonly http: HttpClient,
@@ -33,22 +34,22 @@ export class AuthService {
     return this.localStorage.retrieve(LOCAL_STORAGE_KEYS.TOKEN);
   }
 
-  public getUserInfo(): User | null {
+  public getUserInfo(): User {
     return this.localStorage.retrieve(LOCAL_STORAGE_KEYS.USER);
   }
 
   public login(loginInfo: { accountName: string; password: string }) {
-    return this.http.post(this.AUTH_REQUEST_ROUTE + '/login', loginInfo).pipe(
+    return this.http.post(this.API_BASE_URL + '/login', loginInfo).pipe(
       tap((authInfo) => this.storeAuthInfo(authInfo as LoginResponse)),
       map(() => true),
-      this.handleAuthReqError()
+      catchError((err) => this.handleAuthReqError(err))
     );
   }
 
   public updateUserInfo(user: User) {
-    this.http.post(this.AUTH_REQUEST_ROUTE + '/user/update', user).pipe(
+    this.http.post(this.API_BASE_URL + '/user/update', user).pipe(
       map(() => true),
-      this.handleAuthReqError()
+      catchError((err) => this.handleAuthReqError(err))
     );
   }
 
@@ -58,11 +59,11 @@ export class AuthService {
     newPassword: string;
   }) {
     return this.http
-      .post(this.AUTH_REQUEST_ROUTE + '/password/update', newPasswordInfo)
+      .post(this.API_BASE_URL + '/password/update', newPasswordInfo)
       .pipe(
         tap(() => this.logout()),
         map(() => true),
-        this.handleAuthReqError()
+        catchError((err) => this.handleAuthReqError(err))
       );
   }
 
@@ -71,11 +72,9 @@ export class AuthService {
     this.router.navigate([AppRoutes.Login]);
   }
 
-  private handleAuthReqError() {
-    return catchError((err) => {
-      console.error(err);
-      return of(false);
-    }) as OperatorFunction<boolean, boolean>;
+  private handleAuthReqError(error: any) {
+    console.error(error);
+    return of(false);
   }
 
   private storeAuthInfo({ token, userId }: LoginResponse) {

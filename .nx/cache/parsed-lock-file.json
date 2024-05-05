@@ -2800,6 +2800,15 @@
         "hash": "sha512-CKsG1zyv34AKPNyZC8olER2OdPII64iR2SzQjpqh1UUvmIFiMPk23LvQ1OnC5aCB14pOXzmVgvJt31r9eNdZ6Q=="
       }
     },
+    "npm:@microsoft/tsdoc": {
+      "type": "npm",
+      "name": "npm:@microsoft/tsdoc",
+      "data": {
+        "version": "0.14.2",
+        "packageName": "@microsoft/tsdoc",
+        "hash": "sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug=="
+      }
+    },
     "npm:@mongodb-js/saslprep": {
       "type": "npm",
       "name": "npm:@mongodb-js/saslprep",
@@ -2825,6 +2834,24 @@
         "version": "10.2.1",
         "packageName": "@nestjs/core",
         "hash": "sha512-oH1jmCrVUkBkbeiEzAaYZ5unddn5bW/Id15pPGblYeLGAmfjXW9+G5VCffoGpO1DxBZdZu5/qcXTYyCR6rgXTg=="
+      }
+    },
+    "npm:@nestjs/jwt": {
+      "type": "npm",
+      "name": "npm:@nestjs/jwt",
+      "data": {
+        "version": "10.2.0",
+        "packageName": "@nestjs/jwt",
+        "hash": "sha512-x8cG90SURkEiLOehNaN2aRlotxT0KZESUliOPKKnjWiyJOcWurkF3w345WOX0P4MgFzUjGoZ1Sy0aZnxeihT0g=="
+      }
+    },
+    "npm:@nestjs/mapped-types": {
+      "type": "npm",
+      "name": "npm:@nestjs/mapped-types",
+      "data": {
+        "version": "2.0.5",
+        "packageName": "@nestjs/mapped-types",
+        "hash": "sha512-bSJv4pd6EY99NX9CjBIyn4TVDoSit82DUZlL4I3bqNfy5Gt+gXTa86i3I/i0iIV9P4hntcGM5GyO+FhZAhxtyg=="
       }
     },
     "npm:@nestjs/mongoose": {
@@ -2861,6 +2888,15 @@
         "version": "9.2.0",
         "packageName": "@nestjs/schematics",
         "hash": "sha512-wHpNJDPzM6XtZUOB3gW0J6mkFCSJilzCM3XrHI1o0C8vZmFE1snbmkIXNyoi1eV0Nxh1BMymcgz5vIMJgQtTqw=="
+      }
+    },
+    "npm:@nestjs/swagger": {
+      "type": "npm",
+      "name": "npm:@nestjs/swagger",
+      "data": {
+        "version": "7.3.1",
+        "packageName": "@nestjs/swagger",
+        "hash": "sha512-LUC4mr+5oAleEC/a2j8pNRh1S5xhKXJ1Gal5ZdRjt9XebQgbngXCdW7JTA9WOEcwGtFZN9EnKYdquzH971LZfw=="
       }
     },
     "npm:@nestjs/testing": {
@@ -3718,6 +3754,15 @@
         "hash": "sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA=="
       }
     },
+    "npm:@types/jsonwebtoken": {
+      "type": "npm",
+      "name": "npm:@types/jsonwebtoken",
+      "data": {
+        "version": "9.0.5",
+        "packageName": "@types/jsonwebtoken",
+        "hash": "sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA=="
+      }
+    },
     "npm:@types/mime": {
       "type": "npm",
       "name": "npm:@types/mime",
@@ -3734,6 +3779,15 @@
         "version": "1.3.2",
         "packageName": "@types/mime",
         "hash": "sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw=="
+      }
+    },
+    "npm:@types/moment": {
+      "type": "npm",
+      "name": "npm:@types/moment",
+      "data": {
+        "version": "2.13.0",
+        "packageName": "@types/moment",
+        "hash": "sha512-DyuyYGpV6r+4Z1bUznLi/Y7HpGn4iQ4IVcGn8zrr1P4KotKLdH0sbK1TFR6RGyX6B+G8u83wCzL+bpawKU/hdQ=="
       }
     },
     "npm:@types/node@20.5.4": {
@@ -3878,6 +3932,15 @@
         "version": "4.0.2",
         "packageName": "@types/tough-cookie",
         "hash": "sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw=="
+      }
+    },
+    "npm:@types/validator": {
+      "type": "npm",
+      "name": "npm:@types/validator",
+      "data": {
+        "version": "13.11.9",
+        "packageName": "@types/validator",
+        "hash": "sha512-FCTsikRozryfayPuiI46QzH3fnrOoctTjvOYZkho9BTFLCOZ2rgZJHMOVgCOfttjPJcgOx52EpkY0CMfy87MIw=="
       }
     },
     "npm:@types/webidl-conversions": {
@@ -5131,6 +5194,15 @@
         "hash": "sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ=="
       }
     },
+    "npm:buffer-equal-constant-time": {
+      "type": "npm",
+      "name": "npm:buffer-equal-constant-time",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "buffer-equal-constant-time",
+        "hash": "sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA=="
+      }
+    },
     "npm:buffer-from": {
       "type": "npm",
       "name": "npm:buffer-from",
@@ -5354,6 +5426,24 @@
         "version": "1.2.3",
         "packageName": "cjs-module-lexer",
         "hash": "sha512-0TNiGstbQmCFwt4akjjBg5pLRTSyj/PkWQ1ZoO2zntmg9yLqSRxwEa4iCfQLGjqhiqBfOJa7W/E8wfGrTDmlZQ=="
+      }
+    },
+    "npm:class-transformer": {
+      "type": "npm",
+      "name": "npm:class-transformer",
+      "data": {
+        "version": "0.5.1",
+        "packageName": "class-transformer",
+        "hash": "sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw=="
+      }
+    },
+    "npm:class-validator": {
+      "type": "npm",
+      "name": "npm:class-validator",
+      "data": {
+        "version": "0.14.1",
+        "packageName": "class-validator",
+        "hash": "sha512-2VEG9JICxIqTpoK1eMzZqaV+u/EiwEJkMGzTrZf6sU/fwsnOITVgYJ8yojSy6CaXtO9V0Cc6ZQZ8h8m4UBuLwQ=="
       }
     },
     "npm:clean-stack": {
@@ -6380,6 +6470,15 @@
         "version": "0.1.2",
         "packageName": "ecc-jsbn",
         "hash": "sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw=="
+      }
+    },
+    "npm:ecdsa-sig-formatter": {
+      "type": "npm",
+      "name": "npm:ecdsa-sig-formatter",
+      "data": {
+        "version": "1.0.11",
+        "packageName": "ecdsa-sig-formatter",
+        "hash": "sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ=="
       }
     },
     "npm:ee-first": {
@@ -9028,6 +9127,15 @@
         "hash": "sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg=="
       }
     },
+    "npm:jsonwebtoken": {
+      "type": "npm",
+      "name": "npm:jsonwebtoken",
+      "data": {
+        "version": "9.0.2",
+        "packageName": "jsonwebtoken",
+        "hash": "sha512-PRp66vJ865SSqOlgqS8hujT5U4AOgMfhrwYIuIhfKaoSCZcirrmASQr8CX7cUg+RMih+hgznrjp99o+W4pJLHQ=="
+      }
+    },
     "npm:jsprim": {
       "type": "npm",
       "name": "npm:jsprim",
@@ -9035,6 +9143,24 @@
         "version": "2.0.2",
         "packageName": "jsprim",
         "hash": "sha512-gqXddjPqQ6G40VdnI6T6yObEC+pDNvyP95wdQhkWkg7crHH3km5qP1FsOXEkzEQwnz6gz5qGTn1c2Y52wP3OyQ=="
+      }
+    },
+    "npm:jwa": {
+      "type": "npm",
+      "name": "npm:jwa",
+      "data": {
+        "version": "1.4.1",
+        "packageName": "jwa",
+        "hash": "sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA=="
+      }
+    },
+    "npm:jws": {
+      "type": "npm",
+      "name": "npm:jws",
+      "data": {
+        "version": "3.2.2",
+        "packageName": "jws",
+        "hash": "sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA=="
       }
     },
     "npm:kareem": {
@@ -9134,6 +9260,15 @@
         "version": "0.4.1",
         "packageName": "levn",
         "hash": "sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ=="
+      }
+    },
+    "npm:libphonenumber-js": {
+      "type": "npm",
+      "name": "npm:libphonenumber-js",
+      "data": {
+        "version": "1.10.62",
+        "packageName": "libphonenumber-js",
+        "hash": "sha512-zbLf2yhgrs+TN4rHT7ral38WQEXjS4TWKp8QD3P5fJmHh3lCtTiPyr8XDPGaA7T41HDz2qxR7x3uwr+aNbShJQ=="
       }
     },
     "npm:license-webpack-plugin": {
@@ -9242,6 +9377,60 @@
         "version": "4.0.8",
         "packageName": "lodash.debounce",
         "hash": "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
+      }
+    },
+    "npm:lodash.includes": {
+      "type": "npm",
+      "name": "npm:lodash.includes",
+      "data": {
+        "version": "4.3.0",
+        "packageName": "lodash.includes",
+        "hash": "sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w=="
+      }
+    },
+    "npm:lodash.isboolean": {
+      "type": "npm",
+      "name": "npm:lodash.isboolean",
+      "data": {
+        "version": "3.0.3",
+        "packageName": "lodash.isboolean",
+        "hash": "sha512-Bz5mupy2SVbPHURB98VAcw+aHh4vRV5IPNhILUCsOzRmsTmSQ17jIuqopAentWoehktxGd9e/hbIXq980/1QJg=="
+      }
+    },
+    "npm:lodash.isinteger": {
+      "type": "npm",
+      "name": "npm:lodash.isinteger",
+      "data": {
+        "version": "4.0.4",
+        "packageName": "lodash.isinteger",
+        "hash": "sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA=="
+      }
+    },
+    "npm:lodash.isnumber": {
+      "type": "npm",
+      "name": "npm:lodash.isnumber",
+      "data": {
+        "version": "3.0.3",
+        "packageName": "lodash.isnumber",
+        "hash": "sha512-QYqzpfwO3/CWf3XP+Z+tkQsfaLL/EnUlXWVkIk5FUPc4sBdTehEqZONuyRt2P67PXAk+NXmTBcc97zw9t1FQrw=="
+      }
+    },
+    "npm:lodash.isplainobject": {
+      "type": "npm",
+      "name": "npm:lodash.isplainobject",
+      "data": {
+        "version": "4.0.6",
+        "packageName": "lodash.isplainobject",
+        "hash": "sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA=="
+      }
+    },
+    "npm:lodash.isstring": {
+      "type": "npm",
+      "name": "npm:lodash.isstring",
+      "data": {
+        "version": "4.0.1",
+        "packageName": "lodash.isstring",
+        "hash": "sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw=="
       }
     },
     "npm:lodash.memoize": {
@@ -9728,6 +9917,15 @@
         "version": "1.0.4",
         "packageName": "mkdirp",
         "hash": "sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw=="
+      }
+    },
+    "npm:moment": {
+      "type": "npm",
+      "name": "npm:moment",
+      "data": {
+        "version": "2.30.1",
+        "packageName": "moment",
+        "hash": "sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how=="
       }
     },
     "npm:mongodb-connection-string-url": {
@@ -12439,6 +12637,15 @@
         "hash": "sha512-Z706C1U2pb1+JGP48fbazf3KxHrWOsLme6Rv7imFBn5EnuanDW1GPaA/P1/dvObE670JDePC3mnj0k0B7P0jjQ=="
       }
     },
+    "npm:swagger-ui-dist": {
+      "type": "npm",
+      "name": "npm:swagger-ui-dist",
+      "data": {
+        "version": "5.11.2",
+        "packageName": "swagger-ui-dist",
+        "hash": "sha512-jQG0cRgJNMZ7aCoiFofnoojeSaa/+KgWaDlfgs8QN+BXoGMpxeMVY5OEnjq4OlNvF3yjftO8c9GRAgcHlO+u7A=="
+      }
+    },
     "npm:symbol-observable": {
       "type": "npm",
       "name": "npm:symbol-observable",
@@ -13049,6 +13256,15 @@
         "version": "5.0.0",
         "packageName": "validate-npm-package-name",
         "hash": "sha512-YuKoXDAhBYxY7SfOKxHBDoSyENFeW5VvIIQp2TGQuit8gpK6MnWaQelBKxso72DoxTZfZdcP3W90LqpSkgPzLQ=="
+      }
+    },
+    "npm:validator": {
+      "type": "npm",
+      "name": "npm:validator",
+      "data": {
+        "version": "13.11.0",
+        "packageName": "validator",
+        "hash": "sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ=="
       }
     },
     "npm:vary": {
@@ -20189,6 +20405,18 @@
         "type": "static"
       }
     ],
+    "npm:@nestjs/jwt": [
+      {
+        "source": "npm:@nestjs/jwt",
+        "target": "npm:@types/jsonwebtoken",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/jwt",
+        "target": "npm:jsonwebtoken",
+        "type": "static"
+      }
+    ],
     "npm:@nestjs/platform-express": [
       {
         "source": "npm:@nestjs/platform-express",
@@ -20262,6 +20490,38 @@
       {
         "source": "npm:@nestjs/schematics@9.2.0",
         "target": "npm:pluralize",
+        "type": "static"
+      }
+    ],
+    "npm:@nestjs/swagger": [
+      {
+        "source": "npm:@nestjs/swagger",
+        "target": "npm:@microsoft/tsdoc",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/swagger",
+        "target": "npm:@nestjs/mapped-types",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/swagger",
+        "target": "npm:js-yaml",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/swagger",
+        "target": "npm:lodash",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/swagger",
+        "target": "npm:path-to-regexp",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/swagger",
+        "target": "npm:swagger-ui-dist",
         "type": "static"
       }
     ],
@@ -21704,6 +21964,20 @@
       {
         "source": "npm:@types/jsdom",
         "target": "npm:parse5",
+        "type": "static"
+      }
+    ],
+    "npm:@types/jsonwebtoken": [
+      {
+        "source": "npm:@types/jsonwebtoken",
+        "target": "npm:@types/node@20.5.4",
+        "type": "static"
+      }
+    ],
+    "npm:@types/moment": [
+      {
+        "source": "npm:@types/moment",
+        "target": "npm:moment",
         "type": "static"
       }
     ],
@@ -23351,6 +23625,23 @@
         "type": "static"
       }
     ],
+    "npm:class-validator": [
+      {
+        "source": "npm:class-validator",
+        "target": "npm:@types/validator",
+        "type": "static"
+      },
+      {
+        "source": "npm:class-validator",
+        "target": "npm:libphonenumber-js",
+        "type": "static"
+      },
+      {
+        "source": "npm:class-validator",
+        "target": "npm:validator",
+        "type": "static"
+      }
+    ],
     "npm:cli-cursor": [
       {
         "source": "npm:cli-cursor",
@@ -24566,6 +24857,13 @@
       {
         "source": "npm:ecc-jsbn",
         "target": "npm:safer-buffer",
+        "type": "static"
+      }
+    ],
+    "npm:ecdsa-sig-formatter": [
+      {
+        "source": "npm:ecdsa-sig-formatter",
+        "target": "npm:safe-buffer",
         "type": "static"
       }
     ],
@@ -28657,6 +28955,58 @@
         "type": "static"
       }
     ],
+    "npm:jsonwebtoken": [
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:jws",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:lodash.includes",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:lodash.isboolean",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:lodash.isinteger",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:lodash.isnumber",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:lodash.isplainobject",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:lodash.isstring",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:lodash.once",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:ms",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsonwebtoken",
+        "target": "npm:semver",
+        "type": "static"
+      }
+    ],
     "npm:jsprim": [
       {
         "source": "npm:jsprim",
@@ -28676,6 +29026,35 @@
       {
         "source": "npm:jsprim",
         "target": "npm:verror",
+        "type": "static"
+      }
+    ],
+    "npm:jwa": [
+      {
+        "source": "npm:jwa",
+        "target": "npm:buffer-equal-constant-time",
+        "type": "static"
+      },
+      {
+        "source": "npm:jwa",
+        "target": "npm:ecdsa-sig-formatter",
+        "type": "static"
+      },
+      {
+        "source": "npm:jwa",
+        "target": "npm:safe-buffer",
+        "type": "static"
+      }
+    ],
+    "npm:jws": [
+      {
+        "source": "npm:jws",
+        "target": "npm:jwa",
+        "type": "static"
+      },
+      {
+        "source": "npm:jws",
+        "target": "npm:safe-buffer",
         "type": "static"
       }
     ],

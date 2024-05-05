@@ -1,4 +1,6 @@
+import { EnvironmentProperties } from '@libs/models';
+
 export const environment = {
-  production: true,
-  apiUrl: 'http://my-prod-url',
+  [EnvironmentProperties.production]: true,
+  [EnvironmentProperties.apiUrl]: 'http://my-prod-url',
 };
