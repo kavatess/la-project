@@ -9,10 +9,14 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
+import { ErrorAlertService } from '../shared/error-alert/error-alert.service';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly errorAlertService: ErrorAlertService
+  ) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -25,15 +29,11 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error instanceof HttpErrorResponse) {
           if (error.status == 401) {
-            console.error('Unauthorized or login failed.');
             this.authService.logout();
           }
-          if (error.status == 405) {
-            console.error('Request method is not allowed.');
-          }
-        } else {
-          console.error('this is client side error');
         }
+        console.error(error);
+        this.errorAlertService.alertError(`[${error.status}] ${error.message}`);
         return throwError(error);
       })
     );

@@ -37,7 +37,7 @@ export class DbModelService<T, CreateDto, UpdateDto> {
     return await this.model.findById(id).lean().exec();
   }
 
-  async update(id: string, updateDto: UpdateDto) {
+  async update(id: string, updateDto: Partial<UpdateDto & T>) {
     const show = await this.model.findById(id).exec();
     show.set(updateDto);
     return await show.save();

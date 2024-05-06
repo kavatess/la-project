@@ -9,6 +9,7 @@ export type UserDocument = User &
 
 @Schema({
   timestamps: true,
+  strict: true,
 })
 export class User {
   @Prop({
@@ -41,11 +42,11 @@ export class User {
   @Prop({ type: String, required: false })
   [UserProperties.portrait]: string;
 
-  @Prop({ type: String, required: true })
-  [UserProperties.password]: string;
-
-  @Prop({ type: String, required: true, unique: true })
+  @Prop({ type: String, required: true, unique: true, select: false })
   [UserProperties.accountName]: string;
+
+  @Prop({ type: String, required: true, select: false })
+  [UserProperties.password]: string;
 
   @Prop({ type: String, required: false })
   [UserProperties.note]: string;

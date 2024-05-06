@@ -3,8 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
-import { of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { EnvironmentProperties, User } from '@libs/models';
 import { LOCAL_STORAGE_KEYS } from '../modules/app.constants';
 import { AppRoutes } from '../app.routes';
@@ -39,42 +38,15 @@ export class AuthService {
   }
 
   public login(loginInfo: { accountName: string; password: string }) {
-    return this.http.post(this.API_BASE_URL + '/login', loginInfo).pipe(
+    return this.http.post(this.API_BASE_URL + '/auth/login', loginInfo).pipe(
       tap((authInfo) => this.storeAuthInfo(authInfo as LoginResponse)),
-      map(() => true),
-      catchError((err) => this.handleAuthReqError(err))
+      map(() => true)
     );
-  }
-
-  public updateUserInfo(user: User) {
-    this.http.post(this.API_BASE_URL + '/user/update', user).pipe(
-      map(() => true),
-      catchError((err) => this.handleAuthReqError(err))
-    );
-  }
-
-  public changePassword(newPasswordInfo: {
-    phoneNumber: string;
-    oldPassword: string;
-    newPassword: string;
-  }) {
-    return this.http
-      .post(this.API_BASE_URL + '/password/update', newPasswordInfo)
-      .pipe(
-        tap(() => this.logout()),
-        map(() => true),
-        catchError((err) => this.handleAuthReqError(err))
-      );
   }
 
   public logout() {
     this.clearAuthInfo();
     this.router.navigate([AppRoutes.Login]);
-  }
-
-  private handleAuthReqError(error: any) {
-    console.error(error);
-    return of(false);
   }
 
   private storeAuthInfo({ token, userId }: LoginResponse) {
