@@ -1,8 +1,7 @@
 import { SeatProperties, SectionProperties } from '@libs/models';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
-import { Show } from '../../show/entities/show.entity';
-import { Seat } from '../../seat/entities/seat.entity';
+import { ModelNames } from '../../../app.constants';
 
 @Schema({
   timestamps: true,
@@ -14,7 +13,7 @@ import { Seat } from '../../seat/entities/seat.entity';
   },
 })
 export class Section {
-  @Prop({ type: Types.ObjectId, ref: Show.name, required: true })
+  @Prop({ type: Types.ObjectId, ref: ModelNames.Show, required: true })
   [SectionProperties.showId]: string;
 
   @Prop({ type: String, required: true })
@@ -46,14 +45,14 @@ export const SectionSchema = SchemaFactory.createForClass(Section);
 // Virtuals
 
 SectionSchema.virtual(SectionProperties.seatNumber, {
-  ref: Seat.name,
+  ref: ModelNames.Seat,
   localField: '_id',
   foreignField: SeatProperties.sectionId,
   count: true,
 });
 
 SectionSchema.virtual(SectionProperties.seatMap, {
-  ref: Seat.name,
+  ref: ModelNames.Seat,
   localField: '_id',
   foreignField: SeatProperties.sectionId,
 });

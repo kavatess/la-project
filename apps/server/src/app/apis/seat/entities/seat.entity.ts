@@ -1,8 +1,7 @@
 import { SeatProperties, SeatStatuses } from '@libs/models';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
-import { FareType } from '../../fare-type/entities/fare-type.entity';
-import { Show } from '../../show/entities/show.entity';
+import { ModelNames } from '../../../app.constants';
 
 @Schema({
   timestamps: true,
@@ -14,7 +13,7 @@ import { Show } from '../../show/entities/show.entity';
   },
 })
 export class Seat {
-  @Prop({ type: Types.ObjectId, required: true })
+  @Prop({ type: Types.ObjectId, ref: ModelNames.Show, required: true })
   [SeatProperties.showId]: string;
 
   @Prop({ type: Types.ObjectId, required: true })
@@ -35,7 +34,7 @@ export class Seat {
   @Prop({ type: String, enum: SeatStatuses, required: true })
   [SeatProperties.status]: SeatStatuses;
 
-  @Prop({ type: Types.ObjectId, required: true })
+  @Prop({ type: Types.ObjectId, ref: ModelNames.FareType, required: true })
   [SeatProperties.fareTypeId]: string;
 }
 
@@ -57,14 +56,14 @@ SeatSchema.index(
 
 // Virtuals
 SeatSchema.virtual(SeatProperties.fareType, {
-  ref: FareType.name,
+  ref: ModelNames.FareType,
   localField: SeatProperties.fareTypeId,
   foreignField: '_id',
   justOne: true,
 });
 
 SeatSchema.virtual(SeatProperties.show, {
-  ref: Show.name,
+  ref: ModelNames.Show,
   localField: SeatProperties.showId,
   foreignField: '_id',
   justOne: true,

@@ -41,7 +41,8 @@ export class CreateShowDto {
   @IsOptional()
   @IsEnum(ShowTypes)
   @ApiProperty({
-    type: ShowTypes,
+    type: String,
+    enum: ShowTypes,
     required: false,
   })
   [ShowProperties.types]: ShowTypes;
@@ -119,7 +120,8 @@ export class CreateShowDto {
 
   @IsEnum(ShowStatuses)
   @ApiProperty({
-    type: ShowStatuses,
+    type: String,
+    enum: ShowStatuses,
     required: true,
   })
   [ShowProperties.status]: ShowStatuses;

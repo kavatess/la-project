@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@nestjs/common';
-import { Document, Model } from 'mongoose';
+import { Document, FilterQuery, Model } from 'mongoose';
 import { FindAllQueryDto } from '../dto/find-all-query.dto';
 
 @Injectable()
@@ -13,6 +13,10 @@ export class DbModelService<T, CreateDto, UpdateDto> {
     });
   }
 
+  async createMany(list: CreateDto[]) {
+    return await this.model.insertMany(list);
+  }
+
   async findAll({ filter, options }: FindAllQueryDto) {
     return await this.model
       .find(filter)
@@ -22,7 +26,7 @@ export class DbModelService<T, CreateDto, UpdateDto> {
       .exec();
   }
 
-  async findOne(filter: Partial<T>) {
+  async findOne(filter: FilterQuery<T>) {
     return await this.model
       .findOne(filter as any)
       .lean()

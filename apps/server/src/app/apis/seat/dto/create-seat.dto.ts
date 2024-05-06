@@ -8,7 +8,7 @@ export class CreateSeatDto {
   [SeatProperties.code]: string;
 
   @IsEnum(SeatStatuses)
-  @ApiProperty({ type: SeatStatuses, required: true })
+  @ApiProperty({ type: String, enum: SeatStatuses, required: true })
   [SeatProperties.status]: SeatStatuses;
 
   @IsOptional()

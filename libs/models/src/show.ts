@@ -30,6 +30,7 @@ export enum ShowTypes {
   Pop = 'Pop',
   Rock = 'Rock',
 }
+export const showTypeArr = Object.keys(ShowTypes).map((key) => key);
 
 export enum ShowStatuses {
   Created = 'Created',

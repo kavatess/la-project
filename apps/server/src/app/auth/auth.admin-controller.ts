@@ -19,11 +19,8 @@ export class AuthAdminController {
 
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  async signIn(@Body() signInDto: LoginDto) {
-    return await this.authService.signIn(
-      signInDto.accountName,
-      signInDto.password
-    );
+  signIn(@Body() signInDto: LoginDto) {
+    return this.authService.signIn(signInDto.accountName, signInDto.password);
   }
 
   @Get('profile')

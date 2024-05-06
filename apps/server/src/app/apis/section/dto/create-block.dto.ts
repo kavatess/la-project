@@ -47,7 +47,7 @@ export class CreateBlockDto {
   [BlockProperties.col]: number;
 
   @IsEnum(BlockTypes)
-  @ApiProperty({ type: BlockTypes, required: true })
+  @ApiProperty({ type: String, enum: BlockTypes, required: true })
   [BlockProperties.type]: BlockTypes;
 
   @IsOptional()
