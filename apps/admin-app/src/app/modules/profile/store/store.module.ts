@@ -23,4 +23,4 @@ export const profileFeatureSelector =
   ],
   providers: [ProfileService],
 })
-export class profileStoreModule {}
+export class ProfileStoreModule {}

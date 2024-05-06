@@ -1,23 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { map, tap } from 'rxjs/operators';
-import { EnvironmentProperties, User } from '@libs/models';
+import { EnvironmentProperties } from '@libs/models';
 import { LOCAL_STORAGE_KEYS } from '../modules/app.constants';
 import { AppRoutes } from '../app.routes';
+import { environment } from '../../environments/environment';
 
 interface LoginResponse {
-  token: string;
-  userId: string;
+  access_token: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  @Inject(EnvironmentProperties.apiUrl) API_BASE_URL = '';
+  readonly API_BASE_URL = environment[EnvironmentProperties.apiUrl];
 
   constructor(
     private readonly http: HttpClient,
@@ -25,16 +25,12 @@ export class AuthService {
     private readonly localStorage: LocalStorageService
   ) {}
 
-  public isLoggedIn(): boolean {
-    return !!this.getAuthToken() && !!this.getUserInfo();
+  public isAuthenticated(): boolean {
+    return !!this.getAuthToken();
   }
 
   public getAuthToken(): string | null {
     return this.localStorage.retrieve(LOCAL_STORAGE_KEYS.TOKEN);
-  }
-
-  public getUserInfo(): User {
-    return this.localStorage.retrieve(LOCAL_STORAGE_KEYS.USER);
   }
 
   public login(loginInfo: { accountName: string; password: string }) {
@@ -49,9 +45,8 @@ export class AuthService {
     this.router.navigate([AppRoutes.Login]);
   }
 
-  private storeAuthInfo({ token, userId }: LoginResponse) {
-    this.localStorage.store(LOCAL_STORAGE_KEYS.TOKEN, token);
-    this.localStorage.store(LOCAL_STORAGE_KEYS.USER, userId);
+  private storeAuthInfo({ access_token }: LoginResponse) {
+    this.localStorage.store(LOCAL_STORAGE_KEYS.TOKEN, access_token);
   }
 
   private clearAuthInfo() {

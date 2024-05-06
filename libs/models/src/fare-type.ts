@@ -13,7 +13,7 @@ export enum FareTypeProperties {
 
 export interface FareType extends BasicModel {
   [FareTypeProperties.showId]: string;
-  [FareTypeProperties.show]: Show;
+  [FareTypeProperties.show]?: Show;
   [FareTypeProperties.title]: string;
   [FareTypeProperties.displayColor]: string;
   [FareTypeProperties.price]: number;

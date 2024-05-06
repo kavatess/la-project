@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EnvironmentProperties } from '@libs/models';
 import { environment } from '../environments/environment';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -18,6 +19,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot(),
+    NgxWebstorageModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: true, // Restrict extension to log-only mode

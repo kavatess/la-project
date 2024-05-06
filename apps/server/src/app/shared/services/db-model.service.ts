@@ -5,7 +5,7 @@ import { FindAllQueryDto } from '../dto/find-all-query.dto';
 
 @Injectable()
 export class DbModelService<T, CreateDto, UpdateDto> {
-  constructor(protected readonly model: Model<T & Document>) {}
+  constructor(public readonly model: Model<T & Document>) {}
 
   async create(createDto: CreateDto) {
     return (await this.model.create(createDto)).toJSON({
