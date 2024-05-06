@@ -4,8 +4,6 @@
 dist
 tmp
 /out-tsc
-.nx/
-.nx/cache/
 
 # dependencies
 node_modules
@@ -40,3 +38,4 @@ testem.log
 .DS_Store
 Thumbs.db
 .angular
+.nx
