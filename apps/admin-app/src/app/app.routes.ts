@@ -3,6 +3,7 @@ import { Route } from '@angular/router';
 export enum AppRoutes {
   Login = 'login',
   Shows = 'shows',
+  Payments = 'payments',
   Blogs = 'blogs',
   Users = 'users',
 }
@@ -17,6 +18,13 @@ export const appRoutes: Route[] = [
     path: AppRoutes.Shows,
     loadChildren: () =>
       import('./modules/shows/shows.module').then((mod) => mod.ShowsModule),
+  },
+  {
+    path: AppRoutes.Payments,
+    loadChildren: () =>
+      import('./modules/payments/payments.module').then(
+        (mod) => mod.PaymentsModule
+      ),
   },
   {
     path: AppRoutes.Blogs,

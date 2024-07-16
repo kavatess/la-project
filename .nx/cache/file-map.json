@@ -94,6 +94,50 @@
   },
   "nxJsonPlugins": [],
   "projectFileMap": {
+    "server-e2e": [
+      {
+        "file": "apps/server-e2e/.eslintrc.json",
+        "hash": "3360334976827520668"
+      },
+      {
+        "file": "apps/server-e2e/jest.config.ts",
+        "hash": "10616692360637570235"
+      },
+      {
+        "file": "apps/server-e2e/project.json",
+        "hash": "3283412649331187298"
+      },
+      {
+        "file": "apps/server-e2e/src/server/server.spec.ts",
+        "hash": "4771619691273123747",
+        "deps": [
+          "npm:axios"
+        ]
+      },
+      {
+        "file": "apps/server-e2e/src/support/global-setup.ts",
+        "hash": "2115715198266229230"
+      },
+      {
+        "file": "apps/server-e2e/src/support/global-teardown.ts",
+        "hash": "8548088892264703398"
+      },
+      {
+        "file": "apps/server-e2e/src/support/test-setup.ts",
+        "hash": "7089735238924345502",
+        "deps": [
+          "npm:axios"
+        ]
+      },
+      {
+        "file": "apps/server-e2e/tsconfig.json",
+        "hash": "1422418700492434985"
+      },
+      {
+        "file": "apps/server-e2e/tsconfig.spec.json",
+        "hash": "15391097975841359511"
+      }
+    ],
     "server": [
       {
         "file": "apps/server/.eslintrc.json",
@@ -115,6 +159,14 @@
           "npm:@nestjs/swagger",
           "npm:class-validator",
           "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/dto/fare-type-query.dto.ts",
+        "hash": "3862608941951332792",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
         ]
       },
       {
@@ -167,6 +219,14 @@
         ]
       },
       {
+        "file": "apps/server/src/app/apis/seat/dto/seat-query.dto.ts",
+        "hash": "14815471549924352117",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
         "file": "apps/server/src/app/apis/seat/dto/update-seat.dto.ts",
         "hash": "1518933670989618827",
         "deps": [
@@ -183,6 +243,13 @@
         ]
       },
       {
+        "file": "apps/server/src/app/apis/seat/seat.admin-controller.ts",
+        "hash": "5247778181483779185",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
         "file": "apps/server/src/app/apis/seat/seat.module.ts",
         "hash": "10088088835952916072",
         "deps": [
@@ -193,6 +260,15 @@
       {
         "file": "apps/server/src/app/apis/seat/seat.service.ts",
         "hash": "5317984769577689174",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/block.service.ts",
+        "hash": "14016331815155370159",
         "deps": [
           "npm:@nestjs/common",
           "npm:@nestjs/mongoose",
@@ -466,6 +542,14 @@
         ]
       },
       {
+        "file": "apps/server/src/app/shared/services/db-model.service.ts",
+        "hash": "5591677313348266751",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:mongoose"
+        ]
+      },
+      {
         "file": "apps/server/src/assets/.gitkeep",
         "hash": "3244421341483603138"
       },
@@ -496,90 +580,64 @@
         "deps": [
           "npm:@nx/webpack"
         ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/block.service.ts",
-        "hash": "14016331815155370159",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/seat.admin-controller.ts",
-        "hash": "5247778181483779185",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/dto/seat-query.dto.ts",
-        "hash": "14815471549924352117",
-        "deps": [
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/dto/fare-type-query.dto.ts",
-        "hash": "3862608941951332792",
-        "deps": [
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/shared/services/db-model.service.ts",
-        "hash": "5591677313348266751",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:mongoose"
-        ]
       }
     ],
-    "server-e2e": [
+    "front-end": [
       {
-        "file": "apps/server-e2e/.eslintrc.json",
-        "hash": "3360334976827520668"
+        "file": "libs/front-end/.eslintrc.json",
+        "hash": "16402751898759826414"
       },
       {
-        "file": "apps/server-e2e/jest.config.ts",
-        "hash": "10616692360637570235"
+        "file": "libs/front-end/README.md",
+        "hash": "13567354590494607923"
       },
       {
-        "file": "apps/server-e2e/project.json",
-        "hash": "3283412649331187298"
-      },
-      {
-        "file": "apps/server-e2e/src/server/server.spec.ts",
-        "hash": "4771619691273123747",
+        "file": "libs/front-end/package.json",
+        "hash": "795806143510324444",
         "deps": [
-          "npm:axios"
+          "npm:tslib"
         ]
       },
       {
-        "file": "apps/server-e2e/src/support/global-setup.ts",
-        "hash": "2115715198266229230"
+        "file": "libs/front-end/project.json",
+        "hash": "3597492210158981812"
       },
       {
-        "file": "apps/server-e2e/src/support/global-teardown.ts",
-        "hash": "8548088892264703398"
+        "file": "libs/front-end/src/index.ts",
+        "hash": "8847262861760846179"
       },
       {
-        "file": "apps/server-e2e/src/support/test-setup.ts",
-        "hash": "7089735238924345502",
+        "file": "libs/front-end/src/services/index.ts",
+        "hash": "9211068132455535460"
+      },
+      {
+        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
+        "hash": "14343517326774558008",
         "deps": [
-          "npm:axios"
+          "npm:@angular/core",
+          "npm:@ng-bootstrap/ng-bootstrap"
         ]
       },
       {
-        "file": "apps/server-e2e/tsconfig.json",
-        "hash": "1422418700492434985"
+        "file": "libs/front-end/tsconfig.json",
+        "hash": "1581763891220245391"
       },
       {
-        "file": "apps/server-e2e/tsconfig.spec.json",
-        "hash": "15391097975841359511"
+        "file": "libs/front-end/tsconfig.lib.json",
+        "hash": "17512648156706774563"
+      },
+      {
+        "file": "libs/front-end/src/components/abstract-form/abstract-form.component.ts",
+        "hash": "15836509907544839953",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/forms",
+          "models"
+        ]
+      },
+      {
+        "file": "libs/front-end/src/components/index.ts",
+        "hash": "1187757878708793888"
       }
     ],
     "admin-app-e2e": [
@@ -622,75 +680,6 @@
       {
         "file": "apps/admin-app-e2e/tsconfig.json",
         "hash": "15819154737716378212"
-      }
-    ],
-    "models": [
-      {
-        "file": "libs/models/.eslintrc.json",
-        "hash": "16402751898759826414"
-      },
-      {
-        "file": "libs/models/package.json",
-        "hash": "1401963316103930996",
-        "deps": [
-          "npm:tslib"
-        ]
-      },
-      {
-        "file": "libs/models/project.json",
-        "hash": "12749845295336514585"
-      },
-      {
-        "file": "libs/models/src/artist.ts",
-        "hash": "3192482969964955715"
-      },
-      {
-        "file": "libs/models/src/common.ts",
-        "hash": "9190075478859784244"
-      },
-      {
-        "file": "libs/models/src/environment.ts",
-        "hash": "6076910729302466647"
-      },
-      {
-        "file": "libs/models/src/fare-type.ts",
-        "hash": "18199855812056652635"
-      },
-      {
-        "file": "libs/models/src/form.ts",
-        "hash": "8631114082862378017"
-      },
-      {
-        "file": "libs/models/src/index.ts",
-        "hash": "3365934436024287236"
-      },
-      {
-        "file": "libs/models/src/order.ts",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/models/src/payment.ts",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/models/src/seat-map.ts",
-        "hash": "90369007237238382"
-      },
-      {
-        "file": "libs/models/src/show.ts",
-        "hash": "2702461875614541316"
-      },
-      {
-        "file": "libs/models/src/user.ts",
-        "hash": "5293972801997151504"
-      },
-      {
-        "file": "libs/models/tsconfig.json",
-        "hash": "1581763891220245391"
-      },
-      {
-        "file": "libs/models/tsconfig.lib.json",
-        "hash": "17512648156706774563"
       }
     ],
     "utils": [
@@ -777,6 +766,240 @@
         "hash": "15819154737716378212"
       }
     ],
+    "ticket-booking-app": [
+      {
+        "file": "apps/ticket-booking-app/.eslintrc.json",
+        "hash": "16154935045403066926"
+      },
+      {
+        "file": "apps/ticket-booking-app/jest.config.ts",
+        "hash": "5001620354053747201"
+      },
+      {
+        "file": "apps/ticket-booking-app/project.json",
+        "hash": "8692224730399376468"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/app.component.html",
+        "hash": "1451880533778745531"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/app.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/app.component.ts",
+        "hash": "7287006150186963570",
+        "deps": [
+          "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/app.module.ts",
+        "hash": "16262531665903761166",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/platform-browser",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/app.routes.ts",
+        "hash": "971288909182323576",
+        "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/header.component.ts",
+        "hash": "17241761094769596231",
+        "deps": [
+          "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.component.html",
+        "hash": "14091238781098253997"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.component.ts",
+        "hash": "16562951818649109231",
+        "deps": [
+          "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.module.ts",
+        "hash": "5426744775307454023",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.routes.ts",
+        "hash": "10315081034442379984",
+        "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.component.html",
+        "hash": "1224254043717392050"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.component.ts",
+        "hash": "401711655491669286",
+        "deps": [
+          "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.module.ts",
+        "hash": "16582952680712645602",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.routes.ts",
+        "hash": "5166774159437721804",
+        "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/home/home.component.html",
+        "hash": "16619066491338721079"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/home/home.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/home/home.component.ts",
+        "hash": "41940541165740868",
+        "deps": [
+          "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/home/home.module.ts",
+        "hash": "13331807000972326687",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/home/home.routes.ts",
+        "hash": "15307957267992820437",
+        "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.component.html",
+        "hash": "11947961897570158308"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.component.ts",
+        "hash": "12093051017276153803",
+        "deps": [
+          "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.module.ts",
+        "hash": "15727233188235533002",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.routes.ts",
+        "hash": "16681874495737517199",
+        "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/assets/bootstrap.bundle.min.js",
+        "hash": "7261830614730871548"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/assets/bootstrap.min.css",
+        "hash": "15386081923414614311"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/assets/popper.min.js",
+        "hash": "3960228366792628809"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/favicon.ico",
+        "hash": "9303420814833116677"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/index.html",
+        "hash": "3504321796576393564"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/main.ts",
+        "hash": "17362317042929630877",
+        "deps": [
+          "npm:@angular/platform-browser-dynamic"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/src/styles.scss",
+        "hash": "2917954890128038984"
+      },
+      {
+        "file": "apps/ticket-booking-app/src/test-setup.ts",
+        "hash": "10765977267162271731",
+        "deps": [
+          "npm:jest-preset-angular"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app/tsconfig.app.json",
+        "hash": "15840844869456775012"
+      },
+      {
+        "file": "apps/ticket-booking-app/tsconfig.editor.json",
+        "hash": "6816855480324741077"
+      },
+      {
+        "file": "apps/ticket-booking-app/tsconfig.json",
+        "hash": "17021277375021554599"
+      },
+      {
+        "file": "apps/ticket-booking-app/tsconfig.spec.json",
+        "hash": "1930986853382524452"
+      }
+    ],
     "admin-app": [
       {
         "file": "apps/admin-app/.eslintrc.json",
@@ -792,7 +1015,7 @@
       },
       {
         "file": "apps/admin-app/src/app/app.component.html",
-        "hash": "4116120922745239366"
+        "hash": "14153238660013828618"
       },
       {
         "file": "apps/admin-app/src/app/app.component.scss",
@@ -826,7 +1049,7 @@
       },
       {
         "file": "apps/admin-app/src/app/app.routes.ts",
-        "hash": "3394731792980005769",
+        "hash": "14722111592866112764",
         "deps": [
           "npm:@angular/router"
         ]
@@ -927,6 +1150,126 @@
         "file": "apps/admin-app/src/app/modules/login/login.routes.ts",
         "hash": "6080490414069621068",
         "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/create-payment/create-payment.component.html",
+        "hash": "4149329289605117349"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/create-payment/create-payment.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/create-payment/create-payment.component.ts",
+        "hash": "16901341504006707834",
+        "deps": [
+          "npm:@angular/core",
+          "models",
+          "npm:rxjs",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/create-payment/create-payment.module.ts",
+        "hash": "9993132108524930537",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payment-form/payment-form.component.html",
+        "hash": "10044813043527538956"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payment-form/payment-form.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payment-form/payment-form.component.ts",
+        "hash": "4136479003441040891",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/forms",
+          "front-end",
+          "models"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payments.component.html",
+        "hash": "14535244249415322970"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payments.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payments.component.ts",
+        "hash": "6784344424784053823",
+        "deps": [
+          "npm:@angular/core",
+          "npm:rxjs",
+          "models",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payments.constants.ts",
+        "hash": "14682913935459178339"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payments.module.ts",
+        "hash": "10304348036086691054",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payments.routes.ts",
+        "hash": "2945434517194997913",
+        "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payments.service.ts",
+        "hash": "1071867926434417969",
+        "deps": [
+          "npm:@angular/common",
+          "npm:@angular/core",
+          "models",
+          "npm:rxjs"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/update-payment/update-payment.component.html",
+        "hash": "14549495923859364254"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/update-payment/update-payment.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/update-payment/update-payment.component.ts",
+        "hash": "15574211148233286439",
+        "deps": [
+          "npm:@angular/core",
+          "models",
+          "npm:@angular/router",
+          "npm:rxjs"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/update-payment/update-payment.module.ts",
+        "hash": "7153139613869901831",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
           "npm:@angular/router"
         ]
       },
@@ -1061,7 +1404,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/show-info/show-form/show-form.component.ts",
-        "hash": "4625809255274186634",
+        "hash": "1752971124262956530",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/forms",
@@ -1348,284 +1691,93 @@
       {
         "file": "apps/admin-app/tsconfig.spec.json",
         "hash": "1930986853382524452"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payment-form/payment-form.module.ts",
+        "hash": "12339922897499904517",
+        "deps": [
+          "npm:@angular/common",
+          "npm:@angular/core",
+          "npm:@angular/forms"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/users/users.service.ts",
+        "hash": "12212694988594338087",
+        "deps": [
+          "npm:@angular/common",
+          "npm:@angular/core",
+          "models",
+          "npm:rxjs"
+        ]
       }
     ],
-    "ticket-booking-app": [
+    "models": [
       {
-        "file": "apps/ticket-booking-app/.eslintrc.json",
-        "hash": "16154935045403066926"
-      },
-      {
-        "file": "apps/ticket-booking-app/jest.config.ts",
-        "hash": "5001620354053747201"
-      },
-      {
-        "file": "apps/ticket-booking-app/project.json",
-        "hash": "8692224730399376468"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/app.component.html",
-        "hash": "1451880533778745531"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/app.component.scss",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/app.component.ts",
-        "hash": "7287006150186963570",
-        "deps": [
-          "npm:@angular/core"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/app.module.ts",
-        "hash": "16262531665903761166",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@angular/platform-browser",
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/app.routes.ts",
-        "hash": "971288909182323576",
-        "deps": [
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/header.component.ts",
-        "hash": "17241761094769596231",
-        "deps": [
-          "npm:@angular/core"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.component.html",
-        "hash": "14091238781098253997"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.component.scss",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.component.ts",
-        "hash": "16562951818649109231",
-        "deps": [
-          "npm:@angular/core"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.module.ts",
-        "hash": "5426744775307454023",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@angular/common",
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/about-us/about-us.routes.ts",
-        "hash": "10315081034442379984",
-        "deps": [
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.component.html",
-        "hash": "1224254043717392050"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.component.scss",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.component.ts",
-        "hash": "401711655491669286",
-        "deps": [
-          "npm:@angular/core"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.module.ts",
-        "hash": "16582952680712645602",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@angular/common",
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/blog/blog.routes.ts",
-        "hash": "5166774159437721804",
-        "deps": [
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/home/home.component.html",
-        "hash": "16619066491338721079"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/home/home.component.scss",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/home/home.component.ts",
-        "hash": "41940541165740868",
-        "deps": [
-          "npm:@angular/core"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/home/home.module.ts",
-        "hash": "13331807000972326687",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@angular/common",
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/home/home.routes.ts",
-        "hash": "15307957267992820437",
-        "deps": [
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.component.html",
-        "hash": "11947961897570158308"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.component.scss",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.component.ts",
-        "hash": "12093051017276153803",
-        "deps": [
-          "npm:@angular/core"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.module.ts",
-        "hash": "15727233188235533002",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@angular/common",
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/app/modules/shows/shows.routes.ts",
-        "hash": "16681874495737517199",
-        "deps": [
-          "npm:@angular/router"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/assets/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/assets/bootstrap.bundle.min.js",
-        "hash": "7261830614730871548"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/assets/bootstrap.min.css",
-        "hash": "15386081923414614311"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/assets/popper.min.js",
-        "hash": "3960228366792628809"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/favicon.ico",
-        "hash": "9303420814833116677"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/index.html",
-        "hash": "3504321796576393564"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/main.ts",
-        "hash": "17362317042929630877",
-        "deps": [
-          "npm:@angular/platform-browser-dynamic"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/src/styles.scss",
-        "hash": "2917954890128038984"
-      },
-      {
-        "file": "apps/ticket-booking-app/src/test-setup.ts",
-        "hash": "10765977267162271731",
-        "deps": [
-          "npm:jest-preset-angular"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app/tsconfig.app.json",
-        "hash": "15840844869456775012"
-      },
-      {
-        "file": "apps/ticket-booking-app/tsconfig.editor.json",
-        "hash": "6816855480324741077"
-      },
-      {
-        "file": "apps/ticket-booking-app/tsconfig.json",
-        "hash": "17021277375021554599"
-      },
-      {
-        "file": "apps/ticket-booking-app/tsconfig.spec.json",
-        "hash": "1930986853382524452"
-      }
-    ],
-    "front-end": [
-      {
-        "file": "libs/front-end/.eslintrc.json",
+        "file": "libs/models/.eslintrc.json",
         "hash": "16402751898759826414"
       },
       {
-        "file": "libs/front-end/README.md",
-        "hash": "13567354590494607923"
-      },
-      {
-        "file": "libs/front-end/package.json",
-        "hash": "795806143510324444",
+        "file": "libs/models/package.json",
+        "hash": "1401963316103930996",
         "deps": [
           "npm:tslib"
         ]
       },
       {
-        "file": "libs/front-end/project.json",
-        "hash": "3597492210158981812"
+        "file": "libs/models/project.json",
+        "hash": "12749845295336514585"
       },
       {
-        "file": "libs/front-end/src/index.ts",
-        "hash": "17183370702617897082"
+        "file": "libs/models/src/artist.ts",
+        "hash": "3192482969964955715"
       },
       {
-        "file": "libs/front-end/src/services/index.ts",
-        "hash": "9211068132455535460"
+        "file": "libs/models/src/common.ts",
+        "hash": "9190075478859784244"
       },
       {
-        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
-        "hash": "14343517326774558008",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@ng-bootstrap/ng-bootstrap"
-        ]
+        "file": "libs/models/src/environment.ts",
+        "hash": "6076910729302466647"
       },
       {
-        "file": "libs/front-end/tsconfig.json",
+        "file": "libs/models/src/fare-type.ts",
+        "hash": "3320794730266354123"
+      },
+      {
+        "file": "libs/models/src/form.ts",
+        "hash": "17539651740194992106"
+      },
+      {
+        "file": "libs/models/src/index.ts",
+        "hash": "17569238487841554472"
+      },
+      {
+        "file": "libs/models/src/order.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/models/src/payment.ts",
+        "hash": "9694058693516877043"
+      },
+      {
+        "file": "libs/models/src/seat-map.ts",
+        "hash": "90369007237238382"
+      },
+      {
+        "file": "libs/models/src/show.ts",
+        "hash": "2702461875614541316"
+      },
+      {
+        "file": "libs/models/src/user.ts",
+        "hash": "5293972801997151504"
+      },
+      {
+        "file": "libs/models/tsconfig.json",
         "hash": "1581763891220245391"
       },
       {
-        "file": "libs/front-end/tsconfig.lib.json",
+        "file": "libs/models/tsconfig.lib.json",
         "hash": "17512648156706774563"
       }
     ]

@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbTimepickerAdapter } from '@libs/front-end';
+import { AbstractFormComponent, NgbTimepickerAdapter } from '@libs/front-end';
 import {
   NgbTimeAdapter,
   NgbTimepickerConfig,
@@ -10,7 +10,6 @@ import {
   ShowProperties,
   ShowStatuses,
   showStatusArr,
-  FormState,
 } from '@libs/models';
 
 @Component({
@@ -22,15 +21,14 @@ import {
     { provide: NgbTimeAdapter, useClass: NgbTimepickerAdapter },
   ],
 })
-export class ShowFormComponent implements OnChanges {
+export class ShowFormComponent
+  extends AbstractFormComponent<Show>
+  implements OnChanges
+{
   @Input()
   useHeader = true;
   @Input()
   useInternalBtn = true;
-  @Input()
-  formState: FormState<Show>;
-  @Input()
-  disabled: boolean | string[] = false;
 
   readonly form = this.fb.group({
     // Basic info
@@ -103,44 +101,8 @@ export class ShowFormComponent implements OnChanges {
     private readonly fb: FormBuilder,
     private readonly timepickerConfig: NgbTimepickerConfig
   ) {
+    super();
     this.timepickerConfig.seconds = false;
     this.timepickerConfig.spinners = false;
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['formState']) {
-      this.setFormState(this.formState);
-    }
-    if (changes['disabled']) {
-      this.setFormDisability(this.disabled);
-    }
-  }
-
-  private setFormState(state: FormState<Show>): void {
-    this.form.patchValue(state.data);
-    if (state.pristine) {
-      return this.form.markAsPristine();
-    }
-    if (state.touched) {
-      this.form.markAsTouched({ onlySelf: true });
-    } else {
-      this.form.markAsUntouched();
-    }
-    if (state.dirty) {
-      this.form.markAsDirty({ onlySelf: true });
-    }
-  }
-
-  private setFormDisability(disabled: boolean | string[]): void {
-    if (typeof disabled === 'boolean') {
-      if (this.disabled) {
-        return this.form.disable();
-      } else {
-        return this.form.enable();
-      }
-    }
-    if (Array.isArray(disabled)) {
-      disabled.forEach((ctrlName) => this.form.get(ctrlName).disable());
-    }
   }
 }

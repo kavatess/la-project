@@ -14628,6 +14628,16 @@
         "source": "front-end",
         "target": "npm:@ng-bootstrap/ng-bootstrap",
         "type": "static"
+      },
+      {
+        "source": "front-end",
+        "target": "npm:@angular/forms",
+        "type": "static"
+      },
+      {
+        "source": "front-end",
+        "target": "models",
+        "type": "static"
       }
     ],
     "admin-app": [
@@ -14688,6 +14698,11 @@
       },
       {
         "source": "admin-app",
+        "target": "front-end",
+        "type": "static"
+      },
+      {
+        "source": "admin-app",
         "target": "npm:@ng-bootstrap/ng-bootstrap",
         "type": "static"
       },
@@ -14699,11 +14714,6 @@
       {
         "source": "admin-app",
         "target": "utils",
-        "type": "static"
-      },
-      {
-        "source": "admin-app",
-        "target": "front-end",
         "type": "static"
       },
       {
@@ -14750,6 +14760,11 @@
       },
       {
         "source": "server",
+        "target": "npm:class-transformer",
+        "type": "static"
+      },
+      {
+        "source": "server",
         "target": "npm:@nestjs/mapped-types",
         "type": "static"
       },
@@ -14761,11 +14776,6 @@
       {
         "source": "server",
         "target": "npm:@nestjs/common",
-        "type": "static"
-      },
-      {
-        "source": "server",
-        "target": "npm:class-transformer",
         "type": "static"
       },
       {

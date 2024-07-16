@@ -1,0 +1,66 @@
+<form [formGroup]="form">
+  <div class="card mb-1">
+    <div class="card-header">Thống tin phương thức thanh toán</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Title</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="PaymentProperties.title"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Mô tả</label>
+          <textarea
+            class="form-control"
+            [formControlName]="PaymentProperties.description"
+            [maxLength]="4096"
+            [rows]="5"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">ApiKey</label>
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="PaymentProperties.apiKey"
+            [maxLength]="1024"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Tình trạng</label>
+          <select
+            class="form-select"
+            [formControlName]="PaymentProperties.status"
+          >
+            <option [value]="PaymentStatuses.Active">
+              {{ PaymentStatuses.Active }}
+            </option>
+            <option [value]="PaymentStatuses.Inactive">
+              {{ PaymentStatuses.Inactive }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="useInternalBtn">
+    <div class="btn-group mt-2">
+      <ng-content select=".payment-form-submit-btn-container"></ng-content>
+    </div>
+  </ng-container>
+</form>
