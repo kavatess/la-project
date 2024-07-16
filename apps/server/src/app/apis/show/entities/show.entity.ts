@@ -32,7 +32,7 @@ export class Show {
   @Prop({ type: String, required: false })
   [ShowProperties.slogan]: string;
 
-  @Prop({ type: ShowTypes, required: false })
+  @Prop({ type: String, enum: ShowTypes, required: false })
   [ShowProperties.types]: ShowTypes;
 
   @Prop({ type: Date, required: true })
@@ -62,7 +62,7 @@ export class Show {
   @Prop({ type: Number, required: true })
   [ShowProperties.endBookingTime]: number;
 
-  @Prop({ type: ShowStatuses, required: true })
+  @Prop({ type: String, enum: ShowStatuses, required: true })
   [ShowProperties.status]: ShowStatuses;
 }
 

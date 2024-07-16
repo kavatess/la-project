@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
+import { AppRoutes } from '../../app.routes';
 
 @Component({
   selector: 'la-project-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   public readonly loginForm: FormGroup = new FormGroup({
     accountName: new FormControl(null, [
       Validators.required,
-      Validators.maxLength(11),
+      Validators.maxLength(256),
     ]),
     password: new FormControl(null, [
       Validators.required,
@@ -29,7 +30,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe((isLoggedIn) => {
         if (isLoggedIn) {
-          this.router.navigate(['farm']);
+          this.router.navigate([AppRoutes.Shows]);
         } else {
           alert('Đăng nhập thất bại. Xin vui lòng thử lại.');
         }

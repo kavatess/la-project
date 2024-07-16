@@ -62,6 +62,7 @@ export class UpdateShowService {
     return of([
       {
         id: '82346823746',
+        [FareTypeProperties.showId]: '123',
         [FareTypeProperties.title]: 'VIP',
         [FareTypeProperties.displayColor]: '#FFFF00',
         [FareTypeProperties.price]: 1000000,
@@ -71,6 +72,7 @@ export class UpdateShowService {
       },
       {
         id: '82346823747',
+        [FareTypeProperties.showId]: '123',
         [FareTypeProperties.title]: 'Thường',
         [FareTypeProperties.displayColor]: '#ADD8E6',
         [FareTypeProperties.price]: 500000,

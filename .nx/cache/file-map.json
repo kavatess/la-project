@@ -13,6 +13,7 @@
     "@angular/platform-browser-dynamic": "~16.2.0",
     "@angular/router": "~16.2.0",
     "@nestjs/common": "^10.0.2",
+    "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/mapped-types": "*",
@@ -30,6 +31,7 @@
     "class-validator": "^0.14.1",
     "moment": "^2.30.1",
     "mongoose": "^7.5.1",
+    "mongoose-autopopulate": "^1.1.0",
     "ngx-webstorage": "^12.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
@@ -94,6 +96,497 @@
   },
   "nxJsonPlugins": [],
   "projectFileMap": {
+    "server": [
+      {
+        "file": "apps/server/.eslintrc.json",
+        "hash": "12312091713424603791"
+      },
+      {
+        "file": "apps/server/jest.config.ts",
+        "hash": "13470403623474299756"
+      },
+      {
+        "file": "apps/server/project.json",
+        "hash": "1242898384464924565"
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/dto/create-fare-type.dto.ts",
+        "hash": "10824457106186315732",
+        "deps": [
+          "models",
+          "npm:@nestjs/swagger",
+          "npm:class-validator",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/dto/fare-type-query.dto.ts",
+        "hash": "3862608941951332792",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/dto/update-fare-type.dto.ts",
+        "hash": "1143926049361440529",
+        "deps": [
+          "npm:@nestjs/mapped-types"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/entities/fare-type.entity.ts",
+        "hash": "9610958594322607524",
+        "deps": [
+          "models",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/fare-type.controller.ts",
+        "hash": "17929607620714294357",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/fare-type.module.ts",
+        "hash": "3112634119848218457",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/fare-type/fare-type.service.ts",
+        "hash": "14382503475208692083",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/seat/dto/create-seat.dto.ts",
+        "hash": "9790925767671974258",
+        "deps": [
+          "models",
+          "npm:@nestjs/swagger",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/seat/dto/seat-query.dto.ts",
+        "hash": "14815471549924352117",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/seat/dto/update-seat.dto.ts",
+        "hash": "1518933670989618827",
+        "deps": [
+          "npm:@nestjs/mapped-types"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/seat/entities/seat.entity.ts",
+        "hash": "17709742440269939633",
+        "deps": [
+          "models",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/seat/seat.admin-controller.ts",
+        "hash": "5247778181483779185",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/seat/seat.module.ts",
+        "hash": "10088088835952916072",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/seat/seat.service.ts",
+        "hash": "5317984769577689174",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/block.service.ts",
+        "hash": "14016331815155370159",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/dto/create-block.dto.ts",
+        "hash": "12632505519287195099",
+        "deps": [
+          "models",
+          "npm:@nestjs/swagger",
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/dto/create-section.dto.ts",
+        "hash": "4663708342055872289",
+        "deps": [
+          "models",
+          "npm:@nestjs/swagger",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/dto/update-block.dto.ts",
+        "hash": "11580238657548282886",
+        "deps": [
+          "npm:@nestjs/mapped-types"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/dto/update-section.dto.ts",
+        "hash": "5471060853651690773",
+        "deps": [
+          "npm:@nestjs/mapped-types"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/entities/block.entity.ts",
+        "hash": "15950931578615549263",
+        "deps": [
+          "models",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/entities/section.entity.ts",
+        "hash": "15019464503203319340",
+        "deps": [
+          "models",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/section.admin-controller.ts",
+        "hash": "11810669830540607697",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/section.module.ts",
+        "hash": "11662583376594022768",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/section/section.service.ts",
+        "hash": "7341248321875450638",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/show/dto/create-show.dto.ts",
+        "hash": "16535826359785534753",
+        "deps": [
+          "models",
+          "npm:class-validator",
+          "npm:class-transformer",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/show/dto/show-query.dto.ts",
+        "hash": "11318055937780374727",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/show/dto/update-show.dto.ts",
+        "hash": "9897522832526513255",
+        "deps": [
+          "npm:@nestjs/mapped-types"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/show/entities/show.entity.ts",
+        "hash": "16070627841735796540",
+        "deps": [
+          "models",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose",
+          "npm:moment"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/show/show.admin-controller.ts",
+        "hash": "14320765914357636460",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/show/show.module.ts",
+        "hash": "2043082094461716164",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/show/show.service.ts",
+        "hash": "10652171344383470044",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/user/dto/create-user.dto.ts",
+        "hash": "10069827253672188951",
+        "deps": [
+          "models",
+          "npm:@nestjs/swagger",
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/user/dto/update-user.dto.ts",
+        "hash": "3072118038373682147",
+        "deps": [
+          "npm:@nestjs/mapped-types"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/user/dto/user-query.dto.ts",
+        "hash": "9416200369753260470",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/user/entities/user.entity.ts",
+        "hash": "15459083601506910279",
+        "deps": [
+          "models",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/user/user.admin-controller.ts",
+        "hash": "13872436247991427651",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/user/user.module.ts",
+        "hash": "7574545069652510669",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/apis/user/user.service.ts",
+        "hash": "6012820073421076915",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/mongoose",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/app.constants.ts",
+        "hash": "8611995253671200813"
+      },
+      {
+        "file": "apps/server/src/app/app.controller.ts",
+        "hash": "8194742152470293406",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/app.module.ts",
+        "hash": "4623509124097395272",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/config",
+          "npm:@nestjs/mongoose",
+          [
+            "npm:mongoose-autopopulate",
+            "dynamic"
+          ]
+        ]
+      },
+      {
+        "file": "apps/server/src/app/app.service.ts",
+        "hash": "8422121253670037094",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/auth/auth.admin-controller.ts",
+        "hash": "1528603671570630557",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/auth/auth.module.ts",
+        "hash": "12151177792524269700",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/jwt",
+          "npm:@nestjs/config"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/auth/auth.service.ts",
+        "hash": "976633156576473082",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/jwt",
+          "models"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/auth/dto/change-password.dto.ts",
+        "hash": "8170043418131290347",
+        "deps": [
+          "npm:@nestjs/swagger",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/auth/dto/login.dto.ts",
+        "hash": "9374215608104397519",
+        "deps": [
+          "models",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/auth/dto/update-profile.dto.ts",
+        "hash": "629791072221757590"
+      },
+      {
+        "file": "apps/server/src/app/auth/guards/admin-app.guard.ts",
+        "hash": "12138055493491367885",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/jwt",
+          "npm:express"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/configs/env.validation.ts",
+        "hash": "13013224294415828445",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/shared/decorators/api-get-query.decorator.ts",
+        "hash": "17502933229787279822",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/shared/decorators/user-payload.decorator.ts",
+        "hash": "1573931882887816816",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/shared/dto/find-all-query.dto.ts",
+        "hash": "18043475814011449765",
+        "deps": [
+          "npm:class-transformer",
+          "npm:class-validator"
+        ]
+      },
+      {
+        "file": "apps/server/src/app/shared/services/db-model.service.ts",
+        "hash": "1362842077350093987",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:mongoose"
+        ]
+      },
+      {
+        "file": "apps/server/src/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/server/src/main.ts",
+        "hash": "15614292746481108217",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/core",
+          "npm:@nestjs/swagger"
+        ]
+      },
+      {
+        "file": "apps/server/tsconfig.app.json",
+        "hash": "2475386244281766571"
+      },
+      {
+        "file": "apps/server/tsconfig.json",
+        "hash": "7462419380158041776"
+      },
+      {
+        "file": "apps/server/tsconfig.spec.json",
+        "hash": "11194536110028348959"
+      },
+      {
+        "file": "apps/server/webpack.config.js",
+        "hash": "14249963796161297751",
+        "deps": [
+          "npm:@nx/webpack"
+        ]
+      }
+    ],
     "server-e2e": [
       {
         "file": "apps/server-e2e/.eslintrc.json",
@@ -136,634 +629,6 @@
       {
         "file": "apps/server-e2e/tsconfig.spec.json",
         "hash": "15391097975841359511"
-      }
-    ],
-    "server": [
-      {
-        "file": "apps/server/.eslintrc.json",
-        "hash": "12312091713424603791"
-      },
-      {
-        "file": "apps/server/jest.config.ts",
-        "hash": "13470403623474299756"
-      },
-      {
-        "file": "apps/server/project.json",
-        "hash": "1242898384464924565"
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/dto/create-fare-type.dto.ts",
-        "hash": "10824457106186315732",
-        "deps": [
-          "models",
-          "npm:@nestjs/swagger",
-          "npm:class-validator",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/dto/fare-type-query.dto.ts",
-        "hash": "3862608941951332792",
-        "deps": [
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/dto/update-fare-type.dto.ts",
-        "hash": "1143926049361440529",
-        "deps": [
-          "npm:@nestjs/mapped-types"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/entities/fare-type.entity.ts",
-        "hash": "4199767331268075825",
-        "deps": [
-          "models",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/fare-type.controller.ts",
-        "hash": "10871483827486867576",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/fare-type.module.ts",
-        "hash": "3112634119848218457",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/fare-type/fare-type.service.ts",
-        "hash": "14382503475208692083",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/dto/create-seat.dto.ts",
-        "hash": "5443456151015273393",
-        "deps": [
-          "models",
-          "npm:@nestjs/swagger",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/dto/seat-query.dto.ts",
-        "hash": "14815471549924352117",
-        "deps": [
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/dto/update-seat.dto.ts",
-        "hash": "1518933670989618827",
-        "deps": [
-          "npm:@nestjs/mapped-types"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/entities/seat.entity.ts",
-        "hash": "7955524791183678227",
-        "deps": [
-          "models",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/seat.admin-controller.ts",
-        "hash": "5247778181483779185",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/seat.module.ts",
-        "hash": "10088088835952916072",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/seat/seat.service.ts",
-        "hash": "5317984769577689174",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/block.service.ts",
-        "hash": "14016331815155370159",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/dto/create-block.dto.ts",
-        "hash": "2769106738331502797",
-        "deps": [
-          "models",
-          "npm:@nestjs/swagger",
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/dto/create-section.dto.ts",
-        "hash": "4663708342055872289",
-        "deps": [
-          "models",
-          "npm:@nestjs/swagger",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/dto/update-block.dto.ts",
-        "hash": "11580238657548282886",
-        "deps": [
-          "npm:@nestjs/mapped-types"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/dto/update-section.dto.ts",
-        "hash": "5471060853651690773",
-        "deps": [
-          "npm:@nestjs/mapped-types"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/entities/block.entity.ts",
-        "hash": "4843228874148831395",
-        "deps": [
-          "models",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/entities/section.entity.ts",
-        "hash": "5462577628100516731",
-        "deps": [
-          "models",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/section.admin-controller.ts",
-        "hash": "11810669830540607697",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/swagger"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/section.module.ts",
-        "hash": "1193068543544022060",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/section/section.service.ts",
-        "hash": "7341248321875450638",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/show/dto/create-show.dto.ts",
-        "hash": "13423408527201534344",
-        "deps": [
-          "models",
-          "npm:class-validator",
-          "npm:class-transformer",
-          "npm:@nestjs/swagger"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/show/dto/show-query.dto.ts",
-        "hash": "11318055937780374727",
-        "deps": [
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/show/dto/update-show.dto.ts",
-        "hash": "9897522832526513255",
-        "deps": [
-          "npm:@nestjs/mapped-types"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/show/entities/show.entity.ts",
-        "hash": "14686776793362094857",
-        "deps": [
-          "models",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose",
-          "npm:moment"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/show/show.admin-controller.ts",
-        "hash": "14320765914357636460",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/swagger"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/show/show.module.ts",
-        "hash": "2043082094461716164",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/show/show.service.ts",
-        "hash": "10652171344383470044",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/user/dto/create-user.dto.ts",
-        "hash": "11951934532071216347"
-      },
-      {
-        "file": "apps/server/src/app/apis/user/dto/update-user.dto.ts",
-        "hash": "3072118038373682147",
-        "deps": [
-          "npm:@nestjs/mapped-types"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/user/dto/user-query.dto.ts",
-        "hash": "9416200369753260470",
-        "deps": [
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/user/entities/user.entity.ts",
-        "hash": "11208385223196442899",
-        "deps": [
-          "models",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/user/user.admin-controller.ts",
-        "hash": "13872436247991427651",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/swagger"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/user/user.module.ts",
-        "hash": "7574545069652510669",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/apis/user/user.service.ts",
-        "hash": "6012820073421076915",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/mongoose",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/app.controller.ts",
-        "hash": "8194742152470293406",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/app.module.ts",
-        "hash": "11185788977531455145",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/app.service.ts",
-        "hash": "8422121253670037094",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/auth/auth.admin-controller.ts",
-        "hash": "9913549013531072270",
-        "deps": [
-          "npm:@nestjs/common"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/auth/auth.module.ts",
-        "hash": "16464239244841969484",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/jwt"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/auth/auth.service.ts",
-        "hash": "17733440179430900795",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/jwt"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/auth/dto/login.dto.ts",
-        "hash": "9374215608104397519",
-        "deps": [
-          "models",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/auth/guards/admin-app.guard.ts",
-        "hash": "12138055493491367885",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/jwt",
-          "npm:express"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/shared/decorators/api-get-query.decorator.ts",
-        "hash": "17502933229787279822",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/swagger"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/shared/dto/find-all-query.dto.ts",
-        "hash": "18043475814011449765",
-        "deps": [
-          "npm:class-transformer",
-          "npm:class-validator"
-        ]
-      },
-      {
-        "file": "apps/server/src/app/shared/services/db-model.service.ts",
-        "hash": "5591677313348266751",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:mongoose"
-        ]
-      },
-      {
-        "file": "apps/server/src/assets/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/server/src/main.ts",
-        "hash": "8989619948981226672",
-        "deps": [
-          "npm:@nestjs/common",
-          "npm:@nestjs/core",
-          "npm:@nestjs/swagger"
-        ]
-      },
-      {
-        "file": "apps/server/tsconfig.app.json",
-        "hash": "2475386244281766571"
-      },
-      {
-        "file": "apps/server/tsconfig.json",
-        "hash": "7462419380158041776"
-      },
-      {
-        "file": "apps/server/tsconfig.spec.json",
-        "hash": "11194536110028348959"
-      },
-      {
-        "file": "apps/server/webpack.config.js",
-        "hash": "14249963796161297751",
-        "deps": [
-          "npm:@nx/webpack"
-        ]
-      }
-    ],
-    "front-end": [
-      {
-        "file": "libs/front-end/.eslintrc.json",
-        "hash": "16402751898759826414"
-      },
-      {
-        "file": "libs/front-end/README.md",
-        "hash": "13567354590494607923"
-      },
-      {
-        "file": "libs/front-end/package.json",
-        "hash": "795806143510324444",
-        "deps": [
-          "npm:tslib"
-        ]
-      },
-      {
-        "file": "libs/front-end/project.json",
-        "hash": "3597492210158981812"
-      },
-      {
-        "file": "libs/front-end/src/index.ts",
-        "hash": "8847262861760846179"
-      },
-      {
-        "file": "libs/front-end/src/services/index.ts",
-        "hash": "9211068132455535460"
-      },
-      {
-        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
-        "hash": "14343517326774558008",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@ng-bootstrap/ng-bootstrap"
-        ]
-      },
-      {
-        "file": "libs/front-end/tsconfig.json",
-        "hash": "1581763891220245391"
-      },
-      {
-        "file": "libs/front-end/tsconfig.lib.json",
-        "hash": "17512648156706774563"
-      },
-      {
-        "file": "libs/front-end/src/components/abstract-form/abstract-form.component.ts",
-        "hash": "15836509907544839953",
-        "deps": [
-          "npm:@angular/core",
-          "npm:@angular/forms",
-          "models"
-        ]
-      },
-      {
-        "file": "libs/front-end/src/components/index.ts",
-        "hash": "1187757878708793888"
-      }
-    ],
-    "admin-app-e2e": [
-      {
-        "file": "apps/admin-app-e2e/.eslintrc.json",
-        "hash": "10799368048025705622"
-      },
-      {
-        "file": "apps/admin-app-e2e/cypress.config.ts",
-        "hash": "10128070837426886452",
-        "deps": [
-          "npm:cypress",
-          "npm:@nx/cypress"
-        ]
-      },
-      {
-        "file": "apps/admin-app-e2e/project.json",
-        "hash": "10575228774748147200"
-      },
-      {
-        "file": "apps/admin-app-e2e/src/e2e/app.cy.ts",
-        "hash": "15282145683457325539"
-      },
-      {
-        "file": "apps/admin-app-e2e/src/fixtures/example.json",
-        "hash": "17341819486505642070"
-      },
-      {
-        "file": "apps/admin-app-e2e/src/support/app.po.ts",
-        "hash": "5364106453863571025"
-      },
-      {
-        "file": "apps/admin-app-e2e/src/support/commands.ts",
-        "hash": "11031723810997510506"
-      },
-      {
-        "file": "apps/admin-app-e2e/src/support/e2e.ts",
-        "hash": "15928825062325902088"
-      },
-      {
-        "file": "apps/admin-app-e2e/tsconfig.json",
-        "hash": "15819154737716378212"
-      }
-    ],
-    "utils": [
-      {
-        "file": "libs/utils/.eslintrc.json",
-        "hash": "16154935045403066926"
-      },
-      {
-        "file": "libs/utils/README.md",
-        "hash": "9996025266803193649"
-      },
-      {
-        "file": "libs/utils/jest.config.ts",
-        "hash": "4353907897352940402"
-      },
-      {
-        "file": "libs/utils/project.json",
-        "hash": "14541902505999217740"
-      },
-      {
-        "file": "libs/utils/src/generators/index.ts",
-        "hash": "2889298877604982386"
-      },
-      {
-        "file": "libs/utils/src/generators/seat.ts",
-        "hash": "4312998655396823111"
-      },
-      {
-        "file": "libs/utils/src/index.ts",
-        "hash": "8673716554781669287"
-      },
-      {
-        "file": "libs/utils/tsconfig.json",
-        "hash": "7184861466157324158"
-      },
-      {
-        "file": "libs/utils/tsconfig.lib.json",
-        "hash": "15304444604046903881"
-      },
-      {
-        "file": "libs/utils/tsconfig.spec.json",
-        "hash": "1930986853382524452"
-      }
-    ],
-    "ticket-booking-app-e2e": [
-      {
-        "file": "apps/ticket-booking-app-e2e/.eslintrc.json",
-        "hash": "10799368048025705622"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/cypress.config.ts",
-        "hash": "10128070837426886452",
-        "deps": [
-          "npm:cypress",
-          "npm:@nx/cypress"
-        ]
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/project.json",
-        "hash": "14143670146397871774"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/e2e/app.cy.ts",
-        "hash": "6216217607404722712"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/fixtures/example.json",
-        "hash": "17341819486505642070"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/support/app.po.ts",
-        "hash": "5364106453863571025"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/support/commands.ts",
-        "hash": "11031723810997510506"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/src/support/e2e.ts",
-        "hash": "15928825062325902088"
-      },
-      {
-        "file": "apps/ticket-booking-app-e2e/tsconfig.json",
-        "hash": "15819154737716378212"
       }
     ],
     "ticket-booking-app": [
@@ -1015,7 +880,7 @@
       },
       {
         "file": "apps/admin-app/src/app/app.component.html",
-        "hash": "14153238660013828618"
+        "hash": "17408462180945881387"
       },
       {
         "file": "apps/admin-app/src/app/app.component.scss",
@@ -1023,7 +888,7 @@
       },
       {
         "file": "apps/admin-app/src/app/app.component.ts",
-        "hash": "5522373693392005727",
+        "hash": "60325391156523846",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/router"
@@ -1035,7 +900,7 @@
       },
       {
         "file": "apps/admin-app/src/app/app.module.ts",
-        "hash": "152167936919437888",
+        "hash": "13443947270908167220",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/platform-browser",
@@ -1044,28 +909,28 @@
           "npm:@ngrx/store",
           "npm:@ngrx/effects",
           "npm:@ngrx/store-devtools",
-          "models"
+          "models",
+          "npm:ngx-webstorage"
         ]
       },
       {
         "file": "apps/admin-app/src/app/app.routes.ts",
-        "hash": "14722111592866112764",
+        "hash": "9934418504880755601",
         "deps": [
           "npm:@angular/router"
         ]
       },
       {
         "file": "apps/admin-app/src/app/auth/auth.guard.ts",
-        "hash": "14970606440985159894",
+        "hash": "5088289506924994279",
         "deps": [
           "npm:@angular/core",
-          "npm:@angular/router",
-          "npm:rxjs"
+          "npm:@angular/router"
         ]
       },
       {
         "file": "apps/admin-app/src/app/auth/auth.service.ts",
-        "hash": "13597313922830519831",
+        "hash": "8540921631363405232",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/common",
@@ -1077,7 +942,7 @@
       },
       {
         "file": "apps/admin-app/src/app/interceptors/http.interceptor.ts",
-        "hash": "17425596454692782065",
+        "hash": "12818769275049467065",
         "deps": [
           "npm:@angular/common",
           "npm:@angular/core",
@@ -1121,7 +986,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/login/login.component.html",
-        "hash": "6155964398208944430"
+        "hash": "15687804617693083552"
       },
       {
         "file": "apps/admin-app/src/app/modules/login/login.component.scss",
@@ -1129,7 +994,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/login/login.component.ts",
-        "hash": "7715936948117407680",
+        "hash": "335738696966699266",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/forms",
@@ -1196,6 +1061,15 @@
           "npm:@angular/forms",
           "front-end",
           "models"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/payments/payment-form/payment-form.module.ts",
+        "hash": "12339922897499904517",
+        "deps": [
+          "npm:@angular/common",
+          "npm:@angular/core",
+          "npm:@angular/forms"
         ]
       },
       {
@@ -1271,6 +1145,93 @@
           "npm:@angular/core",
           "npm:@angular/common",
           "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/profile.component.html",
+        "hash": "8294397383785906270"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/profile.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/profile.component.ts",
+        "hash": "11378169959247091565",
+        "deps": [
+          "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/profile.constants.ts",
+        "hash": "6336778437232514961"
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/profile.module.ts",
+        "hash": "7307104931320575510",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common",
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/profile.routes.ts",
+        "hash": "17579922105393751382",
+        "deps": [
+          "npm:@angular/router"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/store/profile.actions.ts",
+        "hash": "12874746279204961676",
+        "deps": [
+          "npm:@ngrx/store",
+          "models"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/store/profile.effects.ts",
+        "hash": "12427273109627385159",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@ngrx/effects",
+          "npm:rxjs",
+          "npm:@ngrx/store"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/store/profile.reducer.ts",
+        "hash": "14762002054271227539",
+        "deps": [
+          "npm:@ngrx/store",
+          "models"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/store/profile.service.ts",
+        "hash": "11380916986219034151",
+        "deps": [
+          "npm:@angular/common",
+          "npm:@angular/core",
+          "models",
+          "npm:rxjs"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/store/profiles.selectors.ts",
+        "hash": "12767527758873181393",
+        "deps": [
+          "npm:@ngrx/store"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/modules/profile/store/store.module.ts",
+        "hash": "13014168670208110015",
+        "deps": [
+          "npm:@ngrx/store",
+          "npm:@angular/core",
+          "npm:@ngrx/effects"
         ]
       },
       {
@@ -1448,7 +1409,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/shows.module.ts",
-        "hash": "14724116103219410260",
+        "hash": "16993259615119175300",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/common",
@@ -1533,7 +1494,7 @@
       },
       {
         "file": "apps/admin-app/src/app/modules/shows/update-show/store/update-show.service.ts",
-        "hash": "2326518123610070508",
+        "hash": "2049185244240489182",
         "deps": [
           "npm:@angular/core",
           "npm:@angular/common",
@@ -1607,10 +1568,54 @@
         ]
       },
       {
+        "file": "apps/admin-app/src/app/modules/users/users.service.ts",
+        "hash": "12212694988594338087",
+        "deps": [
+          "npm:@angular/common",
+          "npm:@angular/core",
+          "models",
+          "npm:rxjs"
+        ]
+      },
+      {
         "file": "apps/admin-app/src/app/nx-welcome.component.ts",
         "hash": "14719289448971904741",
         "deps": [
           "npm:@angular/core"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/shared/error-alert/error-alert.component.html",
+        "hash": "6695983386324072109"
+      },
+      {
+        "file": "apps/admin-app/src/app/shared/error-alert/error-alert.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/admin-app/src/app/shared/error-alert/error-alert.component.ts",
+        "hash": "8793585496455109819",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@ng-bootstrap/ng-bootstrap",
+          "npm:rxjs",
+          "npm:@angular/common"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/shared/error-alert/error-alert.service.ts",
+        "hash": "15586858768958289028",
+        "deps": [
+          "npm:@angular/core",
+          "npm:rxjs"
+        ]
+      },
+      {
+        "file": "apps/admin-app/src/app/shared/shared.module.ts",
+        "hash": "6600473044860257468",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/common"
         ]
       },
       {
@@ -1623,7 +1628,7 @@
       },
       {
         "file": "apps/admin-app/src/environments/environment.development.ts",
-        "hash": "2302201488137163122",
+        "hash": "10538171512715635385",
         "deps": [
           "models"
         ]
@@ -1691,25 +1696,48 @@
       {
         "file": "apps/admin-app/tsconfig.spec.json",
         "hash": "1930986853382524452"
+      }
+    ],
+    "utils": [
+      {
+        "file": "libs/utils/.eslintrc.json",
+        "hash": "16154935045403066926"
       },
       {
-        "file": "apps/admin-app/src/app/modules/payments/payment-form/payment-form.module.ts",
-        "hash": "12339922897499904517",
-        "deps": [
-          "npm:@angular/common",
-          "npm:@angular/core",
-          "npm:@angular/forms"
-        ]
+        "file": "libs/utils/README.md",
+        "hash": "9996025266803193649"
       },
       {
-        "file": "apps/admin-app/src/app/modules/users/users.service.ts",
-        "hash": "12212694988594338087",
-        "deps": [
-          "npm:@angular/common",
-          "npm:@angular/core",
-          "models",
-          "npm:rxjs"
-        ]
+        "file": "libs/utils/jest.config.ts",
+        "hash": "4353907897352940402"
+      },
+      {
+        "file": "libs/utils/project.json",
+        "hash": "14541902505999217740"
+      },
+      {
+        "file": "libs/utils/src/generators/index.ts",
+        "hash": "2889298877604982386"
+      },
+      {
+        "file": "libs/utils/src/generators/seat.ts",
+        "hash": "4312998655396823111"
+      },
+      {
+        "file": "libs/utils/src/index.ts",
+        "hash": "8673716554781669287"
+      },
+      {
+        "file": "libs/utils/tsconfig.json",
+        "hash": "7184861466157324158"
+      },
+      {
+        "file": "libs/utils/tsconfig.lib.json",
+        "hash": "15304444604046903881"
+      },
+      {
+        "file": "libs/utils/tsconfig.spec.json",
+        "hash": "1930986853382524452"
       }
     ],
     "models": [
@@ -1742,7 +1770,7 @@
       },
       {
         "file": "libs/models/src/fare-type.ts",
-        "hash": "3320794730266354123"
+        "hash": "15776685914968909491"
       },
       {
         "file": "libs/models/src/form.ts",
@@ -1766,7 +1794,7 @@
       },
       {
         "file": "libs/models/src/show.ts",
-        "hash": "2702461875614541316"
+        "hash": "9469289019027811239"
       },
       {
         "file": "libs/models/src/user.ts",
@@ -1779,6 +1807,148 @@
       {
         "file": "libs/models/tsconfig.lib.json",
         "hash": "17512648156706774563"
+      }
+    ],
+    "front-end": [
+      {
+        "file": "libs/front-end/.eslintrc.json",
+        "hash": "16402751898759826414"
+      },
+      {
+        "file": "libs/front-end/README.md",
+        "hash": "13567354590494607923"
+      },
+      {
+        "file": "libs/front-end/package.json",
+        "hash": "795806143510324444",
+        "deps": [
+          "npm:tslib"
+        ]
+      },
+      {
+        "file": "libs/front-end/project.json",
+        "hash": "3597492210158981812"
+      },
+      {
+        "file": "libs/front-end/src/components/abstract-form/abstract-form.component.ts",
+        "hash": "15836509907544839953",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@angular/forms",
+          "models"
+        ]
+      },
+      {
+        "file": "libs/front-end/src/components/index.ts",
+        "hash": "1187757878708793888"
+      },
+      {
+        "file": "libs/front-end/src/index.ts",
+        "hash": "8847262861760846179"
+      },
+      {
+        "file": "libs/front-end/src/services/index.ts",
+        "hash": "9211068132455535460"
+      },
+      {
+        "file": "libs/front-end/src/services/timepicker-adapter.service.ts",
+        "hash": "14343517326774558008",
+        "deps": [
+          "npm:@angular/core",
+          "npm:@ng-bootstrap/ng-bootstrap"
+        ]
+      },
+      {
+        "file": "libs/front-end/tsconfig.json",
+        "hash": "1581763891220245391"
+      },
+      {
+        "file": "libs/front-end/tsconfig.lib.json",
+        "hash": "17512648156706774563"
+      }
+    ],
+    "admin-app-e2e": [
+      {
+        "file": "apps/admin-app-e2e/.eslintrc.json",
+        "hash": "10799368048025705622"
+      },
+      {
+        "file": "apps/admin-app-e2e/cypress.config.ts",
+        "hash": "10128070837426886452",
+        "deps": [
+          "npm:cypress",
+          "npm:@nx/cypress"
+        ]
+      },
+      {
+        "file": "apps/admin-app-e2e/project.json",
+        "hash": "10575228774748147200"
+      },
+      {
+        "file": "apps/admin-app-e2e/src/e2e/app.cy.ts",
+        "hash": "15282145683457325539"
+      },
+      {
+        "file": "apps/admin-app-e2e/src/fixtures/example.json",
+        "hash": "17341819486505642070"
+      },
+      {
+        "file": "apps/admin-app-e2e/src/support/app.po.ts",
+        "hash": "5364106453863571025"
+      },
+      {
+        "file": "apps/admin-app-e2e/src/support/commands.ts",
+        "hash": "11031723810997510506"
+      },
+      {
+        "file": "apps/admin-app-e2e/src/support/e2e.ts",
+        "hash": "15928825062325902088"
+      },
+      {
+        "file": "apps/admin-app-e2e/tsconfig.json",
+        "hash": "15819154737716378212"
+      }
+    ],
+    "ticket-booking-app-e2e": [
+      {
+        "file": "apps/ticket-booking-app-e2e/.eslintrc.json",
+        "hash": "10799368048025705622"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/cypress.config.ts",
+        "hash": "10128070837426886452",
+        "deps": [
+          "npm:cypress",
+          "npm:@nx/cypress"
+        ]
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/project.json",
+        "hash": "14143670146397871774"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/e2e/app.cy.ts",
+        "hash": "6216217607404722712"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/fixtures/example.json",
+        "hash": "17341819486505642070"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/support/app.po.ts",
+        "hash": "5364106453863571025"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/support/commands.ts",
+        "hash": "11031723810997510506"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/src/support/e2e.ts",
+        "hash": "15928825062325902088"
+      },
+      {
+        "file": "apps/ticket-booking-app-e2e/tsconfig.json",
+        "hash": "15819154737716378212"
       }
     ]
   }

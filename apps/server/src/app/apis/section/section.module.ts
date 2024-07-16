@@ -12,6 +12,8 @@ import { Block, BlockSchema } from './entities/block.entity';
         name: Section.name,
         schema: SectionSchema,
       },
+    ]),
+    MongooseModule.forFeature([
       {
         name: Block.name,
         schema: BlockSchema,

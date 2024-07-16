@@ -7,7 +7,7 @@ import { ShowsService } from './shows.service';
 
 @NgModule({
   declarations: [ShowsComponent],
-  imports: [CommonModule, RouterModule.forChild(showsRoutes)],
+  imports: [CommonModule, RouterModule.forChild(showsRoutes), ],
   providers: [ShowsService],
 })
 export class ShowsModule {}

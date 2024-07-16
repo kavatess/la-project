@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 export enum AppRoutes {
   Login = 'login',
@@ -6,6 +7,7 @@ export enum AppRoutes {
   Payments = 'payments',
   Blogs = 'blogs',
   Users = 'users',
+  Profile = 'profile',
 }
 
 export const appRoutes: Route[] = [
@@ -18,6 +20,7 @@ export const appRoutes: Route[] = [
     path: AppRoutes.Shows,
     loadChildren: () =>
       import('./modules/shows/shows.module').then((mod) => mod.ShowsModule),
+    canActivate: [AuthGuard],
   },
   {
     path: AppRoutes.Payments,
@@ -30,6 +33,7 @@ export const appRoutes: Route[] = [
     path: AppRoutes.Blogs,
     loadChildren: () =>
       import('./modules/blogs/blogs.module').then((mod) => mod.BlogsModule),
+    canActivate: [AuthGuard],
   },
   {
     path: AppRoutes.Users,
@@ -37,5 +41,6 @@ export const appRoutes: Route[] = [
       import('./modules/users/users.component').then(
         (mod) => mod.UsersComponent
       ),
+    canActivate: [AuthGuard],
   },
 ];

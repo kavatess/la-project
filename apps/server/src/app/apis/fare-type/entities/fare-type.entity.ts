@@ -1,7 +1,7 @@
 import { FareTypeProperties } from '@libs/models';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
-import { Show } from '../../show/entities/show.entity';
+import { ModelNames } from '../../../app.constants';
 
 @Schema({
   timestamps: true,
@@ -13,7 +13,7 @@ import { Show } from '../../show/entities/show.entity';
   },
 })
 export class FareType {
-  @Prop({ type: Types.ObjectId, ref: Show.name, required: true })
+  @Prop({ type: Types.ObjectId, ref: ModelNames.Show, required: true })
   [FareTypeProperties.showId]: string;
 
   @Prop({ type: String, required: true })
@@ -49,7 +49,7 @@ FareTypeSchema.index(
 
 // Virtuals
 FareTypeSchema.virtual(FareTypeProperties.show, {
-  ref: Show.name,
+  ref: ModelNames.Show,
   localField: FareTypeProperties.showId,
   foreignField: '_id',
   justOne: true,

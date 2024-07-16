@@ -1,7 +1,7 @@
 import { Aisles, BlockProperties, BlockTypes, Door } from '@libs/models';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
-import { Seat } from '../../seat/entities/seat.entity';
+import { ModelNames } from '../../../app.constants';
 
 @Schema({
   timestamps: true,
@@ -28,7 +28,7 @@ export class Block {
   @Prop({ type: String, enum: BlockTypes, required: true })
   [BlockProperties.type]: BlockTypes;
 
-  @Prop({ type: Types.ObjectId, ref: Seat.name, required: false })
+  @Prop({ type: Types.ObjectId, ref: ModelNames.Seat, required: false })
   [BlockProperties.seatId]?: string;
 
   @Prop({ type: Object, required: false })
@@ -52,7 +52,7 @@ BlockSchema.path(BlockProperties.col).validate(function (value) {
 
 // Virtuals
 BlockSchema.virtual(BlockProperties.seat, {
-  ref: Seat.name,
+  ref: ModelNames.Seat,
   localField: BlockProperties.seatId,
   foreignField: '_id',
   justOne: true,

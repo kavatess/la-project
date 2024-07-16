@@ -9,6 +9,7 @@ export type UserDocument = User &
 
 @Schema({
   timestamps: true,
+  strict: true,
 })
 export class User {
   @Prop({
@@ -29,23 +30,23 @@ export class User {
   @Prop({ type: String, required: false })
   [UserProperties.address]: string;
 
-  @Prop({ type: UserGenders, required: false })
+  @Prop({ type: String, enum: UserGenders, required: false })
   [UserProperties.sex]: UserGenders;
 
   @Prop({ type: Date, required: false })
   [UserProperties.dob]: Date;
 
-  @Prop({ type: UserRoles, required: true })
+  @Prop({ type: String, enum: UserRoles, required: true })
   [UserProperties.role]: UserRoles;
 
   @Prop({ type: String, required: false })
   [UserProperties.portrait]: string;
 
-  @Prop({ type: String, required: true })
-  [UserProperties.password]: string;
-
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true, unique: true, select: false })
   [UserProperties.accountName]: string;
+
+  @Prop({ type: String, required: true, select: false })
+  [UserProperties.password]: string;
 
   @Prop({ type: String, required: false })
   [UserProperties.note]: string;

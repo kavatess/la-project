@@ -2827,6 +2827,15 @@
         "hash": "sha512-zo5OQbNmchV58SHw4vBCLIbsCrpZmNuW9W4m5BE1lB+9FW9ZiLQeZjIxzlL3bEKiI9cezRvDhct/53LPS8R4aA=="
       }
     },
+    "npm:@nestjs/config": {
+      "type": "npm",
+      "name": "npm:@nestjs/config",
+      "data": {
+        "version": "3.2.2",
+        "packageName": "@nestjs/config",
+        "hash": "sha512-vGICPOui5vE6kPz1iwQ7oCnp3qWgqxldPmBQ9onkVoKlBtyc83KJCr7CjuVtf4OdovMAVcux1d8Q6jglU2ZphA=="
+      }
+    },
     "npm:@nestjs/core": {
       "type": "npm",
       "name": "npm:@nestjs/core",
@@ -6427,6 +6436,24 @@
         "hash": "sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA=="
       }
     },
+    "npm:dotenv-expand": {
+      "type": "npm",
+      "name": "npm:dotenv-expand",
+      "data": {
+        "version": "10.0.0",
+        "packageName": "dotenv-expand",
+        "hash": "sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A=="
+      }
+    },
+    "npm:dotenv@16.4.5": {
+      "type": "npm",
+      "name": "npm:dotenv@16.4.5",
+      "data": {
+        "version": "16.4.5",
+        "packageName": "dotenv",
+        "hash": "sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg=="
+      }
+    },
     "npm:dotenv@10.0.0": {
       "type": "npm",
       "name": "npm:dotenv@10.0.0",
@@ -9946,6 +9973,15 @@
         "hash": "sha512-wKyh4kZvm6NrCPH8AxyzXm3JBoEf4Xulo0aUWh3hCgwgYJxyQ1KLST86ZZaSWdj6/kxYUA3+YZuyADCE61CMSg=="
       }
     },
+    "npm:mongoose-autopopulate": {
+      "type": "npm",
+      "name": "npm:mongoose-autopopulate",
+      "data": {
+        "version": "1.1.0",
+        "packageName": "mongoose-autopopulate",
+        "hash": "sha512-nTlTMlu1fLQ1bmJT7ILKbZmPGt2fHErLO4UJwzMDsHSigjtUYz0l3nvFhg511QkOkZcKBRzOnPn3DmmLIUENzg=="
+      }
+    },
     "npm:mongoose": {
       "type": "npm",
       "name": "npm:mongoose",
@@ -13202,6 +13238,15 @@
         "version": "1.0.1",
         "packageName": "utils-merge",
         "hash": "sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA=="
+      }
+    },
+    "npm:uuid@9.0.1": {
+      "type": "npm",
+      "name": "npm:uuid@9.0.1",
+      "data": {
+        "version": "9.0.1",
+        "packageName": "uuid",
+        "hash": "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA=="
       }
     },
     "npm:uuid": {
@@ -20370,6 +20415,28 @@
       {
         "source": "npm:@nestjs/common",
         "target": "npm:tslib@2.6.1",
+        "type": "static"
+      }
+    ],
+    "npm:@nestjs/config": [
+      {
+        "source": "npm:@nestjs/config",
+        "target": "npm:dotenv@16.4.5",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/config",
+        "target": "npm:dotenv-expand",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/config",
+        "target": "npm:lodash",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/config",
+        "target": "npm:uuid@9.0.1",
         "type": "static"
       }
     ],
