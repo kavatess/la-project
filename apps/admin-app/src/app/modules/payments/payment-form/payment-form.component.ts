@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-empty-function */
+import { Component, OnChanges } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AbstractFormComponent } from '@libs/front-end';
 import { Payment, PaymentProperties, PaymentStatuses } from '@libs/models';
@@ -12,9 +13,6 @@ export class PaymentFormComponent
   extends AbstractFormComponent<Payment>
   implements OnChanges
 {
-  @Input()
-  useInternalBtn = true;
-
   readonly PaymentProperties = PaymentProperties;
   readonly PaymentStatuses = PaymentStatuses;
 

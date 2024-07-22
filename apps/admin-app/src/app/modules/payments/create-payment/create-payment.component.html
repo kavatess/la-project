@@ -5,7 +5,11 @@
 
   <la-project-payment-form>
     <div class="payment-form-submit-btn-container">
-      <button type="button" class="btn btn-primary" (click)="createPayment()">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="createPayment(); $event.preventDefault()"
+      >
         Create
       </button>
     </div>

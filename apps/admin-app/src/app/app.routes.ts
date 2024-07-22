@@ -38,9 +38,7 @@ export const appRoutes: Route[] = [
   {
     path: AppRoutes.Users,
     loadChildren: () =>
-      import('./modules/users/users.component').then(
-        (mod) => mod.UsersComponent
-      ),
+      import('./modules/users/users.module').then((mod) => mod.UsersModule),
     canActivate: [AuthGuard],
   },
 ];

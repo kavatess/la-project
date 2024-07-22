@@ -17,7 +17,9 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  readonly API_BASE_URL = environment[EnvironmentProperties.apiUrl];
+  private readonly API_BASE_URL = `${
+    environment[EnvironmentProperties.apiUrl]
+  }/auth`;
 
   constructor(
     private readonly http: HttpClient,
@@ -34,7 +36,7 @@ export class AuthService {
   }
 
   public login(loginInfo: { accountName: string; password: string }) {
-    return this.http.post(this.API_BASE_URL + '/auth/login', loginInfo).pipe(
+    return this.http.post(`${this.API_BASE_URL}/login`, loginInfo).pipe(
       tap((authInfo) => this.storeAuthInfo(authInfo as LoginResponse)),
       map(() => true)
     );

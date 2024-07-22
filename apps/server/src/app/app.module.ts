@@ -16,9 +16,9 @@ import { MongooseModule } from '@nestjs/mongoose';
   imports: [
     ConfigModule.forRoot({
       envFilePath: [
-        '.env.dev.server',
-        '.env.prod.server',
-        '.env.staging.server',
+        '.env.server.dev',
+        '.env.server.prod',
+        '.env.server.staging',
       ],
       validate: envValidate,
       isGlobal: true,

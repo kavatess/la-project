@@ -1,0 +1,17 @@
+<div class="fluid-container">
+  <div class="w-100 mb-3">
+    <h4 class="mb-0">Cập nhật thông tin người dùng '{{ userName }}'</h4>
+  </div>
+
+  <la-project-user-form [formState]="formState">
+    <div class="user-form-submit-btn-container">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="updateUser(); $event.preventDefault()"
+      >
+        Update
+      </button>
+    </div>
+  </la-project-user-form>
+</div>

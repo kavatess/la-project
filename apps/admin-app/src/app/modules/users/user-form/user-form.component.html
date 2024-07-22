@@ -1,0 +1,128 @@
+<form [formGroup]="form">
+  <div class="card mb-1">
+    <div class="card-header">Thống tin cơ bản</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Họ</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="UserProperties.lastName"
+          />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">Tên và tên đệm</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="UserProperties.firstName"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Ngày sinh</label>
+          <input
+            type="date"
+            class="form-control"
+            [formControlName]="UserProperties.dob"
+          />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">Giới tính</label>
+          <select class="form-select" [formControlName]="UserProperties.sex">
+            <option [value]="UserGenders.Male">Nam</option>
+            <option [value]="UserGenders.Female">Nữ</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Địa chỉ</label>
+          <input
+            type="text"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="UserProperties.address"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Phone</label>
+          <input
+            type="number"
+            [maxLength]="14"
+            class="form-control"
+            [formControlName]="UserProperties.phone"
+          />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            [maxLength]="256"
+            class="form-control"
+            [formControlName]="UserProperties.email"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Thông tin khác</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Note</label>
+          <textarea
+            class="form-control"
+            [formControlName]="UserProperties.note"
+            [maxLength]="4096"
+            [rows]="5"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Vai trò</label>
+          <select class="form-select" [formControlName]="UserProperties.role">
+            <option *ngFor="let role; in: UserRoles" [value]="role">
+              {{ role }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">Tình trạng</label>
+          <select class="form-select" [formControlName]="UserProperties.status">
+            <option [value]="UserStatuses.Active">
+              {{ UserStatuses.Active }}
+            </option>
+            <option [value]="UserStatuses.Inactive">
+              {{ UserStatuses.Inactive }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="btn-group">
+        <ng-content select=".user-form-submit-btn-container"></ng-content>
+      </div>
+    </div>
+  </div>
+</form>

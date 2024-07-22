@@ -1,0 +1,48 @@
+<table
+  class="table"
+  [class.table-hover]="hover"
+  [class.table-bordered]="bordered"
+>
+  <thead>
+    <tr>
+      <th *ngIf="hasIndex">#</th>
+      <th *ngFor="let col of columns">
+        <app-table-header
+          [field]="col.field"
+          [title]="col.title"
+          [filter]="col.filter"
+          [sorting]="col.sorting"
+          (applyFilter)="onApplyFilter($event)"
+          (removeFilter)="onRemoveFilter($event)"
+          (sortChange)="onSortChange($event)"
+        >
+        </app-table-header>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <ng-container *ngFor="let item of data$ | async; let i = index">
+      <tr
+        [ngStyle]="{ 'cursor.pointer': itemClickable }"
+        (click)="tableItemOnClick(item); $event.preventDefault()"
+      >
+        <td *ngIf="hasIndex">{{ i + 1 }}</td>
+        <td *ngFor="let col of columns">
+          <ng-container
+            *ngIf="col.customTemplate as template; else defaultTemplate"
+          >
+            <ng-container *ngTemplateOutlet="template; context: { value: col }">
+            </ng-container>
+          </ng-container>
+
+          <ng-template #defaultTemplate>
+            {{
+              col.pipe ? col.pipe.transform(item[col.field]) : item[col.field]
+            }}
+          </ng-template>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

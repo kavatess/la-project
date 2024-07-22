@@ -5,37 +5,12 @@
   </button>
 </div>
 
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Title</th>
-      <th>Mô tả</th>
-      <th>Tình trạng</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <ng-container *ngFor="let payment of paymentList; let i = index">
-      <tr
-        style="cursor: pointer"
-        (click)="paymentItemOnClick(payment); $event.stopPropagation()"
-      >
-        <td>
-          {{ i + 1 }}
-        </td>
-        <td>{{ payment.title }}</td>
-        <td>{{ payment.description }}</td>
-        <td>
-          <span
-            class="badge rounded-pill"
-            [class.text-bg-success]="payment.status === PaymentStatuses.Active"
-            [class.text-bg-danger]="payment.status === PaymentStatuses.Inactive"
-          >
-            {{ payment.status }}
-          </span>
-        </td>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
+<app-advanced-table
+  [hover]="true"
+  [bordered]="true"
+  [hasIndex]="true"
+  [paginationSize]="50"
+  [columns]="columns"
+  [itemClickable]="true"
+  (itemClick)="paymentItemOnClick($event)"
+></app-advanced-table>

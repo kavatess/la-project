@@ -1,0 +1,92 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div>{{ title }}</div>
+
+  <div class="btn-group">
+    <span *ngIf="filter" ngbDropdown>
+      <button ngbDropdownToggle class="btn p-1">
+        <i class="bi bi-filter-circle-fill"></i>
+      </button>
+
+      <div *ngIf="input" ngbDropdownMenu style="min-width: 200px" class="p-2">
+        <div class="input-group">
+          <ng-container [ngSwitch]="filter.type">
+            <ng-container *ngSwitchCase="FilterTypes.String">
+              <input type="text" class="form-control" [formControl]="input" />
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.Boolean">
+              <mat-slide-toggle [formControl]="input">
+                {{ title }}
+              </mat-slide-toggle>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.Number">
+              <form [formGroup]="input">
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="from"
+                />
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="to"
+                />
+              </form>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.DateTime">
+              <form [formGroup]="input">
+                <input
+                  type="datetime"
+                  class="form-control"
+                  formControlName="from"
+                />
+                <input
+                  type="datetime"
+                  class="form-control"
+                  formControlName="to"
+                />
+              </form>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.Array">
+              <app-multiple-select
+                [options]="filter.options"
+                [formControl]="input"
+              ></app-multiple-select>
+            </ng-container>
+          </ng-container>
+
+          <div class="input-group-append">
+            <button
+              class="btn btn-primary"
+              (click)="applyBtnOnClick(); $event.preventDefault()"
+              [disabled]="input.invalid"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </span>
+
+    <button class="btn p-1" (click)="sortBtnOnClick(); $event.preventDefault()">
+      <ng-container [ngSwitch]="sortIndex">
+        <i *ngSwitchCase="0" class="bi bi-sort-down"></i>
+        <i *ngSwitchCase="1" class="bi bi-sort-alpha-down"></i>
+        <i *ngSwitchCase="2" class="bi bi-sort-alpha-up"></i>
+      </ng-container>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="filterItem" class="container">
+  <span class="badge badge-info">
+    <span class="bi bi-filter"></span>
+    <span>{{ filterItem.value }}</span>
+    <button class="btn" (click)="removeBtnOnClick(); $event.preventDefault()">
+      <i class="bi bi-database-x"></i>
+    </button>
+  </span>
+</div>

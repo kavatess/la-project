@@ -58,9 +58,7 @@
     </div>
   </div>
 
-  <ng-container *ngIf="useInternalBtn">
-    <div class="btn-group mt-2">
-      <ng-content select=".payment-form-submit-btn-container"></ng-content>
-    </div>
-  </ng-container>
+  <div class="btn-group mt-2">
+    <ng-content select=".payment-form-submit-btn-container"></ng-content>
+  </div>
 </form>

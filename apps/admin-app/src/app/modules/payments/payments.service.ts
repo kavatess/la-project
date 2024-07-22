@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Payment, PaymentProperties } from '@libs/models';
+import { TableService } from 'libs/front-end/src/components/advanced-table/store/table.service';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PaymentsService {
+export class PaymentsService implements TableService {
   constructor(private readonly http: HttpClient) {}
 
-  getPayments(): Observable<Payment[]> {
+  getData(): Observable<Payment[]> {
     return of([
       {
         id: '1234',

@@ -5,7 +5,11 @@
 
   <la-project-payment-form [formState]="formState">
     <div class="payment-form-submit-btn-container">
-      <button type="button" class="btn btn-primary" (click)="updatePayment()">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="updatePayment(); $event.preventDefault()"
+      >
         Update
       </button>
     </div>

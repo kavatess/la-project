@@ -8,6 +8,7 @@ export class ErrorAlertService {
   readonly _message$ = new Subject<string>();
 
   public alertError(msg: string) {
+    console.error(msg);
     this._message$.next(msg);
   }
 }

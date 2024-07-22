@@ -14,6 +14,12 @@ export enum UserProperties {
   role = 'role',
   portrait = 'portrait',
   note = 'note',
+  status = 'status',
+}
+
+export enum UserStatuses {
+  Active = 'Active',
+  Inactive = 'Inactive',
 }
 
 export enum UserGenders {
@@ -32,7 +38,7 @@ export interface User extends BasicModel {
   [UserProperties.lastName]: string;
   [UserProperties.firstName]: string;
   [UserProperties.fullName]: string;
-  [UserProperties.sex]: string;
+  [UserProperties.sex]: UserGenders;
   [UserProperties.dob]: Date;
   [UserProperties.email]: string;
   [UserProperties.phone]: string;
@@ -40,4 +46,5 @@ export interface User extends BasicModel {
   [UserProperties.role]: string;
   [UserProperties.portrait]: string;
   [UserProperties.note]: string;
+  [UserProperties.status]: UserStatuses;
 }
