@@ -26,12 +26,25 @@ const initialState: TableState = {
   pagination: { pageIndex: 0, pageSize: 50 },
   columns: {},
   data: [],
-  filter: null,
+  filter: {
+    mode: TableFilterModes.Multiple,
+    items: [],
+  },
   sorting: null,
 };
 
 export const tableReducer = createReducer(
   initialState,
+  on(
+    tableActions.getTableData,
+    tableActions.changeSorting,
+    tableActions.startFiltering,
+    tableActions.removeFilter,
+    (state) => ({
+      ...state,
+      loading: true,
+    })
+  ),
   on(tableActions.updateTableProps, (state, { columns, paginationSize }) => ({
     ...state,
     columns,
@@ -42,7 +55,12 @@ export const tableReducer = createReducer(
   })),
   on(tableActions.loadTableData, (state, { data }) => ({
     ...state,
+    loading: false,
     data,
+  })),
+  on(tableActions.loadTableDataError, (state) => ({
+    ...state,
+    loading: false,
   })),
   on(tableActions.changeSorting, (state, { sorting }) => ({
     ...state,

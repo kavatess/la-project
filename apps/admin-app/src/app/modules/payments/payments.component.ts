@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Payment, PaymentProperties, PaymentStatuses } from '@libs/models';
 import { Router } from '@angular/router';
 import { AppRoutes } from '../../app.routes';
@@ -7,13 +7,15 @@ import {
   FilterTypes,
   TableColumn,
 } from 'libs/front-end/src/components/advanced-table/advanced-table.model';
+import { TableService } from '@libs/front-end';
+import { PaymentsService } from './payments.service';
 
 @Component({
   selector: 'la-project-payments',
   templateUrl: './payments.component.html',
   styleUrls: ['./payments.component.scss'],
 })
-export class PaymentsComponent {
+export class PaymentsComponent implements OnInit {
   readonly PaymentProperties = PaymentProperties;
   readonly PaymentStatuses = PaymentStatuses;
 
@@ -54,7 +56,15 @@ export class PaymentsComponent {
     },
   ];
 
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private readonly tableService: TableService,
+    private readonly paymentService: PaymentsService
+  ) {}
+
+  ngOnInit(): void {
+    this.tableService.replaceService(this.paymentService);
+  }
 
   paymentItemOnClick(payment: Payment): void {
     this.router.navigate([

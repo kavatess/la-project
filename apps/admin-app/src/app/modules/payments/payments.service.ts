@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TableParentService } from '@libs/front-end';
 import { Payment, PaymentProperties } from '@libs/models';
-import { TableService } from 'libs/front-end/src/components/advanced-table/store/table.service';
-import { Observable, of } from 'rxjs';
+import { debounceTime, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PaymentsService implements TableService {
+export class PaymentsService implements TableParentService {
   constructor(private readonly http: HttpClient) {}
 
   getData(): Observable<Payment[]> {
@@ -24,7 +24,7 @@ export class PaymentsService implements TableService {
         [PaymentProperties.description]: 'Payment by VNPay',
         [PaymentProperties.status]: 'Active',
       },
-    ] as Payment[]);
+    ] as Payment[]).pipe(debounceTime(2000));
   }
 
   getPaymentById(paymentId: string): Observable<Payment> {

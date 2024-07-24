@@ -1,21 +1,23 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnvironmentProperties, User } from '@libs/models';
-import { Observable, of } from 'rxjs';
+import { debounceTime, Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { TableParentService } from '@libs/front-end';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UsersService {
+export class UsersService implements TableParentService {
   private readonly API_BASE_URL = `${
     environment[EnvironmentProperties.apiUrl]
   }/users`;
 
   constructor(private readonly http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    return of([]);
+  getData(): Observable<User[]> {
+    return of([]).pipe(debounceTime(2000));
   }
 
   getUserById(userId: string): Observable<User> {

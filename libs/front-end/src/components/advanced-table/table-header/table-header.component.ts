@@ -37,6 +37,9 @@ export class TableHeaderComponent implements OnChanges {
   @Input()
   sorting = false;
 
+  @Input()
+  loading = false;
+
   @Output()
   applyFilter = new EventEmitter<TableFilterItem>();
 
@@ -53,6 +56,22 @@ export class TableHeaderComponent implements OnChanges {
   input: any = null;
 
   constructor(private readonly fb: FormBuilder) {}
+
+  getNumberFilterTxt(value: any): string {
+    const hasMin = value.from ? `${value.from} < ` : '';
+    const hasMax = value.to ? ` < ${value.to}` : '';
+    return hasMin + this.field + hasMax;
+  }
+
+  getDateTimeFilterTxt(value: any): string {
+    const hasMin = value.from ? `${value.from.toLocaleDateString()} < ` : '';
+    const hasMax = value.to ? ` < ${value.to.toLocaleDateString()}` : '';
+    return hasMin + this.field + hasMax;
+  }
+
+  getArrayFilterTxt(value: any): string {
+    return `Only ${value.join(', ')}`;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['filter'] && this.filter) {
@@ -94,17 +113,9 @@ export class TableHeaderComponent implements OnChanges {
     this.filterItem = {
       field: this.field,
       type: this.filter.type,
-      value: this.getFilterValue(),
+      value: this.input.value,
     };
     this.applyFilter.emit(this.filterItem);
-  }
-
-  private getFilterValue(): any {
-    const { value, range } = this.input.value;
-    return this.filter.type === FilterTypes.Number ||
-      this.filter.type === FilterTypes.DateTime
-      ? range
-      : value;
   }
 
   removeBtnOnClick(): void {

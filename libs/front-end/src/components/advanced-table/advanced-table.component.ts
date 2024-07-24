@@ -40,6 +40,7 @@ export class AdvancedTableComponent implements OnInit {
   itemClick = new EventEmitter();
 
   readonly data$ = this.store.select(tableSelectors.data);
+  readonly loading$ = this.store.select(tableSelectors.loading);
 
   constructor(private readonly store: Store<TableState>) {}
 

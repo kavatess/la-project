@@ -1,7 +1,43 @@
 <div class="d-flex align-items-center justify-content-between">
-  <div>{{ title }}</div>
+  <div>
+    <span class="me-2"> {{ title }}</span>
 
-  <div class="btn-group">
+    <span *ngIf="filterItem" class="badge rounded-pill bg-secondary">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-filter"></i>
+        <span class="ms-2 me-2">
+          <ng-container [ngSwitch]="filterItem.type">
+            <ng-container *ngSwitchCase="FilterTypes.String">
+              '{{ filterItem.value }}' included
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.Boolean">
+              {{ (filterItem.value ? 'has ' : 'no ') + field }}
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.Number">
+              {{ getNumberFilterTxt(filterItem.value) }}
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.DateTime">
+              {{ getDateTimeFilterTxt(filterItem.value) }}
+            </ng-container>
+
+            <ng-container *ngSwitchCase="FilterTypes.Array">
+              {{ getArrayFilterTxt(filterItem.value) }}
+            </ng-container>
+          </ng-container>
+        </span>
+        <i
+          class="bi bi-x-lg text-white"
+          style="cursor: pointer"
+          (click)="removeBtnOnClick(); $event.preventDefault()"
+        ></i>
+      </div>
+    </span>
+  </div>
+
+  <div *ngIf="!loading" class="btn-group">
     <span *ngIf="filter" ngbDropdown>
       <button ngbDropdownToggle class="btn p-1">
         <i class="bi bi-filter-circle-fill"></i>
@@ -79,14 +115,4 @@
       </ng-container>
     </button>
   </div>
-</div>
-
-<div *ngIf="filterItem" class="container">
-  <span class="badge badge-info">
-    <span class="bi bi-filter"></span>
-    <span>{{ filterItem.value }}</span>
-    <button class="btn" (click)="removeBtnOnClick(); $event.preventDefault()">
-      <i class="bi bi-database-x"></i>
-    </button>
-  </span>
 </div>

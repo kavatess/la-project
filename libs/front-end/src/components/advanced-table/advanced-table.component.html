@@ -12,6 +12,7 @@
           [title]="col.title"
           [filter]="col.filter"
           [sorting]="col.sorting"
+          [loading]="loading$ | async"
           (applyFilter)="onApplyFilter($event)"
           (removeFilter)="onRemoveFilter($event)"
           (sortChange)="onSortChange($event)"
@@ -22,6 +23,11 @@
   </thead>
 
   <tbody>
+    <ng-container *ngIf="loading$ | async">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </ng-container>
     <ng-container *ngFor="let item of data$ | async; let i = index">
       <tr
         [ngStyle]="{ 'cursor.pointer': itemClickable }"

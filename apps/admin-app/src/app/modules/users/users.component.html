@@ -1,8 +1,16 @@
-<div class="d-flex justify-content-center mb-3">
+<div class="d-flex justify-content-between mb-3">
   <h4 class="mb-0">Danh sách người dùng</h4>
   <button class="btn btn-outline-primary" (click)="createBtnOnClick()">
     + Create
   </button>
 </div>
 
-
+<app-advanced-table
+  [hover]="true"
+  [bordered]="true"
+  [hasIndex]="true"
+  [paginationSize]="50"
+  [columns]="columns"
+  [itemClickable]="true"
+  (itemClick)="userOnClick($event)"
+></app-advanced-table>

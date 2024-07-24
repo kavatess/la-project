@@ -9,15 +9,31 @@ import {
   TableSorting,
 } from '../advanced-table.model';
 
+export interface TableParentService {
+  getData(
+    pagination: Pagination,
+    filter: TableFilter,
+    sorting: TableSorting
+  ): Observable<any[]>;
+}
+
 @Injectable({
-  providedIn: 'platform',
+  providedIn: 'root',
 })
 export class TableService {
+  service: TableParentService = {
+    getData: (): Observable<any[]> => of([]),
+  };
+
   getData(
     pagination: Pagination,
     filter: TableFilter,
     sorting: TableSorting = defaultSorting
   ): Observable<any[]> {
-    return of([]);
+    return this.service.getData(pagination, filter, sorting);
+  }
+
+  replaceService(service: TableParentService): void {
+    this.service = service;
   }
 }
