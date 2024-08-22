@@ -11,6 +11,25 @@
   [hasIndex]="true"
   [paginationSize]="50"
   [columns]="columns"
-  [itemClickable]="true"
-  (itemClick)="paymentItemOnClick($event)"
-></app-advanced-table>
+  [customTemplates]="{ status, detailBtn }"
+  [itemClickable]="false"
+>
+  <ng-template #status let-value="value">
+    <span
+      class="badge rounded-pill"
+      [class.bg-success]="value === PaymentStatuses.Active"
+      [class.bg-danger]="value === PaymentStatuses.Inactive"
+    >
+      {{ value }}
+    </span>
+  </ng-template>
+
+  <ng-template #detailBtn let-data="data">
+    <button
+      class="btn btn-outline-primary"
+      (click)="paymentItemOnClick(data); $event.preventDefault()"
+    >
+      <i class="bi bi-arrow-bar-right"></i>
+    </button>
+  </ng-template>
+</app-advanced-table>

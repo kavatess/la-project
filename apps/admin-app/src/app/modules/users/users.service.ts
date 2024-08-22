@@ -9,7 +9,7 @@ import { TableParentService } from '@libs/front-end';
 @Injectable({
   providedIn: 'root',
 })
-export class UsersService implements TableParentService {
+export class UsersService implements TableParentService<User> {
   private readonly API_BASE_URL = `${
     environment[EnvironmentProperties.apiUrl]
   }/users`;
@@ -17,11 +17,30 @@ export class UsersService implements TableParentService {
   constructor(private readonly http: HttpClient) {}
 
   getData(): Observable<User[]> {
-    return of([]).pipe(debounceTime(2000));
+    return of([
+      {
+        id: '1',
+        firstName: 'John',
+        lastName: 'Doe',
+        fullName: 'John Doe',
+        email: 'a@a.com',
+        phone: '111-111-1111',
+        role: 'Admin',
+        status: 'Active',
+      } as User,
+    ]).pipe(debounceTime(2000));
   }
 
   getUserById(userId: string): Observable<User> {
-    return of({} as User);
+    return of({
+      id: '1',
+      firstName: 'John',
+      lastName: 'Doe',
+      fullName: 'John Doe',
+      email: 'a@a.com',
+      phone: '111-111-1111',
+      status: 'Active',
+    } as User);
   }
 
   createUser(user: User): Observable<User> {

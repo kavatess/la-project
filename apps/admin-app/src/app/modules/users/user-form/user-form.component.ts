@@ -5,6 +5,7 @@ import {
   User,
   UserGenders,
   UserProperties,
+  userRoleList,
   UserRoles,
   UserStatuses,
 } from '@libs/models';
@@ -18,7 +19,7 @@ export class UserFormComponent extends AbstractFormComponent<User> {
   readonly UserProperties = UserProperties;
   readonly UserStatuses = UserStatuses;
   readonly UserGenders = UserGenders;
-  readonly UserRoles = UserRoles;
+  readonly userRoleList = userRoleList;
 
   readonly form = this.fb.group({
     [UserProperties.portrait]: [null, []],

@@ -34,17 +34,19 @@ export enum UserRoles {
   Customer = 'Customer',
 }
 
+export const userRoleList = Object.keys(UserRoles).map((key) => key);
+
 export interface User extends BasicModel {
   [UserProperties.lastName]: string;
   [UserProperties.firstName]: string;
-  [UserProperties.fullName]: string;
-  [UserProperties.sex]: UserGenders;
-  [UserProperties.dob]: Date;
-  [UserProperties.email]: string;
+  [UserProperties.fullName]?: string;
+  [UserProperties.sex]?: UserGenders;
+  [UserProperties.dob]?: Date;
+  [UserProperties.email]?: string;
   [UserProperties.phone]: string;
-  [UserProperties.address]: string;
+  [UserProperties.address]?: string;
   [UserProperties.role]: string;
-  [UserProperties.portrait]: string;
-  [UserProperties.note]: string;
+  [UserProperties.portrait]?: string;
+  [UserProperties.note]?: string;
   [UserProperties.status]: UserStatuses;
 }

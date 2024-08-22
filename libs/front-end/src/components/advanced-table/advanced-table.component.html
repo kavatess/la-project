@@ -28,6 +28,7 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </ng-container>
+
     <ng-container *ngFor="let item of data$ | async; let i = index">
       <tr
         [ngStyle]="{ 'cursor.pointer': itemClickable }"
@@ -36,16 +37,19 @@
         <td *ngIf="hasIndex">{{ i + 1 }}</td>
         <td *ngFor="let col of columns">
           <ng-container
-            *ngIf="col.customTemplate as template; else defaultTemplate"
+            *ngIf="customTemplates[col.field] as template; else defaultTemplate"
           >
-            <ng-container *ngTemplateOutlet="template; context: { value: col }">
+            <ng-container
+              *ngTemplateOutlet="
+                template;
+                context: { data: item, value: item[col.field] }
+              "
+            >
             </ng-container>
           </ng-container>
 
           <ng-template #defaultTemplate>
-            {{
-              col.pipe ? col.pipe.transform(item[col.field]) : item[col.field]
-            }}
+            {{ col.pipe ? col.pipe(item[col.field]) : item[col.field] }}
           </ng-template>
         </td>
       </tr>

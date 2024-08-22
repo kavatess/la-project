@@ -28,6 +28,11 @@ export class AdvancedTableComponent implements OnInit {
   columns: TableColumn[] = [];
 
   @Input()
+  customTemplates: {
+    [key: string]: any;
+  };
+
+  @Input()
   paginationSize = 50;
 
   @Input()

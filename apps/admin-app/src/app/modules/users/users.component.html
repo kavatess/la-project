@@ -11,6 +11,37 @@
   [hasIndex]="true"
   [paginationSize]="50"
   [columns]="columns"
-  [itemClickable]="true"
-  (itemClick)="userOnClick($event)"
-></app-advanced-table>
+  [customTemplates]="{ role, status, detailBtn }"
+  [itemClickable]="false"
+>
+  <ng-template #role let-value="value">
+    <span
+      class="badge"
+      [class.bg-danger]="value === UserRoles.SuperAdmin"
+      [class.bg-warning]="value === UserRoles.Admin"
+      [class.bg-success]="value === UserRoles.Staff"
+      [class.bg-primary]="value === UserRoles.Customer"
+    >
+      {{ value }}
+    </span>
+  </ng-template>
+
+  <ng-template #status let-value="value">
+    <span
+      class="badge rounded-pill"
+      [class.bg-success]="value === UserStatuses.Active"
+      [class.bg-danger]="value === UserStatuses.Inactive"
+    >
+      {{ value }}
+    </span>
+  </ng-template>
+
+  <ng-template #detailBtn let-data="data">
+    <button
+      class="btn btn-outline-primary"
+      (click)="userOnClick(data); $event.preventDefault()"
+    >
+      <i class="bi bi-arrow-bar-right"></i>
+    </button>
+  </ng-template>
+</app-advanced-table>

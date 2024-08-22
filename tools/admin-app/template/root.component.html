@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-between mb-3">
+  <h4 class="mb-0">Danh sách <%= className %>s</h4>
+  <button class="btn btn-outline-primary" (click)="createBtnOnClick()">
+    + Create
+  </button>
+</div>
+
+<app-advanced-table
+  [hover]="true"
+  [bordered]="true"
+  [hasIndex]="true"
+  [paginationSize]="50"
+  [columns]="columns"
+  [customTemplates]="{ 
+    detailBtn
+  }"
+  [itemClickable]="false"
+>
+  <ng-template #detailBtn let-data="data">
+    <button
+      class="btn btn-outline-primary"
+      (click)="<%= name %>ItemOnClick(data); $event.preventDefault()"
+    >
+      <i class="bi bi-arrow-bar-right"></i>
+    </button>
+  </ng-template>
+</app-advanced-table>

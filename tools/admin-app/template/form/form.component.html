@@ -1,0 +1,32 @@
+<form [formGroup]="form">
+  <div class="card mb-1">
+    <div class="card-header">Thống tin cơ bản</div>
+
+    <% for (const prop of props) { %>
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-12 col-md-12">
+            <label class="form-label"><%= prop %></label>
+            <input
+              type="text"
+              [maxLength]="256"
+              class="form-control"
+              [formControlName]="<%= className %>Properties.<%= prop %>"
+            />
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+
+  <div class="btn-group mt-2">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+      (click)="onSubmitBtnClick(); $event.preventDefault()"
+    >
+      Submit
+    </button>
+  </div>
+</form>

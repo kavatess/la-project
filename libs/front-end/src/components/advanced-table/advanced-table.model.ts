@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PipeTransform } from '@angular/core';
 import { Option } from '../multiple-select/multiple-select.component';
 
 export enum FilterTypes {
@@ -13,8 +12,8 @@ export enum FilterTypes {
 export interface TableColumn {
   field: string;
   title: string;
-  pipe?: PipeTransform;
-  customTemplate?: any;
+  pipe?: (value: any) => any;
+  // customTemplate?: any;
   filter?: {
     type: FilterTypes;
     options?: Option[];

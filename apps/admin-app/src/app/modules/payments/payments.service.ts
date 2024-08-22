@@ -7,7 +7,7 @@ import { debounceTime, Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class PaymentsService implements TableParentService {
+export class PaymentsService implements TableParentService<Payment> {
   constructor(private readonly http: HttpClient) {}
 
   getData(): Observable<Payment[]> {

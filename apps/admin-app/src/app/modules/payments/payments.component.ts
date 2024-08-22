@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
 import { Payment, PaymentProperties, PaymentStatuses } from '@libs/models';
 import { Router } from '@angular/router';
@@ -19,7 +20,7 @@ export class PaymentsComponent implements OnInit {
   readonly PaymentProperties = PaymentProperties;
   readonly PaymentStatuses = PaymentStatuses;
 
-  columns: TableColumn[] = [
+  readonly columns: TableColumn[] = [
     {
       field: PaymentProperties.title,
       title: 'Title',
@@ -53,6 +54,10 @@ export class PaymentsComponent implements OnInit {
         ],
       },
       sorting: true,
+    },
+    {
+      field: 'detailBtn',
+      title: null,
     },
   ];
 

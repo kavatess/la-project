@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User, UserProperties, UserStatuses } from '@libs/models';
+import { User, UserProperties, UserRoles, UserStatuses } from '@libs/models';
 import { UsersService } from './users.service';
 import { Router } from '@angular/router';
 import { AppRoutes } from '../../app.routes';
@@ -13,6 +13,7 @@ import { FilterTypes, TableColumn, TableService } from '@libs/front-end';
 })
 export class UsersComponent implements OnInit {
   readonly UserStatuses = UserStatuses;
+  readonly UserRoles = UserRoles;
 
   readonly columns: TableColumn[] = [
     {
@@ -40,6 +41,14 @@ export class UsersComponent implements OnInit {
       sorting: true,
     },
     {
+      field: UserProperties.role,
+      title: 'Role',
+      filter: {
+        type: FilterTypes.String,
+      },
+      sorting: true,
+    },
+    {
       field: UserProperties.status,
       title: 'Status',
       filter: {
@@ -56,6 +65,10 @@ export class UsersComponent implements OnInit {
         ],
       },
       sorting: true,
+    },
+    {
+      field: 'detailBtn',
+      title: null,
     },
   ];
 

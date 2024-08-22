@@ -10,7 +10,7 @@
 
 <div class="modal-body">
   <form [formGroup]="blockForm">
-    <div class="row">
+    <div class="row mb-3">
       <div class="col-12">
         <label class="form-label">Loại block</label>
         <select class="form-select" [formControlName]="BlockProperties.type">
@@ -26,7 +26,7 @@
     <ng-container *ngIf="aislesCtrl.enabled" [formGroup]="aislesCtrl">
       <h6>Thông tin lối đi</h6>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col-12">
           <label class="form-label">Tên lối đi</label>
           <input
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col-12">
           <label class="form-label">Hướng</label>
           <select
@@ -56,7 +56,7 @@
     <ng-container *ngIf="doorCtrl.enabled" [formGroup]="doorCtrl">
       <h6>Thông tin cửa ra/vào</h6>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col-12">
           <label class="form-label">Tiêu đề cho cửa</label>
           <input
@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col-12">
           <label class="form-label">Chế độ </label>
           <select class="form-select" [formControlName]="DoorProperties.type">
@@ -82,7 +82,7 @@
     <ng-container *ngIf="seatCtrl.enabled" [formGroup]="seatCtrl">
       <h6>Thông tin cửa ra/vào</h6>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col-12">
           <label class="form-label">Mã ghế ngồi</label>
           <input
@@ -93,7 +93,7 @@
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col-12">
           <label class="form-label">Loại vé gán cho ghế </label>
           <select
@@ -111,7 +111,7 @@
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col-12">
           <label class="form-label">Tình trạng</label>
           <select class="form-select" [formControlName]="SeatProperties.status">

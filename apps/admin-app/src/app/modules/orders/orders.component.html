@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-between mb-3">
+  <h4 class="mb-0">Danh sách Orders</h4>
+  <button class="btn btn-outline-primary" (click)="createBtnOnClick()">
+    + Create
+  </button>
+</div>
+
+<app-advanced-table
+  [hover]="false"
+  [bordered]="true"
+  [hasIndex]="true"
+  [paginationSize]="50"
+  [columns]="columns"
+  [customTemplates]="{
+    customer,
+    orderItems,
+    total,
+    status,
+    detailBtn,
+  }"
+  [itemClickable]="false"
+>
+  <ng-template #customer let-value="value">
+    <h6>
+      {{ value.fullName || value.lastName + ' ' + value.firstName }}
+    </h6>
+    <div>
+      <i>{{ value.phone }}</i>
+    </div>
+    <div>
+      <u>{{ value.email }}</u>
+    </div>
+  </ng-template>
+
+  <ng-template #orderItems let-value="value">
+    <div *ngFor="let item of value" class="card p-1 mb-1">
+      <div class="row">
+        <div class="col-12 col-md-2">
+          <img [src]="item.imgUrl" [alt]="item.title" class="img-fluid" />
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="h-100 d-flex flex-column justify-content-center">
+            <div>{{ item.title }}</div>
+          </div>
+        </div>
+        <div class="col-12 col-md-2">
+          <div class="h-100 d-flex flex-column justify-content-center">
+            <div>{{ item.price | currency : 'đ' : 'symbol' : '1.0-0' }}</div>
+          </div>
+        </div>
+        <div class="col-12 col-md-2">
+          <h6 class="h-100 d-flex align-items-center">x{{ item.quantity }}</h6>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #total let-value="value">
+    {{ value | currency : 'đ' : 'symbol' : '1.0-0' }}
+  </ng-template>
+
+  <ng-template #status let-value="value">
+    <span
+      class="badge rounded-pill"
+      [class.bg-info]="value === OrderStatuses.Confirming"
+      [class.bg-warning]="value === OrderStatuses.PendingPayment"
+      [class.bg-success]="value === OrderStatuses.Completed"
+      [class.bg-danger]="value === OrderStatuses.PaymentFailed"
+      [class.bg-danger]="value === OrderStatuses.Expired"
+      [class.bg-danger]="value === OrderStatuses.Cancelled"
+    >
+      {{ value }}
+    </span>
+  </ng-template>
+
+  <ng-template #detailBtn let-data="data">
+    <button
+      class="btn btn-outline-primary"
+      (click)="orderItemOnClick(data); $event.preventDefault()"
+    >
+      <i class="bi bi-arrow-bar-right"></i>
+    </button>
+  </ng-template>
+</app-advanced-table>

@@ -1,0 +1,11 @@
+<div class="fluid-container">
+  <div class="w-100 mb-3">
+    <h4 class="mb-0">Cập nhật thông tin <%= className %></h4>
+  </div>
+
+  <la-project-<%= name %>-form
+    [formState]="formState"
+    (submitForm)="update<%= className %>($event)"
+  >
+  </la-project-<%= name %>-form>
+</div>

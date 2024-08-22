@@ -107,7 +107,11 @@
       </div>
     </span>
 
-    <button class="btn p-1" (click)="sortBtnOnClick(); $event.preventDefault()">
+    <button
+      *ngIf="sorting"
+      class="btn p-1"
+      (click)="sortBtnOnClick(); $event.preventDefault()"
+    >
       <ng-container [ngSwitch]="sortIndex">
         <i *ngSwitchCase="0" class="bi bi-sort-down"></i>
         <i *ngSwitchCase="1" class="bi bi-sort-alpha-down"></i>

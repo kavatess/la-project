@@ -1,0 +1,102 @@
+<form [formGroup]="form">
+  <div class="card mb-1">
+    <div class="card-header">Thống tin cơ bản</div>
+
+    
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <label class="form-label">showId</label>
+            <input
+              type="text"
+              [maxLength]="256"
+              class="form-control"
+              [formControlName]="OrderProperties.showId"
+            />
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <label class="form-label">orderItems</label>
+            <input
+              type="text"
+              [maxLength]="256"
+              class="form-control"
+              [formControlName]="OrderProperties.orderItems"
+            />
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <label class="form-label">total</label>
+            <input
+              type="text"
+              [maxLength]="256"
+              class="form-control"
+              [formControlName]="OrderProperties.total"
+            />
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <label class="form-label">paymentId</label>
+            <input
+              type="text"
+              [maxLength]="256"
+              class="form-control"
+              [formControlName]="OrderProperties.paymentId"
+            />
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <label class="form-label">payment</label>
+            <input
+              type="text"
+              [maxLength]="256"
+              class="form-control"
+              [formControlName]="OrderProperties.payment"
+            />
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <label class="form-label">status</label>
+            <input
+              type="text"
+              [maxLength]="256"
+              class="form-control"
+              [formControlName]="OrderProperties.status"
+            />
+          </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <div class="btn-group mt-2">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+      (click)="onSubmitBtnClick(); $event.preventDefault()"
+    >
+      Submit
+    </button>
+  </div>
+</form>

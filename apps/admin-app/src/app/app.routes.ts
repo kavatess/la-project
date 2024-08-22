@@ -8,6 +8,7 @@ export enum AppRoutes {
   Blogs = 'blogs',
   Users = 'users',
   Profile = 'profile',
+  Orders = 'orders',
 }
 
 export const appRoutes: Route[] = [
@@ -30,11 +31,18 @@ export const appRoutes: Route[] = [
       ),
   },
   {
-    path: AppRoutes.Blogs,
+    path: AppRoutes.Orders,
     loadChildren: () =>
-      import('./modules/blogs/blogs.module').then((mod) => mod.BlogsModule),
-    canActivate: [AuthGuard],
+      import('./modules/orders/orders.module').then(
+        (mod) => mod.OrdersModule
+      ),
   },
+  // {
+  //   path: AppRoutes.Blogs,
+  //   loadChildren: () =>
+  //     import('./modules/blogs/blogs.module').then((mod) => mod.BlogsModule),
+  //   canActivate: [AuthGuard],
+  // },
   {
     path: AppRoutes.Users,
     loadChildren: () =>

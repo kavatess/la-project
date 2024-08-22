@@ -9,19 +9,19 @@ import {
   TableSorting,
 } from '../advanced-table.model';
 
-export interface TableParentService {
+export interface TableParentService<T> {
   getData(
     pagination: Pagination,
     filter: TableFilter,
     sorting: TableSorting
-  ): Observable<any[]>;
+  ): Observable<T[]>;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class TableService {
-  service: TableParentService = {
+  service: TableParentService<any> = {
     getData: (): Observable<any[]> => of([]),
   };
 
@@ -33,7 +33,7 @@ export class TableService {
     return this.service.getData(pagination, filter, sorting);
   }
 
-  replaceService(service: TableParentService): void {
+  replaceService(service: TableParentService<any>): void {
     this.service = service;
   }
 }

@@ -3637,6 +3637,15 @@
         "hash": "sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ=="
       }
     },
+    "npm:@types/ejs": {
+      "type": "npm",
+      "name": "npm:@types/ejs",
+      "data": {
+        "version": "3.1.5",
+        "packageName": "@types/ejs",
+        "hash": "sha512-nv+GSx77ZtXiJzwKdsASqi+YQ5Z7vwHsTP0JY2SiQgjGckkBRKZnk8nIM+7oUZ1VCtuTz0+By4qVR7fqzp/Dfg=="
+      }
+    },
     "npm:@types/eslint-scope": {
       "type": "npm",
       "name": "npm:@types/eslint-scope",
@@ -6520,6 +6529,15 @@
     "npm:ejs": {
       "type": "npm",
       "name": "npm:ejs",
+      "data": {
+        "version": "3.1.10",
+        "packageName": "ejs",
+        "hash": "sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA=="
+      }
+    },
+    "npm:ejs@3.1.9": {
+      "type": "npm",
+      "name": "npm:ejs@3.1.9",
       "data": {
         "version": "3.1.9",
         "packageName": "ejs",
@@ -21028,7 +21046,7 @@
       },
       {
         "source": "npm:@nx/devkit",
-        "target": "npm:ejs",
+        "target": "npm:ejs@3.1.9",
         "type": "static"
       },
       {
@@ -24937,6 +24955,13 @@
     "npm:ejs": [
       {
         "source": "npm:ejs",
+        "target": "npm:jake",
+        "type": "static"
+      }
+    ],
+    "npm:ejs@3.1.9": [
+      {
+        "source": "npm:ejs@3.1.9",
         "target": "npm:jake",
         "type": "static"
       }
