@@ -1,17 +1,30 @@
 <div ngbDropdown class="input-group">
-  <div ngbDropdownToggle class="form-select d-flex">
-    <ng-container *ngFor="let selected of selectedOptions">
-      <span class="badge badge-pill badge-secondary">
+  <div
+    ngbDropdownToggle
+    class="form-select"
+    style="min-height: 37.6px"
+    [attr.disabled]="disabled"
+  >
+    <div class="d-flex align-items-center">
+      <span
+        *ngFor="let selected of selectedOptions"
+        class="badge rounded-pill bg-info me-1"
+      >
         {{ selected.title }}
       </span>
-    </ng-container>
+    </div>
   </div>
 
-  <div ngbDropdownMenu>
-    <ng-container *ngFor="let opt of options; let i = index">
-      <mat-checkbox [formControl]="multiSelect.at(i)">
-        {{ opt.title }}
-      </mat-checkbox>
-    </ng-container>
-  </div>
+  <ng-container *ngIf="!disabled">
+    <div class="w-100" ngbDropdownMenu>
+      <div class="d-flex flex-column">
+        <mat-checkbox
+          *ngFor="let opt of options; let i = index"
+          [formControl]="multiSelect.at(i)"
+        >
+          {{ opt.title }}
+        </mat-checkbox>
+      </div>
+    </div>
+  </ng-container>
 </div>

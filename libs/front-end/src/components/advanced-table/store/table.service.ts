@@ -11,9 +11,9 @@ import {
 
 export interface TableParentService<T> {
   getData(
-    pagination: Pagination,
     filter: TableFilter,
-    sorting: TableSorting
+    sorting: TableSorting,
+    pagination: Pagination
   ): Observable<T[]>;
 }
 
@@ -30,7 +30,7 @@ export class TableService {
     filter: TableFilter,
     sorting: TableSorting = defaultSorting
   ): Observable<any[]> {
-    return this.service.getData(pagination, filter, sorting);
+    return this.service.getData(filter, sorting, pagination);
   }
 
   replaceService(service: TableParentService<any>): void {

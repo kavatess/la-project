@@ -15,12 +15,8 @@ import {
   FormBuilder,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
+import { Option } from '@libs/models';
 import { Subscription } from 'rxjs';
-
-export interface Option {
-  title: string;
-  value: string | number;
-}
 
 @Component({
   selector: 'app-multiple-select',
@@ -55,7 +51,7 @@ export class MultipleSelectComponent
   constructor(private readonly fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.multiSelect.valueChanges.subscribe((val) => {
+    this.subscription = this.multiSelect.valueChanges.subscribe((val) => {
       this.selectedOptions = this.options.filter((opt, i) => val[i]);
       this.onChange(this.selectedOptions.map((opt) => opt.value));
     });

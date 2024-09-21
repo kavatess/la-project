@@ -1,0 +1,56 @@
+<div class="input-group">
+  <div
+    class="form-control"
+    style="min-height: 37.6px"
+    [attr.disabled]="disabled"
+  >
+    <div ngbDropdown class="d-flex align-items-center">
+      <span *ngFor="let item of selected" class="badge bg-info me-1 px-2">
+        <div style="max-height: 14px;" class="d-flex align-items-center">
+          <span class="me-1">{{ item.title }}</span>
+          <button
+            class="btn btn-sm bi bi-x p-0"
+            (click)="deselect(item); $event.preventDefault()"
+          ></button>
+        </div>
+      </span>
+
+      <ng-container *ngIf="!disabled && !(!multiple && selected.length === 1)">
+        <input
+          ngbDropdownToggle
+          type="text"
+          class="form-control border-0 py-0"
+          style="max-width: 300px"
+          placeholder="Enter text here to search"
+          [formControl]="searchCtrl"
+          [maxlength]="256"
+        />
+
+        <ng-container>
+          <div ngbDropdownMenu>
+            <table class="table table-hover">
+              <tbody>
+                <tr
+                  *ngFor="let opt of options; let i = index"
+                  (click)="select(opt)"
+                >
+                  <ng-container *ngIf="customOption; else defaultOption">
+                    <ng-container
+                      *ngTemplateOutlet="customOption; context: { opt }"
+                    ></ng-container>
+                  </ng-container>
+
+                  <ng-template #defaultOption>
+                    <div class="w-100">
+                      {{ opt.title }}
+                    </div>
+                  </ng-template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

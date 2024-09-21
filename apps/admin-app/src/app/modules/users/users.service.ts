@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { EnvironmentProperties, User } from '@libs/models';
 import { debounceTime, Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { TableParentService } from '@libs/front-end';
+import { TableFilter, TableParentService } from '@libs/front-end';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class UsersService implements TableParentService<User> {
 
   constructor(private readonly http: HttpClient) {}
 
-  getData(): Observable<User[]> {
+  getData(filter?: TableFilter): Observable<User[]> {
     return of([
       {
         id: '1',

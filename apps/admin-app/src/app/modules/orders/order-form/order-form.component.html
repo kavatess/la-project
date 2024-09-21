@@ -2,91 +2,75 @@
   <div class="card mb-1">
     <div class="card-header">Thống tin cơ bản</div>
 
-    
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-md-12">
-            <label class="form-label">showId</label>
-            <input
-              type="text"
-              [maxLength]="256"
-              class="form-control"
-              [formControlName]="OrderProperties.showId"
-            />
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Của sự kiện</label>
+          <la-project-show-search-select
+            [multiple]="false"
+          ></la-project-show-search-select>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="form-label">Khách hàng</label>
+          <la-project-user-search-select
+            [multiple]="false"
+          ></la-project-user-search-select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Payment</label>
+          <la-project-payment-search-select
+            [multiple]="false"
+          ></la-project-payment-search-select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Status</label>
+          <select
+            class="form-select"
+            [formControlName]="OrderProperties.status"
+          >
+            <option [value]="status" *ngFor="let status of orderStatuses">
+              {{ status }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-1" [formGroupName]="OrderProperties.orderItems">
+    <div class="card-header">Danh sách sản phẩm</div>
+    <div class="card-body">
+      <div *ngFor="let orderItem of orderItemsCtrl.controls; index as i" class="card mb-1">
+        <div class="card-header">Item {{ i + 1 }}</div>
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label">Product</label>
+              <!-- <la-project-product-search-select
+                [multiple]="false"
+              ></la-project-product-search-select> -->
+            </div>
+
+            <!-- <div class="col-12 col-md-6">
+              <label class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                [formControlName]="OrderItemProperties.name"
+                [readonly]="true"
+              />
+            </div> -->
           </div>
         </div>
       </div>
-    
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-md-12">
-            <label class="form-label">orderItems</label>
-            <input
-              type="text"
-              [maxLength]="256"
-              class="form-control"
-              [formControlName]="OrderProperties.orderItems"
-            />
-          </div>
-        </div>
-      </div>
-    
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-md-12">
-            <label class="form-label">total</label>
-            <input
-              type="text"
-              [maxLength]="256"
-              class="form-control"
-              [formControlName]="OrderProperties.total"
-            />
-          </div>
-        </div>
-      </div>
-    
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-md-12">
-            <label class="form-label">paymentId</label>
-            <input
-              type="text"
-              [maxLength]="256"
-              class="form-control"
-              [formControlName]="OrderProperties.paymentId"
-            />
-          </div>
-        </div>
-      </div>
-    
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-md-12">
-            <label class="form-label">payment</label>
-            <input
-              type="text"
-              [maxLength]="256"
-              class="form-control"
-              [formControlName]="OrderProperties.payment"
-            />
-          </div>
-        </div>
-      </div>
-    
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-md-12">
-            <label class="form-label">status</label>
-            <input
-              type="text"
-              [maxLength]="256"
-              class="form-control"
-              [formControlName]="OrderProperties.status"
-            />
-          </div>
-        </div>
-      </div>
-    
+    </div>
   </div>
 
   <div class="btn-group mt-2">

@@ -1,4 +1,5 @@
 import { BasicModel } from './common';
+import { Payment } from './payment';
 import { Section } from './seat-map';
 
 export enum ShowProperties {
@@ -18,6 +19,8 @@ export enum ShowProperties {
   startBookingTime = 'startBookingTime',
   endBookingDate = 'endBookingDate',
   endBookingTime = 'endBookingTime',
+  paymentIds = 'paymentIds',
+  payments = 'payments',
   seatNumber = 'seatNumber',
   remainingSeatNumber = 'remainingSeatNumber',
   isFull = 'isFull',
@@ -58,6 +61,8 @@ export interface Show extends BasicModel {
   [ShowProperties.startBookingTime]: number;
   [ShowProperties.endBookingDate]: Date;
   [ShowProperties.endBookingTime]: number;
+  [ShowProperties.paymentIds]: string[];
+  [ShowProperties.payments]?: Payment[];
   [ShowProperties.seatNumber]: number;
   [ShowProperties.remainingSeatNumber]?: number;
   [ShowProperties.status]: ShowStatuses;

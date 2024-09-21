@@ -1,7 +1,14 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AbstractFormComponent, NgbTimepickerAdapter } from '@libs/front-end';
 import {
+  AbstractFormComponent,
+  DateParserFormatter,
+  DatepickerAdapter,
+  NgbTimepickerAdapter,
+} from '@libs/front-end';
+import {
+  NgbDateAdapter,
+  NgbDateParserFormatter,
   NgbTimeAdapter,
   NgbTimepickerConfig,
 } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +18,7 @@ import {
   ShowStatuses,
   showStatusArr,
 } from '@libs/models';
+import { ShowFormService } from './show-form.service';
 
 @Component({
   selector: 'la-project-show-form',
@@ -18,13 +26,17 @@ import {
   styleUrls: ['./show-form.component.scss'],
   providers: [
     NgbTimepickerConfig,
+    { provide: NgbDateAdapter, useClass: DatepickerAdapter },
     { provide: NgbTimeAdapter, useClass: NgbTimepickerAdapter },
+    { provide: NgbDateParserFormatter, useClass: DateParserFormatter },
   ],
 })
 export class ShowFormComponent
   extends AbstractFormComponent<Show>
   implements OnChanges
 {
+  readonly paymentOptions$ = this.service.getPaymentOptions();
+
   @Input()
   useHeader = true;
   @Input()
@@ -85,6 +97,10 @@ export class ShowFormComponent
     ],
     // Other
     // [ShowProperties.artists]: [[]],
+    [ShowProperties.paymentIds]: [
+      [],
+      [Validators.minLength(1)], //
+    ],
     [ShowProperties.note]: [
       null,
       [Validators.maxLength(4096)], //
@@ -99,7 +115,8 @@ export class ShowFormComponent
 
   constructor(
     private readonly fb: FormBuilder,
-    private readonly timepickerConfig: NgbTimepickerConfig
+    private readonly timepickerConfig: NgbTimepickerConfig,
+    private readonly service: ShowFormService
   ) {
     super();
     this.timepickerConfig.seconds = false;

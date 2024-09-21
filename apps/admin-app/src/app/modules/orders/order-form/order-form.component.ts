@@ -1,7 +1,14 @@
 import { Component, EventEmitter, OnChanges, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AbstractFormComponent } from '@libs/front-end';
-import { Order, OrderProperties, OrderStatuses } from '@libs/models';
+import {
+  Order,
+  OrderItemProperties,
+  OrderItemTypes,
+  OrderProperties,
+  OrderStatuses,
+  ProductProperties,
+} from '@libs/models';
 
 @Component({
   selector: 'la-project-order-form',
@@ -13,22 +20,43 @@ export class OrderFormComponent
   implements OnChanges
 {
   readonly OrderProperties = OrderProperties;
-  readonly OrderStatuses = OrderStatuses;
+  readonly OrderItemProperties = OrderItemProperties;
+  readonly ProductProperties = ProductProperties;
+  readonly orderStatuses = Object.keys(OrderStatuses).map((key) => key);
 
   @Output()
   submitForm = new EventEmitter<Order>();
 
   readonly form = this.fb.group({
-    [OrderProperties.showId]: [null, []],
-    [OrderProperties.orderItems]: [null, []],
-    [OrderProperties.total]: [null, []],
-    [OrderProperties.paymentId]: [null, []],
-    [OrderProperties.payment]: [null, []],
+    [OrderProperties.showId]: [null, [Validators.required]],
+    [OrderProperties.customerId]: [null, [Validators.required]],
+    [OrderProperties.orderItems]: this.fb.array([]),
+    [OrderProperties.paymentId]: [null, [Validators.required]],
     [OrderProperties.status]: [null, []],
   });
 
   constructor(private readonly fb: FormBuilder) {
     super();
+  }
+
+  get orderItemsCtrl(): FormArray {
+    return this.form.controls[OrderProperties.orderItems] as FormArray;
+  }
+
+  createOrderItem(): FormGroup {
+    return this.fb.group({
+      [OrderItemProperties.type]: [OrderItemTypes.Seat, [Validators.required]],
+      [OrderItemProperties.price]: [null, [Validators.required]],
+      [OrderItemProperties.productId]: [null, [Validators.required]],
+      [OrderItemProperties.quantity]: [
+        null,
+        [Validators.required, Validators.min(1)],
+      ],
+    });
+  }
+
+  removeOrderItemAt(index: number): void {
+    this.orderItemsCtrl.removeAt(index);
   }
 
   onSubmitBtnClick(): void {

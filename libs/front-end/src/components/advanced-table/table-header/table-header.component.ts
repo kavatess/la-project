@@ -14,7 +14,7 @@ import {
   TableSorting,
 } from '../advanced-table.model';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Option } from '../../multiple-select/multiple-select.component';
+import { Option } from '@libs/models';
 
 @Component({
   selector: 'app-table-header',

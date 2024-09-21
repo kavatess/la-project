@@ -91,11 +91,20 @@
           <div class="row mb-3">
             <div class="col-12 col-lg-6">
               <label class="form-label">Thời gian diễn ra</label>
-              <input
-                type="date"
-                class="form-control"
-                [formControlName]="ShowProperties.startDate"
-              />
+              <div class="input-group">
+                <input
+                  ngbDatepicker
+                  #dp1="ngbDatepicker"
+                  class="form-control"
+                  placeholder="dd/mm/yyyy"
+                  [formControlName]="ShowProperties.startDate"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="dp1.toggle()"
+                  type="button"
+                ></button>
+              </div>
             </div>
 
             <div class="col-12 col-lg-6">
@@ -107,11 +116,20 @@
           <div class="row mb-3">
             <div class="col-12 col-lg-6">
               <label class="form-label">Kết thúc vào</label>
-              <input
-                type="date"
-                class="form-control"
-                [formControlName]="ShowProperties.endDate"
-              />
+              <div class="input-group">
+                <input
+                  ngbDatepicker
+                  #dp2="ngbDatepicker"
+                  class="form-control"
+                  placeholder="dd/mm/yyyy"
+                  [formControlName]="ShowProperties.endDate"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="dp2.toggle()"
+                  type="button"
+                ></button>
+              </div>
             </div>
 
             <div class="col-12 col-lg-6">
@@ -125,11 +143,20 @@
           <div class="row mb-3">
             <div class="col-12 col-lg-6">
               <label class="form-label">Thời gian bán vé</label>
-              <input
-                type="date"
-                class="form-control"
-                [formControlName]="ShowProperties.startBookingDate"
-              />
+              <div class="input-group">
+                <input
+                  ngbDatepicker
+                  #dp3="ngbDatepicker"
+                  class="form-control"
+                  placeholder="dd/mm/yyyy"
+                  [formControlName]="ShowProperties.startBookingDate"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="dp3.toggle()"
+                  type="button"
+                ></button>
+              </div>
             </div>
 
             <div class="col-12 col-lg-6">
@@ -143,11 +170,20 @@
           <div class="row mb-3">
             <div class="col-12 col-lg-6">
               <label class="form-label">Kết thúc vào</label>
-              <input
-                type="date"
-                class="form-control"
-                [formControlName]="ShowProperties.endBookingDate"
-              />
+              <div class="input-group">
+                <input
+                  ngbDatepicker
+                  #dp4="ngbDatepicker"
+                  class="form-control"
+                  placeholder="dd/mm/yyyy"
+                  [formControlName]="ShowProperties.endBookingDate"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="dp4.toggle()"
+                  type="button"
+                ></button>
+              </div>
             </div>
             <div class="col-12 col-lg-6">
               <label class="form-label">Lúc</label>
@@ -192,6 +228,16 @@
             [maxLength]="4096"
             [rows]="5"
           ></textarea>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Payment</label>
+          <app-multiple-select
+            [options]="paymentOptions$ | async"
+            [formControlName]="ShowProperties.paymentIds"
+          ></app-multiple-select>
         </div>
       </div>
 

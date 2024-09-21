@@ -1,5 +1,6 @@
 import { BasicModel } from './common';
 import { Payment } from './payment';
+import { Product } from './product';
 import { Seat } from './seat-map';
 import { Show } from './show';
 import { User } from './user';
@@ -11,6 +12,8 @@ export enum OrderItemProperties {
   // fareTypeId = 'fareTypeId',
   // fareType = 'fareType',
   // seatIds = 'seatIds',
+  productId = 'productId',
+  product = 'product',
   seats = 'seats',
   imgUrl = 'imgUrl',
   title = 'title',
@@ -39,6 +42,8 @@ export interface OrderItem extends BasicModel {
   // [OrderItemProperties.fareTypeId]?: string;
   // [OrderItemProperties.fareType]?: FareType;
   // [OrderItemProperties.seatIds]: string;
+  [OrderItemProperties.productId]?: string;
+  [OrderItemProperties.product]?: Product;
   [OrderItemProperties.seats]?: Seat;
   [OrderItemProperties.imgUrl]?: string;
   [OrderItemProperties.title]: string;

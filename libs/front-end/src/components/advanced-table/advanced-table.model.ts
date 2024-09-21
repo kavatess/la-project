@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Option } from '../multiple-select/multiple-select.component';
+
+import { Option } from '@libs/models';
 
 export enum FilterTypes {
   String = 'string',
